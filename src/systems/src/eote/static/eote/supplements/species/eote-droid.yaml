@@ -1,0 +1,70 @@
+id: eote-droid
+name: Droid
+description: |-
+  A typical fringer may ridicule his droid to no end, yet without it, he is usually lost. Droids serve a variety of
+  roles on the fringe, including security and conflict resolution, surgery and medicine, mechanical repairs,
+  construction, astrogation and piloting, and mechanical labor. While many of these droids have only rudimentary
+  intelligence, some are capable of independent thought.
+
+  PLAYING A DROID
+
+  Creating droid characters in **Edge of the Empire** is easy. Treat them as a separate species, with bonuses and
+  abilities that reinforce their robotic natures. Players should be creative when coming up with their description, and
+  also with how the droid uses its equipment. Instead of a droid wearing Laminate Armor, for example, it could have
+  reinforced metal plates attached directly to its chassis, and instead of carrying a blaster pistol, it could have one
+  built into its arm.
+
+  The personality of a droid is a more delicate matter. The very fact that the droid is a Player Character means that it
+  is self-aware and independent-minded (unless the player wants to play a character who is completely subservient to the
+  surrounding biologicals, of course). Players who want to make a droid character should remember the droid's origins
+  and try to incorporate elements of their original function into their personality, even if their droid character has
+  taken on roles far beyond what he was originally programmed for. A traffic control droid, for example, may take up the career of a mechanic, but still grumble endlessly
+  whenever his pilot colleague breaks local flight and traffic laws.
+
+  **Physical Description:** Droids are assembled in many different body types, from chassis that follow bipedal
+  standards, to those of various animals, to completely utilitarian boxes or cylinders.
+
+  **Society:** Smugglers have long traded rumors of "droid worlds," where automatons and cyborgs govern a society of
+  their own. Aside from such tall tales, droids do not have their own society, instead laboring within the society of
+  their human and non-human masters. Unless a droid's personality has reprogrammed its cogni-tive faculties, droids are
+  built to obey, and they do.
+
+  However, the droids played by PCs present a special case. Over the millennia there have been countless examples of
+  droids that have transcended their original programming to become self-aware and self operating. Some of these
+  automata last for hundreds of years, repairing and upgrading themselves to remain at peak efficiency.
+
+  Some of these droids take pride and satisfaction in continuing to do the jobs they were designed for as well as
+  possible, such as an R2 unit that constantly works to become a better pilot and astrogator. Others break with their
+  programming entirely and choose new enterprises to pursue. The infamous 4-LOM started out life as a protocol droid,
+  before becoming a jewel thief and eventually one of the galaxy's most well-known bounty hunters.
+characteristics:
+  brawn: 1
+  agility: 1
+  intellect: 1
+  cunning: 1
+  willpower: 1
+  presence: 1
+woundThreshold: 10
+strainThreshold: 10
+startingXP: 175
+abilities:
+  - name: Inorganic
+    description: |-
+      Droids do not need to eat, sleep, or breathe, and are unaffected by toxins and poisons. Droids have a cybernetic
+      implant cap of 6 instead of their Brawn rating.
+  - name: Mechanical Being
+    description: |-
+      Droids cannot become Force sensitive, cannot use Force powers, and are not affected by mind-altering Force powers.
+      Droids may train one additional career skill and one additional specialization skill.
+skillModifiers: []
+talentModifiers:
+  - talent: Enduring
+    startingRanks: 1
+reference:
+  - E-CRB:45
+  - A-CRB:53
+specialAbilities: |-
+  Droids do not need to eat, sleep, or breathe, and are unaffected by toxins and poisons. Droids have a cybernetic
+  implant cap of 6 instead of their Brawn rating. Droids cannot become Force sensitive, do not gain a free rank in
+  each of their career skills, and are not affected by mind-altering Force powers. Droids may train one additional
+  career skill and one additional specialization skill. They also start with one rank in the Enduring talent.

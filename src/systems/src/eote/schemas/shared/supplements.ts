@@ -21,6 +21,15 @@ export const BaseSupplementDataSchema = z.object({
 }).passthrough();
 
 //----------------------------------------------------------------------------------------------------------------------
+// Ability Schema
+//----------------------------------------------------------------------------------------------------------------------
+
+/**
+ * Abilities (species abilities, homebrew abilities, etc.)
+ */
+export const AbilityDataSchema = BaseSupplementDataSchema;
+
+//----------------------------------------------------------------------------------------------------------------------
 // Quality Reference Schema
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -33,15 +42,6 @@ export const WeaponQualityRefSchema = z.object({
         .int()
         .optional(),
 });
-
-//----------------------------------------------------------------------------------------------------------------------
-// Ability Schema
-//----------------------------------------------------------------------------------------------------------------------
-
-/**
- * Abilities (species abilities, special abilities, etc.)
- */
-export const AbilityDataSchema = BaseSupplementDataSchema;
 
 //----------------------------------------------------------------------------------------------------------------------
 // Quality Schema
@@ -101,6 +101,98 @@ export const GearDataSchema = BaseSupplementDataSchema.extend({
     rarity: z.number()
         .int()
         .default(0),
+});
+
+//----------------------------------------------------------------------------------------------------------------------
+// Species Schema
+//----------------------------------------------------------------------------------------------------------------------
+
+/**
+ * Inline species ability — name and description stored directly on the species/archetype
+ */
+export const SpeciesAbilitySchema = z.object({
+    name: z.string(),
+    description: z.string(),
+});
+
+/**
+ * Species skill modifier - describes a starting skill rank or limit
+ */
+export const SpeciesSkillModifierSchema = z.object({
+    skill: z.string(),
+    startingRanks: z.number()
+        .int()
+        .min(0)
+        .default(0),
+    rankLimit: z.number()
+        .int()
+        .min(0)
+        .optional(),
+});
+
+/**
+ * Species talent modifier - describes a starting talent rank granted by species/archetype
+ */
+export const SpeciesTalentModifierSchema = z.object({
+    talent: z.string(),
+    startingRanks: z.number()
+        .int()
+        .min(1)
+        .default(1),
+});
+
+/**
+ * Species (races/archetypes)
+ */
+export const SpeciesDataSchema = BaseSupplementDataSchema.extend({
+    /** Starting characteristics (Brawn, Agility, etc.) */
+    characteristics: z.object({
+        brawn: z.number().int()
+            .min(1)
+            .max(5)
+            .default(2),
+        agility: z.number().int()
+            .min(1)
+            .max(5)
+            .default(2),
+        intellect: z.number().int()
+            .min(1)
+            .max(5)
+            .default(2),
+        cunning: z.number().int()
+            .min(1)
+            .max(5)
+            .default(2),
+        willpower: z.number().int()
+            .min(1)
+            .max(5)
+            .default(2),
+        presence: z.number().int()
+            .min(1)
+            .max(5)
+            .default(2),
+    }),
+    /** Wound threshold bonus (added to Brawn) */
+    woundThreshold: z.number()
+        .int()
+        .min(0)
+        .default(10),
+    /** Strain threshold bonus (added to Willpower) */
+    strainThreshold: z.number()
+        .int()
+        .min(0)
+        .default(10),
+    /** Starting experience points */
+    startingXP: z.number()
+        .int()
+        .min(0)
+        .default(100),
+    /** Species abilities */
+    abilities: z.array(SpeciesAbilitySchema).default([]),
+    /** Fixed skill modifiers (e.g., Wookiee Brawl) */
+    skillModifiers: z.array(SpeciesSkillModifierSchema).default([]),
+    /** Fixed talent modifiers (e.g., Bothan Convincing Demeanor) */
+    talentModifiers: z.array(SpeciesTalentModifierSchema).default([]),
 });
 
 //----------------------------------------------------------------------------------------------------------------------

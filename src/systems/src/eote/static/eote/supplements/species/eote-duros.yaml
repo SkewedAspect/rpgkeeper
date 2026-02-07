@@ -1,0 +1,63 @@
+id: eote-duros
+name: Duros
+description: |-
+  The species most often celebrated as granting the gift of hyperspace travel to the rest of the galaxy, Duros are
+  revered as pilots, explorers, and storytellers. They are also widely sought after as ships engineers and mechanics.
+
+  **Physiology:** Descended from reptiles, Duros are bipedal humanoids with large red eyes; smooth blue-green skin; long
+  fingers; bald, bulbous heads; and tiny slits below the eyes that provide their olfactory sense. Their young hatch as
+  larvae from eggs laid by the females, but they are raised in a recognizable family unit. Duros aren't particularly
+  brawny, but they possess sharp minds and keen intellects. Both males and females are bald, but other characteristics
+  distinguish the sexes.
+
+  **Society:** Most scholars believe the Duros actually invented the first hyperdrive craft, and their contributions to
+  interstellar navigation are impossible to overstate. They are inquisitive and adventurous, taking great pride in their
+  extensive travels throughout the galaxy. It is considered polite to refer to any Duros by the honorific "Traveler,"
+  such is their passion for astrogation and exploration of the galaxy.
+
+  With a history of enslavement by beings of great technological prowess and the capacity for terrible destruction in
+  the name of advancing their empire, the Duros developed a profound thirst for knowledge of the very science being used
+  to subdue them. When the time came, they employed all they learned to not only throw off the shackles of their
+  oppressors but to reach out to the stars and never look back. Shortly thereafter, the course of Duros society was
+  charted by a highly regarded monarchy, but as that once-great dynasty fell to corruption, enduring Duros pragmatism
+  led to a corporatocracy that focused on asset management and development.
+
+  In the era of the Empire, the Duros have not fared well. Their home—long devastated by unchecked pollution from
+  rampant industrialization—has become an occupied territory, their resources managed by the Imperial bureaucracy. Many
+  Duros have chosen to scatter to the Outer Rim rather than be enslaved by the Emperor's war machine, where there are
+  still those who value the gifts and knowledge they bring.
+
+  **Homeworld:** Duro was once a lush, green world. Due to ecological disasters on an extinction scale, it is now
+  completely uninhabitable without extensive biohazard protections. Hungry to reach out far and wide to the galaxy, the
+  Duros allowed manufacturing, mining, and production to go unchecked and unregulated. The resultant pollutants and
+  hazardous wastes ultimately drove them from their homeworld to live in massive orbital cities and space stations all
+  around the planet.
+
+  **Language:** Using a syllable-driven written component, Durese (also called Durosian) is a well-known and widely
+  spoken language throughout the Corellian Sector and many other Core Worlds. It is one of the foundation languages for
+  the construction of Basic.
+characteristics:
+  brawn: 1
+  agility: 2
+  intellect: 3
+  cunning: 2
+  willpower: 2
+  presence: 2
+woundThreshold: 11
+strainThreshold: 10
+startingXP: 100
+abilities:
+  - name: Intuitive Navigation
+    description: |-
+      Duros may add <advantage/> to all Astrogation checks they make.
+skillModifiers:
+  - skill: Piloting (Space)
+    startingRanks: 1
+    rankLimit: 2
+talentModifiers: []
+reference:
+  - A-CRB:55
+  - EtU:21
+specialAbilities: |-
+  Duros begin the game with one rank in Piloting (Space). They still may not train Piloting (Space) above rank 2 during
+  character creation.

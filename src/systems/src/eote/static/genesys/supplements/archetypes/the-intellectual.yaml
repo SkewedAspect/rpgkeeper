@@ -1,0 +1,28 @@
+id: genesys-archetype-the-intellectual
+name: The Intellectual
+description: The intellectual archetype represents a character who has a background grounded in some sort of
+  intellectual pursuit. This pursuit could be science, medicine, teaching, or even magic. You should choose this
+  archetype if you want to make a character who focuses on one of those intellectual pursuits. You should also choose
+  this archetype if your character comes from a highly educated background. This archetype starts with the Intellect
+  characteristic at 3 and the Agility characteristic at 1. You're starting a character with a better than average
+  Intellect (which makes this characteristic easy to improve further) and good strain threshold, but on the other hand,
+  your character has a worse than average Agility (and is going to have a problem being effective in ranged combat). You
+  also have a worse than average wound threshold. This archetype makes up for that, however, with a pretty good ability.
+  Their special ability lets your character count their ranks in a skill as equal to their Intellect, and while it only
+  works once per session, it can mean the difference between success and failure on a critical check.
+characteristics:
+  brawn: 2
+  agility: 1
+  intellect: 3
+  cunning: 2
+  willpower: 2
+  presence: 2
+woundThreshold: 8
+strainThreshold: 12
+startingXP: 100
+abilities:
+  - name: Brilliant!
+    description: Once per session, your character may spend a Story Point as an incidental. If they do so, during the next
+      check they make during that turn, you count their ranks in the skill being used as equal to their Intellect.
+skillModifiers: []
+reference: G-CRB:38

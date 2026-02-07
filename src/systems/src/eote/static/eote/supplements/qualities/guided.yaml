@@ -1,6 +1,6 @@
 id: eote-quality-guided
 name: Guided
-description: >-
+description: |-
   Certain types of projectiles may benefit from course alterations after being fired—such as guided missiles. If a
   character misses while firing a Guided weapon and if Guided activates, he may make an attack check at the end of the
   round. The difficulty of the check is calculated by comparing the weapon’s silhouette of 0 to the silhouette of the

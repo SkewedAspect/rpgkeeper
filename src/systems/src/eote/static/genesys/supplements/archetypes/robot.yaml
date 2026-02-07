@@ -1,0 +1,33 @@
+id: genesys-archetype-robot
+name: Robot
+description: Robots in a space opera can be found in all shapes and sizes. It could be roughly humanoid but built from
+  nearly impervious alloys; a giant, crab-like tank; or a featureless, hovering sphere. Due to the diversity of options
+  for a robot character, we took an approach similar to that for the bioroid on page 174, starting with low
+  characteristics but a lot of XP.
+characteristics:
+  brawn: 1
+  agility: 1
+  intellect: 1
+  cunning: 1
+  willpower: 1
+  presence: 1
+woundThreshold: 10
+strainThreshold: 10
+startingXP: 175
+abilities:
+  - name: Special Abilities (Robot)
+    description: Robots do not need to eat, sleep, or breathe, and are unaffected by toxins and poisons. If you are using
+      the cybernetics rules from the science fiction setting (see page 177), robots do not reduce their strain threshold
+      when they receive cybernetics (the cybernetics can represent upgraded mechanical components instead of true
+      cybernetics).
+  - name: Networked Intelligence
+    description: A robot adds automatic <success></success> to its Intellect- and Willpower-based checks for each other
+      friendly character of the same species within medium range—to a maximum of
+      <success></success><success></success><success></success>.
+  - name: Inorganic
+    description: Since bioroids are inorganic, they do not gain the benefits of healing wounds with slap-patch (painkillers)
+      or a Medicine check. Bioroids can heal wounds and strain naturally by resting, as their systems attempt
+      self-repairs. Bioroids can also be "healed" by using the Mechanics skill instead of the Medicine skill, but
+      otherwise following the rules in the Medical Care section on page 116 of the Genesys Core Rulebook.
+skillModifiers: []
+reference: G-CRB:183

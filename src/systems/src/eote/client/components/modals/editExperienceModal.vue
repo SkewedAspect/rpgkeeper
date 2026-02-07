@@ -23,6 +23,21 @@
                 </h5>
             </template>
 
+            <!-- Species Starting XP -->
+            <div v-if="species" class="species-statblock mb-3">
+                <h6 class="text-center mb-2">
+                    {{ species.name }} Starting XP
+                </h6>
+                <div class="xp-card-wrapper">
+                    <div class="xp-card">
+                        <span class="xp-label">Starting XP</span>
+                        <span class="xp-value">{{ species.startingXP }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <hr v-if="species" class="mt-0 mb-3">
+
             <!-- Modal Content -->
             <BFormGroup
                 class="flex-fill"
@@ -120,6 +135,38 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
+<style lang="scss" scoped>
+    .species-statblock {
+        .xp-card-wrapper {
+            display: flex;
+            justify-content: center;
+
+            .xp-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 0.5rem 1.5rem;
+                background: var(--bs-tertiary-bg);
+                border-radius: 0.25rem;
+                min-width: 8rem;
+
+                .xp-label {
+                    font-size: 0.7rem;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+
+                .xp-value {
+                    font-size: 1.4rem;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+</style>
+
+<!--------------------------------------------------------------------------------------------------------------------->
+
 <script lang="ts" setup>
     import { ref, useTemplateRef } from 'vue';
 
@@ -129,6 +176,9 @@
     // Components
     import { BModal } from 'bootstrap-vue-next';
     import CloseButton from '@client/components/ui/closeButton.vue';
+
+    // Utils
+    import { useSpeciesLookup } from '../../lib/useSpeciesLookup.ts';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -154,7 +204,10 @@
     });
 
     const xpToAdd = ref(0);
+    const speciesRef = ref<string | null>(null);
     const innerModal = useTemplateRef('innerModal');
+
+    const { species } = useSpeciesLookup(speciesRef);
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
@@ -164,6 +217,7 @@
     {
         experience.value.total = char.details.experience.total;
         experience.value.available = char.details.experience.available;
+        speciesRef.value = char.details.speciesRef ?? null;
 
         innerModal.value?.show();
     }
@@ -182,6 +236,7 @@
     {
         experience.value.total = 0;
         experience.value.available = 0;
+        speciesRef.value = null;
     }
 
     function addXP() : void

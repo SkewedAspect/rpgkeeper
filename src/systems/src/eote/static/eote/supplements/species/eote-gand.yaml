@@ -1,0 +1,72 @@
+id: eote-gand
+name: Gand
+description: |-
+  Gands are a mysterious insectoid species whose "findsmen" treat tracking quarry as a religious duty. They are
+  exceptionally good at divining the location of individuals through ritualistic methods that off-worlders might
+  consider backward and barbaric.
+
+  **Physiology:** Though prevalent in the fringes of the Outer Rim, Gands remain a puzzle to xenobiologists. Over a
+  dozen distinct subspecies of the Gands have been reported. All are covered in a dense chitinous exoskeleton and reach
+  a height at adulthood of about 1.6 meters. They have three fingers on each hand, which are as dextrous as those of
+  other humanoids, allowing them to manipulate equipment designed for five-fingered individuals.
+
+  Where Gands subspecies differ from one another is in their respiratory biology. Most Gands who travel the spacelanes
+  do not seem to need to breathe at all. The digestion of food in their stomachs produces the ammo-nia necessary for
+  their biochemistry. Wasteful byproducts and extraneous ammonia are expelled through their exo-skeletons. These Gands
+  often emanate an unpleasant methane musk. Other Gand subspecies possess actual lungs and cannot produce ammonia
+  through digestion, instead requiring a special breathing apparatus.
+
+  Questions about Gand biology continue to go unanswered, since the Gand refuse to permit other species to study them.
+  Some xenobiologists conjecture that Gand religious rituals dictate genetic manipulation, which has produced many
+  different varieties of Gands.
+
+  **Society:** Gands have a closed culture. What is known about them is that religion and life are closely entwined. A
+  gathering of elders called the Ruetsavii observes the various religious sects that represent the virtues of Gand life.
+  Off-worlders are most familiar with the religious sect known as the "findsmen." These are the Gand who leave their
+  home planet on ritualistic hunts to catch prey and bring divine blessings to their people. Many other sects are
+  rumored to exist, particularly in the fields of genetics, medicine, and engineering, but their exact natures are
+  unknown.
+
+  **Homeworld:** Sharing the same name as its species, Gand is an Outer Rim world clouded in ammonia and methane. Trade
+  is handled through orbiting stations as foreigners are rarely allowed on the planet's surface. Those non-Gand who land
+  on the world must stay in the specially equipped Alien Quarters.
+
+  **Language:** Droids fare much better than well-trained humanoid linguists in reproducing the clicks and chirrups of
+  the Gand spoken language. Without the need to intake breathable gases, most Gand lack the vocal cords to make the
+  sounds of Basic and other languages. They must use droids or translation devices to converse in groups that do not
+  understand their language.
+
+  The grammar that Gand use reflects their place in society. Before a Gand earns his identity and is accepted among his
+  peers, he refers to himself in the third person, calling himself "Gand." Once he has done a deed of distinction, a
+  Gand may take his family name. Gand cannot use their first names until they have become "persons of
+  greatness"—janwuine in their own tongue—and received commendations from their peers. This causes many off-worlders to
+  view the Gand as a people of extreme humility.
+characteristics:
+  brawn: 2
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 3
+  presence: 1
+woundThreshold: 10
+strainThreshold: 10
+startingXP: 100
+abilities:
+  - name: Ammonia Breathers
+    description: |-
+      One notable difference between the two main sub-species of Gand is that one has lungs and one does not. Those that
+      have lungs breathe an ammonia gas mixture. On most planets, they require a special breathing apparatus to survive.
+      Gand without lungs are immune to suffocation (they have no lungs to воздух). Select one of the following: **Has
+      Lungs** — requires ammonia respirator to breathe on most worlds; **Lungless** — immune to suffocation, but cannot
+      speak without a vocabulator.
+skillModifiers:
+  - skill: Discipline
+    startingRanks: 1
+    rankLimit: 2
+talentModifiers: []
+reference:
+  - E-CRB:47
+  - EV:18
+specialAbilities: |-
+  Gand begin the game with one rank in Discipline. They still may not train Discipline above rank 2 during character
+  creation.

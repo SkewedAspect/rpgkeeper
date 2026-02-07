@@ -1,0 +1,36 @@
+id: genesys-archetype-revenant
+name: Revenant
+description: Revenants are human corpses brought back to a semblance of life through strange and horrible medical
+  techniques, a galvanic volt providing the final spark to induce animation. Like mongrels, this is a very popular type
+  of character for steampunk settings. A revenant may be created at the behest of a wealthy grieving family willing to
+  pay anything to bring back a loved one. Alternatively, revenants may be created by mad galvanists seeking to unlock
+  the secrets of eternal life. In either case, revenants have no memory of their former lives, even should they retain
+  their original brain. Most who would pay to resurrect a loved one have no idea of this sad fact until the deed is
+  done. Still, there are rumors of the occasional revenant eventually recovering piecemeal memories of their former
+  life. Revenants are universally feared and reviled in regular society. A revenant who cannot pass as a normal human is
+  likely to earn a bullet from the Imperial Inspectors, so most stay in the underworld or, like mongrels, flee to the
+  Colonies to start a new life.
+characteristics:
+  brawn: 3
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 1
+woundThreshold: 11
+strainThreshold: 9
+startingXP: 100
+abilities:
+  - name: Reanimated
+    description: As reanimated corpses, revenants have several quirks, some beneficial and some detrimental. Your character
+      does not recover wounds through natural rest, but they add <boost></boost><boost></boost> to any Medicine checks
+      to heal them (they don't flinch). Your character also cannot be affected by poisons (although they must be wary of
+      insects and carrion feeders trying to make a meal from or to nest on their bodies). As with mongrel, your GM
+      should ensure that NPCs react appropriately if they are aware of your character's condition (at the very least,
+      upgrading the difficulty of your character's social skill checks twice). Also, perfume is a good idea. Lots of
+      perfume.
+  - name: Dead Nerves
+    description: Your character removes <setback></setback><setback></setback> added to any checks they make due to fatigue
+      or injuries (including Critical Injuries).
+skillModifiers: []
+reference: G-CRB:15

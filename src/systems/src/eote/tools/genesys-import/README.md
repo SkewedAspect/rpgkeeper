@@ -52,7 +52,7 @@ npx tsx src/systems/src/eote/tools/genesys-import/index.ts [options]
 | `gear` (type="weapon") | weapon | Filtered from gear array, maps skills and qualities |
 | `gear` (type="armor") | armor | Filtered from gear array, maps defense, soak, qualities |
 | `gear` (type="attachment") | attachment | Parses useWith and modifiers from description |
-| `adversaryAbility` / `archetypeAbility` | ability | Combined into single ability type |
+| `archetype` | archetype | Maps characteristics, thresholds, XP, and abilities inline |
 
 ## Supported Books
 

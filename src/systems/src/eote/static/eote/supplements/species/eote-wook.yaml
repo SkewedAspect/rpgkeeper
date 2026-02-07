@@ -1,0 +1,68 @@
+id: eote-wook
+name: Wookiee
+description: |-
+  Strong, intelligent, and fierce in battle, Wookiees make the best of friends for those to whom they are loyal—and the
+  worst of enemies for anyone to whom they are not. Unfortunately, Wookiees have virtually disappeared from the
+  population at large and are becoming a faded memory of the Old Republic.
+
+  **Physiology:** Averaging over two meters in height, Wookiees strike fear into the hearts of their opponents because
+  of their sheer size. There is good reason to be scared; few other species in the galaxy match either the strength of a
+  Wookiee or the depths of a Wookiee's temper. Their limbs are long, with retractable claws on their fingers and toes
+  for the arboreal environment of their homeworld. These claws are only used for climbing, never for combat, as such an
+  act is seen as dishonorable in Wookiee culture. Their fur grows in a variety of colors, becoming darker in middle age
+  and then graying or whitening in later years (Wookiees can live for centuries).
+
+  **Society:** Although their physique makes for an intimidating appearance, Wookiees live by strict codes of honor and
+  loyalty. Friendship and family bonds knit Wookiees tightly together, for there are dangers on Kashyyyk that frighten
+  even the most ferocious Wookiee. Kilometers-tall wroshyr trees cover nearly half of Kashyyyk's surface, defining the
+  world's unique ecology and serving as homes for most Wookiee communities. On the seventh level of these forests,
+  Wookiees have built immense cities in the trees, blending technology in harmony with the environment. Mechanical
+  skills and engineering come naturally to the Wookiees.
+
+  Having dominated much of Kashyyyk's upper levels, the Wookiees were on the path to explore the stars on their own when
+  a neighboring species, the Trandoshans, arrived on Kashyyyk to colonize and exploit the world. Even though the
+  Trandoshans had more advanced weaponry, the Wookiees fought the would-be colonizers off the planet. The Wookiees
+  wasted no time in disassembling the technology Trandoshans left behind. This included a starship with sublight
+  engines. When the Trandoshans returned, the Wookiees drove them away for a second time, then took flight to the stars.
+
+  The Wookiee-Trandoshan wars continued in spats throughout the later years of the Old Republic, with the Republic
+  mediators usually siding with the honorable Wookiees. The Trandoshans saw an opportunity, however, when Palpatine
+  declared his Empire. They sent emissaries to Palpatine to recount their grievances against the Wookiees. The Imperials
+  heeded Trandoshan advice and placed the cantankerous Wookiees in labor camps. Wookiee children were held at gunpoint
+  unless Wookiee adults used their technical expertise to build Imperial war material, which included parts of the Death
+  Stars.
+
+  **Homeworld:** Wookiees hail from the forest world of Kashyyyk. This world is dominated by immense old-growth forests,
+  including the kilometers-tall wroshyr trees. These trees form a layered ecology on Kashyyyk, with the uppermost levels
+  being the safest. The deeper one travels into the Kashyyyk forests, the more dangerous flora and fauna one finds. At
+  the lowest depths, even a Wookiee cannot survive for long.
+
+  **Language:** Shyriiwook, the Wookiee tongue, continues to amaze scholars with the incredible nuances of grunts and
+  growls that form the language. Few non-Wookiees can speak it or its dialects, like Xaczik, spoken by the Wookiees of
+  the Wartaki Islands. Conversely, Wookiee physiology prevents them from speaking the languages of other species,
+  including Basic, though most Wookiees have no problem comprehending them.
+characteristics:
+  brawn: 3
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 1
+  presence: 2
+woundThreshold: 14
+strainThreshold: 8
+startingXP: 90
+abilities:
+  - name: Wookiee Rage
+    description: |-
+      When a Wookiee has suffered any wounds, he deals +1 damage to Brawl and Melee attacks. When a Wookiee is
+      Critically Injured, he instead deals +2 damage to Brawl and Melee attacks.
+skillModifiers:
+  - skill: Brawl
+    startingRanks: 1
+    rankLimit: 2
+talentModifiers: []
+reference:
+  - E-CRB:52
+specialAbilities: |-
+  Wookiees begin the game with one rank in Brawl. They still may not train Brawl above rank 2 during character
+  creation.

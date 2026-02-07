@@ -1,6 +1,6 @@
 id: eote-quality-knockdown
 name: Knockdown
-description: >-
+description: |-
   When knockdown triggers, the target is knocked prone.
 
   Unless specified otherwise, Knockdown requires <advantage></advantage><advantage></advantage> to trigger, plus one

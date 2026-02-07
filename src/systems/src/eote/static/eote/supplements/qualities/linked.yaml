@@ -1,6 +1,6 @@
 id: eote-quality-linked
 name: Linked
-description: >-
+description: |-
   Some weapons, like the laser cannons fitted to the Z-95 Headhunter, are designed to fire together at the same target.
   This increases the possibility of a hit as well as the damage dealt. When firing a linked weapon, on a successful
   attack, the weapon deals one hit.

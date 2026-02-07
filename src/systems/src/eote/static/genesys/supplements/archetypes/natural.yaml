@@ -1,0 +1,29 @@
+id: genesys-archetype-natural
+name: Natural
+description: Most humans in New Angeles are pretty normal—at least from a biological point of view. While bioroids and
+  clones work in all levels of industry, the first generations of people born on other worlds have grown up and had kids
+  of their own, and though science allows people to rebuild their bodies as they see fit, "naturals" still make up the
+  vast majority of humanity. At their core, naturals resemble their ancestors going back a few thousand years, even if
+  they do carry a PAD, have a fit-chip implant, or sport a biolumin tattoo. The wealthiest naturals may benefit from
+  some minor genetic modifications that weed out hereditary diseases, but most naturals have the same genetic baseline
+  template as their grandparents and great-grandparents. Of course, despite these commonalities, most naturals vary
+  wildly from one another. Naturals hail from every nation and locale on Earth, from the cosmopolitan streets of Kampala
+  and the inland wilds of Australia to the low-income housing projects of Esmeraldas and the undercity alleys of Base de
+  Cayambe in New Angeles. Naturals are part of every creed, country, and ethnicity on Earth, and just about any natural
+  may have come seeking their fortune on the streets of New Angeles.
+characteristics:
+  brawn: 2
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 2
+woundThreshold: 10
+strainThreshold: 10
+startingXP: 120
+abilities:
+  - name: Ready for Anything
+    description: Once per session as an out-of-turn incidental, you may move one Story Point from the Game Master's pool to
+      the players' pool.
+skillModifiers: []
+reference: SotB:25

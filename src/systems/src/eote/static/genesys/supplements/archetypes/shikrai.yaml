@@ -1,0 +1,27 @@
+id: genesys-archetype-shikrai
+name: Shikrai
+description: A collection of closely related avian subspecies, the Shikrai inhabit a scattered clutch of worlds trailing
+  the Ordinian nebula. They prefer arid and windswept planets, and although their original homeworlds are galactic
+  curiosities (see Atharal Gas Torus on page 177), they can thrive on any planet that does not have excessive gravity.
+  The Shikrai are tall and thin bipeds covered in a thick plumage in a range of different colors and sporting sharp
+  beaks and taloned fingers. Their feathers tend to grow larger on their heads, forming a crest of distinctive plumage.
+  They do not naturally have wings, having lost that particular trait to evolution eons ago. However, they maintain a
+  superior agility and spatial awareness that makes them excellent pilots and highly coordinated combatants. Their
+  societies tend to organize themselves into loose confederations or social "flocks" based on particular goals, and
+  individual Shikrai may shift from one flock to another freely.
+characteristics:
+  brawn: 2
+  agility: 3
+  intellect: 2
+  cunning: 1
+  willpower: 2
+  presence: 2
+woundThreshold: 9
+strainThreshold: 9
+startingXP: 100
+abilities:
+  - name: Avian Agility
+    description: Once per session after making a skill check that uses this character's Agility, may spend a Story Point to
+      add <success></success><success></success><advantage></advantage><advantage></advantage> to the results.
+skillModifiers: []
+reference: EotI:33

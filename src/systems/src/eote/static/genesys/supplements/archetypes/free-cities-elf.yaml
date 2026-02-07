@@ -1,0 +1,22 @@
+id: genesys-archetype-free-cities-elf
+name: Free Cities Elf
+description: Although there are many ways for Elves to escape the rigid caste system of their society, it is the Free
+  Cities Elves who do it the most brazenly. Those who refer to themselves as Free Cities Elves, a voluntary
+  colloquialism, are Elves who have forsaken their tribe or were born to Elves who did. They have chosen to live
+  alongside the short-lived races as urbanites and are most commonly found in cities such as Dawnsmoor and Tamalir.
+  Those calling themselves Free Cities Elves can also include Elves whose bloodline has mingled with that of Humans.
+characteristics:
+  brawn: 2
+  agility: 3
+  intellect: 2
+  cunning: 2
+  willpower: 1
+  presence: 2
+woundThreshold: 9
+strainThreshold: 10
+startingXP: 90
+abilities:
+  - name: Nimble (Free Cities)
+    description: Free Cities Elves have a melee and ranged defense of 1.
+skillModifiers: []
+reference: RoT:63

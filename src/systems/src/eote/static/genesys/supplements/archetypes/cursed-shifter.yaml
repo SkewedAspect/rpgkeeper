@@ -1,0 +1,39 @@
+id: genesys-archetype-cursed-shifter
+name: Cursed Shifter
+description: "The curse could have come from a family legacy or a bite from a feral monster, but the result is the same:
+  an individual who transforms into a beast when the moon is full. Some search for a cure, while others embrace their
+  feral nature. A few seek to use their terrible curse to battle others like themselves, knowing it is better to fall
+  that way than let the call of the beast consume their soul."
+characteristics:
+  brawn: 2
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 2
+woundThreshold: 10
+strainThreshold: 10
+startingXP: 105
+abilities:
+  - name: Curse of the Beast
+    description: While cursed shifters normally are human, when the full moon rises, they transform into a monstrous wolf or
+      great cat (whether they can see the moon or not). The cursed shifter changes into their Beast Form as an
+      out-of-turn incidental. This transformation lasts until the following dawn or until the cursed shifter is
+      incapacitated due to exceeding their wound threshold.
+  - name: Beast Form
+    description: When the cursed shifter transforms into Beast Form, they heal all strain they are currently suffering,
+      increase their brawn and agility by one to a maximum of 5, and reduce their intellect and willpower by one to a
+      minimum of 1. Their unarmed attacks deal +3 damage and have a Critical rating of 2. All opponents must halve the
+      damage dealt to a cursed shifter in Beast Form before applying soak, unless the weapon is made of silver or uses
+      silver ammunition. Finally, the cursed shifter must make a
+      <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> as an out-of-turn incidental when they
+      transform. If they succeed, they may act normally, but if they fail, they give in to their animal instincts and
+      must attack anyone around them with frenzied savagery (you should discuss the specifics of how they act with your
+      GM, and it is up to your GM if they can make another attempt to regain control).
+  - name: Bite of the Wolf
+    description: When this character in their animal form makes an unarmed attack and inflicts a Critical Injury result of
+      51 or higher on a human PC or human nemesis NPC (your GM has final say on what counts as human), the character
+      gains the Bite of the Wolf and Call of the Moon abilities (if the target is a PC, use the abilities listed in the
+      cursed shifter archetype found on page 20 instead).
+skillModifiers: []
+reference: G-EPG:20

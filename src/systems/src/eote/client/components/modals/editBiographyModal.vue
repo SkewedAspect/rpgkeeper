@@ -48,20 +48,53 @@
                 <BFormRow class="align-items-end mt-2">
                     <BCol>
                         <BFormGroup
-                            label="Species"
+                            :label="speciesLabel"
                             label-class="fw-bold"
-                            label-for="species-input"
                         >
-                            <div class="d-flex">
+                            <div class="d-flex gap-2">
                                 <BInputGroup>
-                                    <BFormInput id="species-input" v-model="species" />
+                                    <BFormInput
+                                        :value="speciesName"
+                                        readonly
+                                        :placeholder="`No ${ speciesLabel.toLowerCase() } selected`"
+                                    />
                                     <template #append>
-                                        <BButton @click="species = ''">
-                                            <Fa icon="times" />
+                                        <BButton
+                                            variant="secondary"
+                                            :title="`Browse ${ speciesLabel }...`"
+                                            @click="openSpeciesBrowser"
+                                        >
+                                            <Fa icon="search" />
+                                            Browse
                                         </BButton>
                                     </template>
                                 </BInputGroup>
+                                <BButton
+                                    variant="success"
+                                    class="text-nowrap"
+                                    :title="`New ${ speciesLabel }...`"
+                                    @click="openSpeciesNew"
+                                >
+                                    <Fa icon="plus" />
+                                    New
+                                </BButton>
                             </div>
+                        </BFormGroup>
+                    </BCol>
+                    <BCol>
+                        <BFormGroup
+                            label="Career"
+                            label-class="fw-bold"
+                            label-for="career-input"
+                        >
+                            <BInputGroup>
+                                <BFormInput id="career-input" v-model="career" />
+                                <template #append>
+                                    <BButton variant="secondary" @click="career = ''">
+                                        <Fa icon="times" />
+                                    </BButton>
+                                </template>
+                            </BInputGroup>
                         </BFormGroup>
                     </BCol>
                     <BCol v-if="mode === 'eote'" cols="auto">
@@ -82,58 +115,34 @@
                     </BCol>
                 </BFormRow>
 
-                <BFormRow class="mt-2">
-                    <BCol xs="12">
-                        <BFormGroup
-                            label="Career"
-                            label-class="fw-bold"
-                            label-for="career-input"
-                        >
-                            <div class="d-flex">
-                                <BInputGroup>
-                                    <BFormInput id="career-input" v-model="career" />
-                                    <template #append>
-                                        <BButton @click="career = ''">
-                                            <Fa icon="times" />
-                                        </BButton>
-                                    </template>
-                                </BInputGroup>
-                            </div>
-                        </BFormGroup>
-                    </BCol>
-                    <BCol v-if="mode === 'eote'" xs="12">
+                <BFormRow v-if="mode === 'eote'" class="mt-2">
+                    <BCol>
                         <BFormGroup
                             label="Specializations"
                             label-class="fw-bold"
                             label-for="special-input"
                         >
-                            <div class="d-flex">
-                                <BInputGroup>
-                                    <BFormInput id="special-input" v-model="specialization" />
-                                    <template #append>
-                                        <BButton @click="specialization = ''">
-                                            <Fa icon="times" />
-                                        </BButton>
-                                    </template>
-                                </BInputGroup>
-                            </div>
+                            <BInputGroup>
+                                <BFormInput id="special-input" v-model="specialization" />
+                                <template #append>
+                                    <BButton variant="secondary" @click="specialization = ''">
+                                        <Fa icon="times" />
+                                    </BButton>
+                                </template>
+                            </BInputGroup>
                         </BFormGroup>
                     </BCol>
                 </BFormRow>
 
-                <SupplementSelect
-                    ref="suppSelect"
-                    class="mt-2"
-                    label="Abilities"
-                    label-class="fw-bold"
-                    :available="abilities"
-                    :selected="selectedAbilitiesArray"
-                    @add="onAbilityAdd"
-                    @remove="onAbilityRemove"
-                    @new="onAbilityNew"
-                    @edit="onAbilityEdit"
-                    @delete="onAbilityDelete"
-                />
+                <!-- Abilities -->
+                <div class="mt-3">
+                    <AbilityEdit
+                        :abilities="abilities"
+                        :species-abilities="speciesAbilities"
+                        :species-reference="speciesData?.reference"
+                        @update:abilities="abilities = $event"
+                    />
+                </div>
             </div>
 
             <!-- Modal Buttons -->
@@ -152,13 +161,14 @@
         </BModal>
 
         <!-- Modals -->
-        <AddEditAbilityModal ref="addEditModal" @add="onAbilityAdd" />
-        <DeleteModal
-            ref="delModal"
-            :name="delAbility.name"
-            type="ability"
-            @hidden="onDelAbilityHidden"
-            @delete="onDelAbilityDelete"
+        <AddEditSpeciesModal ref="addEditSpeciesModal" @save="onSpeciesCreated" />
+        <SupplementBrowserModal
+            ref="speciesBrowseModal"
+            :title="`Browse ${ speciesLabel }`"
+            :supplements="speciesOptions"
+            :selected-ids="speciesRef ? [ speciesRef ] : []"
+            @select="onSpeciesSelect"
+            @add-new="openSpeciesNew"
         />
     </div>
 </template>
@@ -166,18 +176,18 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, ref, useTemplateRef } from 'vue';
+    import { computed, ref } from 'vue';
 
     // Models
-    import type { EoteAbility, EoteOrGenCharacter } from '../../../models.ts';
+    import type { EoteOrGenCharacter, EoteSpecies, SpeciesAbility } from '../../../models.ts';
 
     // Stores
     import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Components
-    import SupplementSelect from '@client/components/character/supplementSelect.vue';
-    import AddEditAbilityModal from './addEditAbilityModal.vue';
-    import DeleteModal from '@client/components/ui/deleteModal.vue';
+    import SupplementBrowserModal from '@client/components/character/supplementBrowserModal.vue';
+    import AddEditSpeciesModal from './addEditSpeciesModal.vue';
+    import AbilityEdit from '../sub/abilityEdit.vue';
     import { BModal } from 'bootstrap-vue-next';
     import CloseButton from '@client/components/ui/closeButton.vue';
 
@@ -190,38 +200,32 @@
         name : string;
         description : string;
         career : string;
-        species : string;
+        speciesRef : string | null;
+        abilities : string[];
         specializations : string;
         forceSensitive : boolean;
-        abilities : string[];
     }
 
-    type Events = (e : 'save', bio : BioObj) => void;
-
-    const emit = defineEmits<Events>();
+    const emit = defineEmits<{
+        save : [bio : BioObj];
+    }>();
 
     //------------------------------------------------------------------------------------------------------------------
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const mode = ref('eote');
+    const mode = ref<'eote' | 'genesys'>('eote');
     const name = ref('');
     const description = ref('');
     const career = ref('');
-    const species = ref('');
+    const speciesRef = ref<string | null>(null);
+    const abilities = ref<string[]>([]);
     const specialization = ref('');
     const forceSensitive = ref(false);
-    const selectedAbilities = ref(new Set<string>());
-
-    const delAbility = ref<{ id : string | undefined; name : string }>({
-        id: undefined,
-        name: '',
-    });
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
-    const addEditModal = ref<InstanceType<typeof AddEditAbilityModal> | null>(null);
-    const delModal = ref<InstanceType<typeof DeleteModal> | null>(null);
-    const suppSelect = useTemplateRef('suppSelect');
+    const addEditSpeciesModal = ref<InstanceType<typeof AddEditSpeciesModal> | null>(null);
+    const speciesBrowseModal = ref<{ show : () => void; hide : () => void } | null>(null);
 
     const supplementStore = useSupplementStore();
 
@@ -229,8 +233,35 @@
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const abilities = computed(() => supplementStore.get<EoteAbility>(mode.value, 'ability'));
-    const selectedAbilitiesArray = computed(() => Array.from(selectedAbilities.value));
+    const speciesLabel = computed(() =>
+    {
+        return mode.value === 'genesys' ? 'Archetype' : 'Species';
+    });
+    const speciesType = computed(() =>
+    {
+        return mode.value === 'genesys' ? 'archetype' : 'species';
+    });
+
+    const speciesOptions = computed(() => supplementStore.get<EoteSpecies>(mode.value, speciesType.value));
+
+    const speciesData = computed(() =>
+    {
+        if(!speciesRef.value) { return null; }
+        return speciesOptions.value.find((sp) => sp.id === speciesRef.value) ?? null;
+    });
+
+    const speciesAbilities = computed<SpeciesAbility[]>(() => speciesData.value?.abilities ?? []);
+
+    const speciesName = computed(() =>
+    {
+        if(!speciesRef.value)
+        {
+            return '';
+        }
+
+        const found = speciesOptions.value.find((sp) => sp.id === speciesRef.value);
+        return found?.name ?? 'Unknown';
+    });
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
@@ -243,8 +274,8 @@
         name.value = char.name;
         description.value = char.description ?? '';
         career.value = char.details.career;
-        species.value = char.details.species;
-        selectedAbilities.value = new Set(char.details.abilities);
+        speciesRef.value = char.details.speciesRef;
+        abilities.value = [ ...(char.details.abilities ?? []) ];
 
         if(char.system === 'eote')
         {
@@ -266,10 +297,10 @@
             name: name.value,
             description: description.value,
             career: career.value,
-            species: species.value,
+            speciesRef: speciesRef.value,
+            abilities: abilities.value,
             specializations: specialization.value,
             forceSensitive: forceSensitive.value,
-            abilities: Array.from(selectedAbilities.value),
         });
     }
 
@@ -278,62 +309,31 @@
         name.value = '';
         description.value = '';
         career.value = '';
-        species.value = '';
-        selectedAbilities.value = new Set();
+        speciesRef.value = null;
+        abilities.value = [];
         specialization.value = '';
         forceSensitive.value = false;
     }
 
-    function onAbilityAdd(ability : { id ?: string }) : void
+    // Species selection
+    function openSpeciesBrowser() : void
     {
-        if(ability.id)
-        {
-            selectedAbilities.value.add(ability.id);
-        }
+        speciesBrowseModal.value?.show();
     }
 
-    function onAbilityRemove(ability : { id ?: string }) : void
+    function openSpeciesNew() : void
     {
-        if(ability.id)
-        {
-            selectedAbilities.value.delete(ability.id);
-        }
+        addEditSpeciesModal.value?.show(mode.value);
     }
 
-    function onAbilityNew() : void
+    function onSpeciesSelect(species : EoteSpecies) : void
     {
-        addEditModal.value?.show(undefined);
+        speciesRef.value = species.id ?? null;
     }
 
-    function onAbilityEdit(ability : EoteAbility) : void
+    function onSpeciesCreated(species : { id : string }) : void
     {
-        addEditModal.value?.show(ability);
-    }
-
-    function onAbilityDelete(ability : EoteAbility) : void
-    {
-        delAbility.value.id = ability.id;
-        delAbility.value.name = ability.name;
-
-        delModal.value?.show();
-    }
-
-    function onDelAbilityHidden() : void
-    {
-        delAbility.value.id = undefined;
-        delAbility.value.name = '';
-    }
-
-    async function onDelAbilityDelete() : Promise<void>
-    {
-        suppSelect.value?.clearSelection();
-        if(delAbility.value.id)
-        {
-            selectedAbilities.value.delete(delAbility.value.id);
-            await supplementStore.remove(mode.value, 'ability', delAbility.value.id);
-        }
-
-        onSave();
+        speciesRef.value = species.id;
     }
 
     //------------------------------------------------------------------------------------------------------------------

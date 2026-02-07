@@ -1,6 +1,6 @@
 id: eote-forcepower-heal-harm
 name: Heal/Harm
-description: >-
+description: |-
   The Force user bolsters his ally with renewed vigor or saps his foe of vital energy.
 
 
@@ -14,7 +14,7 @@ minRating: 1
 upgrades:
   strength:
     available: 2
-    description: >-
+    description: |-
       <b>Heal:</b> Spend <forcepoint></forcepoint> to increase wounds healed by 1 per rank of Strength upgrades
       purchased.
 
@@ -31,7 +31,7 @@ upgrades:
       upgrades purchased.
   mastery:
     available: 1
-    description: >-
+    description: |-
       <b>Heal:</b> Once per session, spend
       <forcepoint></forcepoint><forcepoint></forcepoint><forcepoint></forcepoint><forcepoint></forcepoint> to restore 1
       target who died after end of user's last turn to life.
@@ -40,20 +40,20 @@ upgrades:
       <b>Harm:</b> Once per session, when this power kills a target, may restore one engaged character who died this
       encounter to life. Each character gains 7 Conflict.
   control:
-    - description: >-
+    - description: |-
         <b>Heal:</b> If no <darkside></darkside> generated <forcepoint></forcepoint>, target heals strain equal to
         wounds healed.
 
 
         <b>Harm:</b> If any <darkside></darkside> were used to generate <forcepoint></forcepoint>, user heals strain
         equal to wounds inflicted.
-    - description: >-
+    - description: |-
         <b>Heal:</b> Spend <forcepoint></forcepoint> to remove one status effect from target.
 
 
         <b>Harm:</b> The user may spend <forcepoint></forcepoint> to heal wounds equal to wounds inflicted on target.
         Healed Character gains 1 Conflict.
-    - description: >-
+    - description: |-
         <b>Heal:</b> May make a <b>Heal power check</b> combined with a <b>Hard
         (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Medicine check</b>. If check
         succeeds, one target who heals wounds also heals one Critical Injury.

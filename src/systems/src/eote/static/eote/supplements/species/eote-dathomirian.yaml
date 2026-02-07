@@ -1,0 +1,105 @@
+id: eote-dathomirian
+name: Dathomirian
+description: |-
+  Although humans and Zabrak have been born, lived, and died on Dathomir, the truly unique Dathomirians are near-humans
+  who practice a strange blend of magicks and alchemy—those who make up the clans known as the Nightsisters. Generations
+  of genetic drift and exposure to the planet’s power from the dark side of the Force have created a distinct people and
+  culture focused on self-determination, strength, and discipline. Other species consider the Dathomirians selfish,
+  dangerous, and cruel. If the Dathomirians cared about the opinions of others, they would agree.
+
+  **Physiology:** Perhaps due to a genetic quirk or some subtle influence of the Force, the near-human Dathomirians are
+  all women with pale white, blue, or gray skin with darker markings that the Nightsisters accentuate with tattooed
+  patterns. They have piercing eyes that range in color from white to blue to amber, and their hair can be any shade:
+  dark black or stark white, or any of the rainbow of colors in between.
+
+  Every creature and being on Dathomir must have strength and stamina in order to survive the planet, and Dathomirians
+  are no exception. A weak Dathomirian is a dead Dathomirian. The Nightsisters further train for speed and mental
+  fortitude, pushing an already-strong people toward developing a warrior’s endurance.
+
+  **Society:** Dathomir housed human exiles, criminals, and disenfranchised beings for generations, yet the Dathomirians
+  have multiple stories about their origins—all contradictory. One commonly told story claims the Jedi Council exiled a
+  woman named Allya, who trained the women on Dathomir in the ways of the Force. The Republic has no such record. At
+  least one band of exiles survived on the vibrant yet violent planet. These proto-Dathomirians continued to explore the
+  Force, applying their discoveries toward practical uses, creating the alchemy, magicks, and weapons they now employ.
+
+  Over the generations since, these people—who began calling themselves Nightsisters—bonded with the human and Zabrak
+  criminal exiles, absorbing their bitterness, harshness, and ire against the Republic. These misanthropic attitudes
+  pushed the Nightsisters toward self-reliance and isolationism. They remain a matrilineal and female-only society; the
+  male humans and Zabrak are never invited to join their clans.
+
+  A few Dathomirians may have rejected the Nightsisters’ society and magicks, but they are few and far between and
+  essentially live as hermits. A Dathomirian wishing to return to the Nightsisters need only prove her lineage through a
+  genetic test, via a magickal ritual, or by revealing secret Nightsister knowledge. Once a Nightsister, always a
+  Nightsister.
+
+  Historically, the Dathomirians divided themselves by clans, each led by a Mother, who passed on her specific knowledge
+  and wisdom orally or in written form. Dathomirian society contains quite a number of texts by these Mothers, sometimes
+  based on a specific theme of wisdom, using shadows, light, law, or other metaphor to teach their lessons. The tomes
+  blend history, spirituality, local knowledge, folklore, and insight.
+
+  **Homeworld:** Dathomir, a temperate and largely unexplored world in the Outer Rim’s Quelii sector, has a rich biomass
+  and abundant natural resources. Due to its isolation from major hyperspace lanes, however, it remains largely
+  uncharted. Lurking predators, strange flora and fauna, and rumors of baleful and supernatural activity are enough that
+  many traders refuse to land on the planet, further increasing its isolation. While Dathomir has all the necessities to
+  support intelligent life, it might seem as if the very environment harbors an ill will toward life and light.
+
+  Throughout most of the galaxy’s history, people treated Dathomir as an exile’s planet. Supposedly, the Republic used
+  the planet as an unofficial penal colony. It dropped prisoners onto Dathomir with no real support, a bare minimum of
+  supplies, and the directive to turn the planet into a true colony. The records of these “colonists” conveniently do
+  not exist in Republic databases, and history has largely forgotten the planet.
+
+  Those with a sensitivity to the Force claim Dathomir to be a planet shrouded in deep shadow. The Nightsisters, if
+  asked, merely claim Dathomir a locus of spiritual power. The few Jedi historians who know of the Nightsisters believe
+  they wield not only the Force, but also a defiant warning to the Jedi Order, which allegedly exiled their founder.
+
+  Some of the Nightsisters’ wisdom has come from their exploration of the many ancient ruins scattered across the
+  planet. Most Nightsisters believe Dathomir hosted at least one empire in the ancient past, though this is unverified.
+  Because of their practical nature, Dathomirians and Zabrak have repurposed some of these ancient ruins to their own
+  use, turning them into temples with stone facades depicting revered Nightsisters and Zabrak.
+
+  **Language:** Dathomirians speak a dialect of Basic generally understandable to a Republic citizen but littered with
+  ancient loanwords and criminals’ slang from all over the galaxy. Nightsisters also claim to speak a language called
+  Paecian, extracted from Dathomir’s ruins, and mix what they say are Paecian words with their Basic.
+
+  **The Uncertain Future:** Dathomirians in general want to be left alone, but the Clone Wars, the meddling of the Sith,
+  and the prying of Jedi all threaten to expose their planet and society. The Nightsisters, particularly spiritual
+  leader Mother Talzin, have sent away members to collect intelligence, hone their skills against the vast diversity of
+  the galaxy, and even earn a few credits.
+
+  Dathomirians who journey out into the galaxy find that their philosophy of struggle and determination fits well in the
+  Outer Rim. A life of isolation and hardship on Dathomir may be the perfect arena to test their strength, but the wider
+  galaxy provides much more violence and many more enemies, allies, and opportunities.
+
+  As the Nightsisters continue to grow in power and influence, they threaten to forgo their neutrality in matters
+  regarding Sith and Jedi. Mother Talzin’s manipulations may bring Dathomir too far into the galactic limelight. Some
+  Nightsisters chafe at the growing attention paid to their planet, their sanctuary. Others trust the leadership of
+  Mother Talzin, pushing all Nightsisters to band under her. Some Nightsisters even talk about building their own
+  Sith-like empire in order to control their destiny.
+characteristics:
+  brawn: 2
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 2
+woundThreshold: 10
+strainThreshold: 11
+startingXP: 100
+abilities:
+  - name: Harsh Upbringing
+    description: Dathomirians begin the game with one rank in the Outdoorsman talent.
+skillModifiers:
+  - skill: Coercion
+    startingRanks: 1
+    rankLimit: 2
+  - skill: Survival
+    startingRanks: 1
+    rankLimit: 2
+talentModifiers:
+  - talent: Outdoorsman
+    startingRanks: 1
+reference:
+  - CotR:12
+specialAbilities: |-
+  Dathomirians begin the game with one rank in Coercion and one rank in Survival. They still may not train these
+  skills above rank 2 during character creation.

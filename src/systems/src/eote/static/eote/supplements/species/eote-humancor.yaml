@@ -1,0 +1,63 @@
+id: eote-humancor
+name: Corellian Human
+description: |-
+  It is said that Corellians have rocket fuel for blood, and there is no doubt that they have a penchant for speed.
+  Renowned pilots and spacefarers, Corellians tend to have an independent, somewhat reckless streak coupled with an
+  enterprising, can-do attitude that makes them ideal smugglers, free traders, and explorers.
+
+  **Physiology:** Humans are the dominant species on Corellia. Though Corellians have a reputation for possessing quick
+  wits and even quicker reflexes, there are no significant biological or physiological differences between the human
+  natives of Corellia and humans elsewhere in the galaxy. They are genetically and anatomically as varied as most other
+  human populations, though they tend to be slightly taller than average, and there are an unusually high number of
+  Force sensitives among certain Corellian bloodlines.
+
+  **Society:** Corellians have a reputation for being individualistic and pragmatic, with a recklessness that causes
+  them to act impulsively. Often possessing a deep-seated rebellious streak, Corellians tend to view themselves as a
+  breed apart from other humans in the galaxy, whom they generally consider somewhat staid and spiritless. This
+  combination of enterprising individualism and confidence can easily be taken for arrogance (which in some cases it is)
+  but Corellians generally prefer determined resolve and immediate action to any perceived indecision or vacillation.
+  While thoughtful reflection and sagacity is considered a virtue among Corellians, it is not always a quality they
+  possess.
+
+  One trait seemingly shared by nearly every Corellian is a particular fondness for piloting fast ships. This
+  characteristic has translated to the Corellian philosophy of shipbuilding, namely that faster is better. Nearly all
+  Corellians are capable pilots by maturity, and swoop and speeder racing are popular pastimes. It is generally accepted
+  wisdom that Corellians have naturally good instincts and quick reflexes, explaining their ability to push vehicles and
+  starships to their limits (and survive), though evidence for this is often more anecdotal than scientific. In addition
+  to their piloting skills, Corellians are renowned explorers, traders, engineers, and tinkerers. Corellians pioneered
+  many of the trade routes that crisscross the galaxy, and their ships are nearly ubiquitous. They also have a
+  not-wholly-undeserved reputation as smugglers and pirates.
+
+  For a people often thought of as self-centered lone wolves, Corellians put a high premium on family bonds and filial
+  loyalty. Honor and fidelity are universally valued among them, and a Corellian's word is his bond. Though it is said
+  there is no honor among thieves, even the basest Corellian criminal possesses some sense of honor and a moral code
+  that guides his actions.
+
+  **Homeworld:** One of the founding planets of the Galactic Republic, Corellia is among the foremost worlds in the
+  galaxy. The nearest planet to the star CoreII, Corellia is a temperate world of varied landscapes. Though much of the
+  planet's surface remains pristine and rural, Corellia is dotted with sprawling cities—its capital, Coronet City, is
+  one of the most lively, sophisticated metropolises in the galaxy. Massive shipyards and smelteries orbit the world,
+  producing some of the fastest starships on the market.
+
+  **Language:** Though a distinct Corellian language exists, Corellians most commonly speak Basic. Olys Corellisi or
+  "Old Corellian" is rarely spoken and is virtually a dead language. Olys Corellisi is occasionally used by smugglers
+  and other Corellians on the fringes of society as a simple code to keep their communications secret from prying ears.
+characteristics:
+  brawn: 2
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 2
+woundThreshold: 10
+strainThreshold: 10
+startingXP: 110
+abilities: []
+skillModifiers: []
+talentModifiers: []
+reference:
+  - SoF:93
+specialAbilities: |-
+  Corellians begin the game with one rank in Piloting (Planetary) or Piloting (Space). Because Corellians are naturally
+  exceptional pilots and grow up handling swoops, airspeeders, and spacecraft from a young age, they may train Piloting
+  up to rank 3 during character creation.

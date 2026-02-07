@@ -1,0 +1,28 @@
+id: genesys-archetype-xxcha
+name: Xxcha
+description: The reptilian Xxcha have a reputation as peaceful philosophers. Though many of them are, this ignores their
+  equal strength as warriors and leaders. While the Xxcha were once a truly peaceful faction, the invasion and eventual
+  scouring of one of their two homeworlds, Archon Ren and Archon Tau, taught them to never let down their guard. Now,
+  the Xxcha Kingdom believes in peace backed by strength, as do many individual Xxcha. Like many species in the galaxy,
+  the Xxcha are humanoid bipeds, although they have distinctly reptilian characteristics including scaly skin, a beaked
+  mouth, and a ponderous, thickboned body. They evolved in the tropical forests of their twin homeworlds, Archon Ren and
+  Archon Tau, and although they are warm-blooded, they still quickly grow uncomfortable in cold climates. Their tough
+  skin and physiology of dense muscle bundles and thick bones means they are incredibly resilient; many Xxcha warriors
+  have shrugged off attacks that could have killed a member of another species.
+characteristics:
+  brawn: 3
+  agility: 1
+  intellect: 2
+  cunning: 1
+  willpower: 3
+  presence: 2
+woundThreshold: 10
+strainThreshold: 10
+startingXP: 90
+abilities:
+  - name: Extremely Tough
+    description: Once per session after your character is hit by an attack, you may spend a Story Point to double their soak
+      while resolving the damage dealt by that attack. Their soak is doubled before being reduced by item qualities such
+      as Breach or Pierce.
+skillModifiers: []
+reference: EotI:36

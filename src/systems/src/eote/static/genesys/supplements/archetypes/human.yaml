@@ -1,0 +1,24 @@
+id: genesys-archetype-human
+name: Human
+description: |-
+  Humanity, short-lived and disadvantaged in many ways by nature, has nonetheless proven to be one of the most resilient
+  and diverse races in Mennara. What Humans, a curious lot, lack in natural gifts of the sort bestowed on other races
+  they make up for in their willingness to learn, their determination, and their sheer adaptability. Humans have
+  weathered cataclysms beyond compare, and today it is largely by their strength of will and arms that the world is
+  kept safe.
+characteristics:
+  brawn: 2
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 2
+woundThreshold: 10
+strainThreshold: 10
+startingXP: 110
+abilities:
+  - name: Ready for Adventure
+    description: Once per session as an out-of-turn incidental, a Human may move one Story Point from the Game Master's pool
+      to the players' pool.
+skillModifiers: []
+reference: RoT:60

@@ -1,6 +1,6 @@
 id: eote-netuplink
 name: Networked Slicing Uplink
-description: >-
+description: |-
   Some Slicers make use of a rare and highly illegal set of droid modifications to mask their slicing signatures by
   routing them through a drois's systems, which fill the signature with junk data from the droid's base-level processes.
   These systems can either be made to link up with an external set of slicing tools, or they can be part of an internal

@@ -77,6 +77,8 @@ export const BaseTalentInstSchema = z.object({
     notes: z.string().optional(),
 }).meta(supplementRef('talent'));
 
+// Note: Species ref is just a supplement ID string, use supplementId('species') in system schemas
+
 export const BaseCharacteristicsSchema = z.object({
     brawn: z.number().int()
         .min(0),

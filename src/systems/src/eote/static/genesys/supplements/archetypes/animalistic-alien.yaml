@@ -1,0 +1,23 @@
+id: genesys-archetype-animalistic-alien
+name: Animalistic Alien
+description: Space opera settings often have alien species that are derivative of some terrestrial species. Fiction
+  abounds with catlike aliens, turtle-like aliens, reptilian aliens, and so forth. Traditionally, these species are
+  stronger, faster, or tougher than humans, and they share some traits with the nonsapient Terran species they mimic.
+  Our animalistic alien species is stronger and faster than most average humans, but trades this for fewer starting XP.
+  The physical appearance of this species is, of course, up to you.
+characteristics:
+  brawn: 3
+  agility: 3
+  intellect: 2
+  cunning: 2
+  willpower: 1
+  presence: 2
+woundThreshold: 10
+strainThreshold: 8
+startingXP: 80
+abilities:
+  - name: Natural Weapons
+    description: An animalistic alien adds +2 damage to any Brawl combat checks they make. Their Brawl combat checks also
+      gain the vicious quality or increase an existing Vicious quality by one.
+skillModifiers: []
+reference: G-CRB:182

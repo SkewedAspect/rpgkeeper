@@ -46,13 +46,13 @@ export const GenesysWeaponRefSchema = BaseWeaponRefSchema;
 
 export const GenesysSystemDetailsSchema = z.object({
     career: z.string(),
-    species: z.string(),
+    speciesRef: supplementId('archetype').nullable(),
     characteristics: BaseCharacteristicsSchema,
     experience: ExperienceSchema,
     defenses: DefensesSchema,
     health: HealthSchema,
     skills: z.array(BaseSkillSchema),
-    abilities: z.array(supplementId('ability')),
+    abilities: z.array(supplementId('ability')).default([]),
     talents: z.array(BaseTalentInstSchema),
     gear: z.array(BaseGearSchema),
     armor: GenesysArmorRefSchema,

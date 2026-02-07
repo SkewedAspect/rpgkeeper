@@ -1,0 +1,40 @@
+id: genesys-archetype-gashlai
+name: Gashlai
+description: 'Even in a galaxy of oddities and mysteries, the Gashlai are unique. Each is a raging inferno, an organism
+  constantly enveloped in a roiling blanket of flame and heat. Unlike most living beings, the Gashlai conceive their
+  children by creating an embryo in a "cocoon" that somehow draws energy from its surroundings and converts it into
+  mass. When a Gashlai is birthed from their cocoon, their squat, bulky body erupts into flame as that mass begins to
+  return to energy. This process continues for the rest of their very long life, until the last of their body is
+  consumed, the flames gutter out, and the Gashlai dies. The Gashlai could only evolve on a volcanic world like Muaat,
+  where most of the lowlands are hotter than blast furnaces, since prolonged exposure to temperatures others might
+  consider normal causes them to radiate heat much faster and even "burn out" and expire. But even Muaat has its colder
+  climates, mountainous highlands where the temperatures are a "frigid" thirty-two to fifty-five degrees Celsius. To
+  explore these alien realms, the Gashlai developed cumbersome personal transports that could preserve their internal
+  heat: the precursors to their famous Ember suits.'
+characteristics:
+  brawn: 3
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 1
+woundThreshold: 12
+strainThreshold: 12
+startingXP: 80
+abilities:
+  - name: Integral Combustion
+    description: When a non-Gashlai is engaged with a Gashlai, they are exposed to a fire with a rating of 5 (see page 111
+      of the Core Rulebook). Gashlai do not suffer damage from weapons with the Burn item quality (whether or not the
+      quality is activated). When a Gashlai who is not wearing a sealed environmental suit is present in any environment
+      that does not have temperatures between 400 and 2,000 degrees Celsius, they suffer 1 strain at the end of each of
+      their turns. If this causes them to exceed their strain threshold, they suffer one Critical Injury at the end of
+      each of their turns as well, until they are able to return to a habitable environment.
+  - name: Ember Suit
+    description: Your character starts the game with a sealed environmental suit (see page 117). While your character is
+      wearing the suit, engaged non-Gashlai are not exposed to a fire with a rating of 5.
+  - name: Focused Heat
+    description: While your character is wielding a gear (including their unarmed attacks), that weapon gains the Burn item
+      quality if it did not already have the Burn item quality. When making a combat check with a gear, your character
+      may suffer 3 strain to trigger the Burn quality without spending <advantage></advantage>.
+skillModifiers: []
+reference: EotI:24

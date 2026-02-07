@@ -1,0 +1,23 @@
+id: genesys-archetype-stone-dweller-orc
+name: Stone-Dweller Orc
+description: Though Orcs are generally as intellectually and socially capable as any other being in Mennara, their
+  immense size and incredible strength gives them some highly unusual advantages. While there is no inherent need for
+  them to make a living using those assets, most find it too tempting a lure to resist. As such, Stone-Dweller Orcs
+  often find themselves living lives of adventure as mercenaries, soldiers, constables, or crooks.
+characteristics:
+  brawn: 3
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 1
+woundThreshold: 12
+strainThreshold: 8
+startingXP: 100
+abilities:
+  - name: Hot Tempered
+    description: While a Stone-Dweller Orc's strain exceeds half of their strain threshold, they add
+      <setback></setback><setback></setback> to all social skill checks and add 1 to the damage of one hit of each melee
+      attack they make.
+skillModifiers: []
+reference: RoT:67

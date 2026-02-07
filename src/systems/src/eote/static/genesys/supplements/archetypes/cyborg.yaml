@@ -1,0 +1,33 @@
+id: genesys-archetype-cyborg
+name: Cyborg
+description: The first cyborgs appeared in the late twentieth century, as artificial hearts and electronic, motorized
+  prosthetic limbs began to restore and repair damaged human bodies. However these protocybernetics served only medical
+  functions, replacing their damaged or missing organic counterparts. All this started to change decades ago, when
+  companies began to develop cybernetics that could enhance, not just restore, a body's functionality. Just as these
+  technologies were starting to appear, the Lunar Insurrection began. Many of the people we think of today as cyborgs
+  were soldiers. Lured by the promise of higher pay and free augmentations, many enlistees volunteered for cybernetic
+  "upgrades" that made them more lethal warriors. When the War ended and these specialized combatants mustered out, many
+  found themselves unable to fit into the peacetime world. Many took on jobs as corporate security, joined prisec
+  outfits, or even fell in with orgcrime. Since the War, the popularity of cybernetic enhancements has spiked. The new
+  generation of implants can improve an individual mentally as well as physically, and plenty of people are willing to
+  spend some credits and go under the knife to become "better" than what they were.
+characteristics:
+  brawn: 3
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 1
+woundThreshold: 11
+strainThreshold: 8
+startingXP: 100
+abilities:
+  - name: Adjusted to Cybernetics
+    description: Once per session as an out-of-turn incidental, you may spend a Story Point to have your character heal
+      strain equal to their number of cybernetics.
+  - name: Cyborg
+    description: Your character begins play with one gear (see page 104) that costs a total of 1,000 credits or less. They
+      do not need to make any check to install this cybernetic, and they do not decrease their strain threshold because
+      of this cybernetic (but will decrease their strain threshold as normal if they get any future cybernetics).
+skillModifiers: []
+reference: SotB:28

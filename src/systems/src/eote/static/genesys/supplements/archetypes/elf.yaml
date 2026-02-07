@@ -1,0 +1,20 @@
+id: genesys-archetype-elf
+name: Elf
+description: Whether tall or short, with pointy or really pointy ears, most elves are known for their grace, longevity,
+  and connection to the natural world. This profile is based on that common conception of an elf, with high Agility (and
+  an innate defense) but a lower wound threshold.
+characteristics:
+  brawn: 2
+  agility: 3
+  intellect: 2
+  cunning: 2
+  willpower: 1
+  presence: 2
+woundThreshold: 9
+strainThreshold: 10
+startingXP: 90
+abilities:
+  - name: Nimble
+    description: Elf characters have a melee and ranged defense of 1.
+skillModifiers: []
+reference: G-CRB:14

@@ -1,0 +1,20 @@
+id: genesys-archetype-demigod
+name: Demigod
+description: This character might have been born of a union between a mortal and a god, or perhaps they are the child of
+  gods stolen at birth and robbed of their divine majesty.
+characteristics:
+  brawn: 3
+  agility: 3
+  intellect: 2
+  cunning: 1
+  willpower: 2
+  presence: 2
+woundThreshold: 12
+strainThreshold: 8
+startingXP: 85
+abilities:
+  - name: Tragic Fate
+    description: When preparing the Story pools at the beginning of the game session, add one Story Point to the GM pool
+      instead of the player pool.
+skillModifiers: []
+reference: G-EPG:11

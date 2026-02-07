@@ -1,0 +1,25 @@
+id: genesys-archetype-clone
+name: Clone
+description: This profile is of a human clone. We assume this is a corporation-produced clone that has been tailored for
+  a certain job (otherwise, if this were an unmodified clone, you could simply use the average human profile on page
+  36). Like bioroids, clones have customization options to represent their "designed" nature, but in their case, we did
+  this by giving a clone focused skill options, but less experience. The "A Face in the Crowd" rule represents a clone
+  blending into an urban setting (after all, they look exactly like a bunch of other clones), but may have to deal with
+  anti-clone bias.
+characteristics:
+  brawn: 2
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 2
+woundThreshold: 11
+strainThreshold: 10
+startingXP: 80
+abilities:
+  - name: A Face in a Crowd
+    description: Characters add <setback></setback> to any checks they make to pick a clone out in a crowd. Clones also add
+      <setback></setback> to social skill checks they make when interacting with people who don't know the specific
+      clone.
+skillModifiers: []
+reference: G-CRB:17

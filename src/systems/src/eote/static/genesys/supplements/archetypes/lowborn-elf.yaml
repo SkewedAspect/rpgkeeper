@@ -1,0 +1,25 @@
+id: genesys-archetype-lowborn-elf
+name: Lowborn Elf
+description: The Elves were not always at one with nature, but after their fall from grace, many found a new, deepened
+  connection with the wilds. As successive generations were born and raised in Mennara, they felt an even greater
+  calling to the world around them rather than the lofty heavens of their distant ancestors. They resolved to live in
+  harmony with their new home and become its greatest protectors. It is from these Elves that the bulk of the Latari
+  armies are drawn. Among the lowborn Elves are the famed Deepwood Archers, unrivaled in lethality with their
+  extraordinary longbows, and the Leonx Riders and their fearsome feline mounts. Among the other Elven tribes, the
+  lowborn occupy similarly martial or practical roles, and many leave Elven society entirely for a life of purpose and
+  adventure experiencing the world.
+characteristics:
+  brawn: 2
+  agility: 3
+  intellect: 2
+  cunning: 2
+  willpower: 1
+  presence: 2
+woundThreshold: 9
+strainThreshold: 10
+startingXP: 90
+abilities:
+  - name: Nimble (Lowborn)
+    description: Lowborn Elves have a melee and ranged defense of 1.
+skillModifiers: []
+reference: RoT:60

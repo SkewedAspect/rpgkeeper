@@ -1,0 +1,49 @@
+id: eote-twi
+name: Twi'lek
+description: |-
+  The Twi'leks are among the most prominent non-human species in the galaxy. They are expert bargainers, sly at reading
+  other species and using cunning to get what they want.
+
+  **Physiology:** Twi'leks possess two prehensile tentacles, their tchun-tchin, or lekku, that project from the back of
+  their heads. These "head-tails" serve as a second tongue by which they can communicate through signs and gestures. The
+  rainbow of flesh tones found among the Twi'leks are indicators of clan and region of ancestry.
+
+  **Society:** Family is everything in Twi'lek society. The government on Ryloth is an alliance of "head clans," each of
+  which control a small town or larger districts in the city. A family's five most important Twileks lead their
+  respected head-clans, with the power of influence radiating down the bloodline. According to tradition, when one
+  leader of the head clan dies, the four remaining members must take exile in the sun-baked Bright Lands where the
+  vicious lyleks roam. In practice, however, clan leaders find new and cunning ways to subvert exile.
+
+  The clan system has stratified Twi'lek society into castes. Twi'leks at the bottom of a bloodline are considered of
+  the low birth caste and used as chattel in the slave trade. Twi'lek leaders exhibit disgust at any accusation of
+  slavery and deny that they would ever put their own people in bondage, shifting the blame to other clans. Nonetheless,
+  nearly every clan engages in "contracted indenturehood ."
+
+  **Homeworld:** Though their home planet of Ryloth is located in the Outer Rim, Twi'leks can be found on many worlds
+  throughout the galaxy, due to their enterprising nature and the effects of slavery.
+
+  **Language:** Ryl is the native tongue of Ryloth, yet there are few Twi'leks who cannot speak Basic fluently. What
+  separates Twi'leks from other species is their second, nonverbal language called Lekku, or "Twi'leki." In everyday
+  conversation, Twi'leks add texture and emphasis to their speech by moving and twitching their head-tails. If privacy
+  is necessary, Twi'leks can converse in complete silence, using only the gestures of their head-tails to pass on
+  complicated information.
+characteristics:
+  brawn: 1
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 3
+woundThreshold: 10
+strainThreshold: 11
+startingXP: 100
+abilities: []
+skillModifiers: []
+talentModifiers: []
+reference:
+  - E-CRB:51
+  - F-CRB:61
+specialAbilities: |-
+  Twi'leks begin the game with one rank in either Charm or Deception. They still may not train this skill above rank
+  2 during character creation. When making skill checks, Twi'leks may remove one setback die imposed due to arid or
+  hot environmental conditions.

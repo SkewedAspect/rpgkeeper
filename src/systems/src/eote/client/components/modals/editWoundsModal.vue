@@ -23,6 +23,31 @@
                 </h5>
             </template>
 
+            <!-- Species Threshold Guidance -->
+            <div v-if="species" class="species-statblock mb-3">
+                <h6 class="text-center mb-2">
+                    {{ species.name }} Starting Thresholds
+                </h6>
+                <div class="threshold-cards">
+                    <div class="threshold-card">
+                        <span class="threshold-label">Wounds</span>
+                        <span class="threshold-value">{{ suggestedWoundThreshold }}</span>
+                        <span class="threshold-formula">
+                            {{ species.woundThreshold }} + Brawn {{ brawn }}
+                        </span>
+                    </div>
+                    <div class="threshold-card">
+                        <span class="threshold-label">Strain</span>
+                        <span class="threshold-value">{{ suggestedStrainThreshold }}</span>
+                        <span class="threshold-formula">
+                            {{ species.strainThreshold }} + Willpower {{ willpower }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <hr v-if="species" class="mt-0 mb-3">
+
             <!-- Modal Content -->
             <div class="d-flex">
                 <BFormGroup
@@ -145,8 +170,46 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
+<style lang="scss" scoped>
+    .species-statblock {
+        .threshold-cards {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+
+            .threshold-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 0.5rem 1.5rem;
+                background: var(--bs-tertiary-bg);
+                border-radius: 0.25rem;
+                min-width: 8rem;
+
+                .threshold-label {
+                    font-size: 0.7rem;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+
+                .threshold-value {
+                    font-size: 1.4rem;
+                    font-weight: bold;
+                }
+
+                .threshold-formula {
+                    font-size: 0.75rem;
+                    color: var(--bs-secondary-color);
+                }
+            }
+        }
+    }
+</style>
+
+<!--------------------------------------------------------------------------------------------------------------------->
+
 <script lang="ts" setup>
-    import { ref, useTemplateRef } from 'vue';
+    import { computed, ref, useTemplateRef } from 'vue';
 
     // Models
     import type { EoteOrGenCharacter } from '../../../models.ts';
@@ -154,6 +217,9 @@
     // Components
     import { BModal } from 'bootstrap-vue-next';
     import CloseButton from '@client/components/ui/closeButton.vue';
+
+    // Utils
+    import { useSpeciesLookup } from '../../lib/useSpeciesLookup.ts';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -182,7 +248,27 @@
         strainThreshold: 0,
     });
 
+    const speciesRef = ref<string | null>(null);
+    const brawn = ref(0);
+    const willpower = ref(0);
+
     const innerModal = useTemplateRef('innerModal');
+
+    const { species } = useSpeciesLookup(speciesRef);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const suggestedWoundThreshold = computed(() =>
+    {
+        return (species.value?.woundThreshold ?? 0) + brawn.value;
+    });
+
+    const suggestedStrainThreshold = computed(() =>
+    {
+        return (species.value?.strainThreshold ?? 0) + willpower.value;
+    });
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
@@ -194,6 +280,10 @@
         health.value.woundThreshold = char.details.health.woundThreshold;
         health.value.strain = char.details.health.strain;
         health.value.strainThreshold = char.details.health.strainThreshold;
+
+        speciesRef.value = char.details.speciesRef ?? null;
+        brawn.value = char.details.characteristics.brawn;
+        willpower.value = char.details.characteristics.willpower;
 
         innerModal.value?.show();
     }
@@ -214,6 +304,9 @@
         health.value.woundThreshold = 0;
         health.value.strain = 0;
         health.value.strainThreshold = 0;
+        speciesRef.value = null;
+        brawn.value = 0;
+        willpower.value = 0;
     }
 
     //------------------------------------------------------------------------------------------------------------------

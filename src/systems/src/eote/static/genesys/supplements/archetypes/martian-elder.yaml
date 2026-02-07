@@ -1,0 +1,33 @@
+id: genesys-archetype-martian-elder
+name: Martian Elder
+description: "Martians are green beings of nonspecific gender with huge, black, monochromatic eyes and a
+  disproportionally large head. The martians on the Crucible appear to have two distinct subspecies: taller beings with
+  heightened intellect, known as Elders, and smaller beings with a strong propensity for violence, called Soldiers. The
+  Elders dominate Martian society and control the more numerous Soldiers throughout their lives, from cloning chamber to
+  the grave. It is clear (to the Elders, at least) that their species was brought to the Crucible to ensure it survives
+  forever. The martians see conquest of the Crucible as the best way to guarantee this happens. Not all martians agree
+  with such an existence, however. There are those who have abandoned barracks and battlefields or have quit
+  laboratories or ruling chambers, and now seek independent lives free of the intolerance of central command at Nova
+  Hellas. Some have even grown to appreciate other cultures, frequenting everything from their popular musical acts to
+  their holovid events, and work with beings of other species to achieve common goals—all utterly anathema to loyalists
+  of the Red Planet. Tall and proud, Martian Elders know they carry the burden of ensuring the survival not only of
+  their species, but of their culture as well. Those who have forsaken Nova Hellas still believe this but seek other
+  ways to accomplish their goals. Many Elders are obsessed researchers, especially concerning robotics and genetics.
+  According to the latest rumors, they are close to unlocking psychic abilities in martians, a worrisome rumor if true."
+characteristics:
+  brawn: 1
+  agility: 1
+  intellect: 3
+  cunning: 2
+  willpower: 3
+  presence: 2
+woundThreshold: 7
+strainThreshold: 11
+startingXP: 95
+abilities:
+  - name: All Part of My Scheme!
+    description: Once per session, when a Martian Elder makes a check you may spend a Story Point to add
+      <proficiency></proficiency><proficiency></proficiency><challenge></challenge> to the check. The Martian Elder must
+      explain how that check is essential to their latest convoluted plot.
+skillModifiers: []
+reference: SotC:31

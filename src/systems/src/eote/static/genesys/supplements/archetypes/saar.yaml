@@ -1,0 +1,27 @@
+id: genesys-archetype-saar
+name: Saar
+description: Without a world to call their own for thousands of years, the Saar have been a nomadic people throughout
+  history. Only recently have they made the great Jorun Asteroid Field a home base and established themselves as members
+  of a new Great Civilization. Although the Saar are considered to be a voidborn species given their home in the Jorun
+  Asteroid Field, biologically they still have the traits of those who evolved in a planetary biosphere, although enough
+  time spent in zero-gravity environments means they tend to have a lower muscle mass than planet-bound species. The
+  Saar are mammalian bipeds with a thick coat of fur, front-set eyes providing binocular vision, and plenty of sharp
+  teeth. As their appearance suggests, they are carnivorous and likely evolved from pack hunters, which could explain
+  the clan structure their diffuse species has maintained throughout most of their history. But whatever their origins,
+  the Saar have adapted well to their new home in the frozen rock fields of Jorun Asteroid Field.
+characteristics:
+  brawn: 1
+  agility: 2
+  intellect: 2
+  cunning: 3
+  willpower: 2
+  presence: 2
+woundThreshold: 8
+strainThreshold: 9
+startingXP: 110
+abilities:
+  - name: Resourceful
+    description: Once per session after making a skill check, you may spend a Story Point to have your character reroll up
+      to two dice in the pool.
+skillModifiers: []
+reference: EotI:32

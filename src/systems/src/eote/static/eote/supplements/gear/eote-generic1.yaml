@@ -1,6 +1,6 @@
 id: eote-generic1
 name: Very Small Item
-description: >-
+description: |-
   Small Item
         Use this item to represent any very small (Encumbrance 1) item.  Use the "Rename" button to give it a name, and the "Notes" button
         to describe the item.  If the item is purchased, be sure to deduct the cost from your credit total.

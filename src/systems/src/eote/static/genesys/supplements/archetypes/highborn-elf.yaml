@@ -1,0 +1,24 @@
+id: genesys-archetype-highborn-elf
+name: Highborn Elf
+description: The Highborn Elves are those only slightly removed from the most ancient bloodlines, those original Elves
+  who dwelled in the Empyrean. As a result, these Elves have the strongest natural connection to Latariana's Door, and
+  many have devoted their lives to deepening that connection and ascending Latariana's Stair to earn redemption. The
+  Daughters of the Empyrean and the Darnati Warriors are most often drawn from this caste, and their proximity to the
+  court at Caelcira necessitates a basic knowledge of etiquette and diplomacy. Beyond the Latari, the highborn of the
+  other Elven tribes occupy similar positions of prestige.
+characteristics:
+  brawn: 2
+  agility: 3
+  intellect: 2
+  cunning: 2
+  willpower: 1
+  presence: 2
+woundThreshold: 9
+strainThreshold: 10
+startingXP: 90
+abilities:
+  - name: Empyrean Magic
+    description: Highborn Elves gain Divine as a career skill and begin with one rank in Divine. You still cannot train
+      their Divine above rank 2 during character creation.
+skillModifiers: []
+reference: RoT:63

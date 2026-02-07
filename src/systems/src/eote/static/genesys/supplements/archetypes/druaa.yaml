@@ -1,0 +1,33 @@
+id: genesys-archetype-druaa
+name: Druaa
+description: "The serpentine Druaa would be simply one more species in a galaxy full of sentient life if it weren't for
+  their singular gift: they appear to be the only species in the galaxy with a highly advanced form of telepathy.
+  Scientists are unsure how this ability works, and the Druaa are notably loath to allow other species to investigate
+  it. But they have spent centuries refining their technology to enhance their innate abilities, so it is likely they
+  possess a deep understanding that they'll never share with others. Beyond their abilities to read minds and alter
+  thoughts, the Druaa are a cold-blooded reptilian species with a humanoid torso that shifts into a massive serpentine
+  body. A Druaa's face is humanoid as well, although their skin is covered in scales, and they sport a fanlike
+  skin-crest that stretches out from their skull. Everything about this species seems to be equal parts graceful and
+  unsettling. Although many people think of them as the Naalu Collective, the serpentine species hailing from Druaa and
+  Maaluuk insists that their species shares the same name as their home. In fact, they claim Druaa and Maaluuk was named
+  after their species during their early eras of scientific enlightenment. However, those scholars who believe the Druaa
+  actually evolved on neighboring Druaa and Maaluuk suggest that they chose the name of their adopted homeworld to help
+  cement their claim."
+characteristics:
+  brawn: 2
+  agility: 2
+  intellect: 1
+  cunning: 2
+  willpower: 3
+  presence: 2
+woundThreshold: 8
+strainThreshold: 9
+startingXP: 95
+abilities:
+  - name: Mind Reader
+    description: As an action, a psionic may make an opposed Discipline versus Discipline check targeting one living
+      creature within medium range. If the check succeeds, the psionic knows the target's current thoughts and emotional
+      state. <advantage></advantage><advantage></advantage><advantage></advantage> or <threat></threat> may be spent to
+      discover other thoughts or memories, at your GM's discretion.
+skillModifiers: []
+reference: EotI:23

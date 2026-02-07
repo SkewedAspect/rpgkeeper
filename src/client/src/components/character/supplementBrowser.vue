@@ -70,7 +70,11 @@
 
             <!-- Right Panel: Preview -->
             <BCol cols="7">
-                <BCard class="h-100" :style="{ maxHeight, minHeight: maxHeight }">
+                <BCard
+                    class="h-100 overflow-hidden"
+                    no-body
+                    :style="{ maxHeight, minHeight: maxHeight }"
+                >
                     <template v-if="selected" #header>
                         <h4 class="mb-0">
                             <slot :supplement="selected" name="preview-title">
@@ -78,7 +82,7 @@
                             </slot>
                         </h4>
                     </template>
-                    <div class="d-flex flex-column h-100 overflow-auto">
+                    <div class="card-body d-flex flex-column overflow-auto">
                         <slot v-if="!selected" name="no-selection">
                             <div class="text-center text-muted">
                                 <i>Select a supplement to preview.</i>
@@ -87,7 +91,6 @@
                         <slot v-else :supplement="selected" name="preview">
                             <MarkdownBlock
                                 :text="selected.description ?? 'No description.'"
-                                inline
                             />
                             <div class="text-end mt-auto pt-3">
                                 <h5><ScopeBadge :supplement="selected" /></h5>

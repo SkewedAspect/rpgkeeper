@@ -1,0 +1,62 @@
+id: eote-trand
+name: Trandoshan
+description: |-
+  Trandoshans are belligerent, lizard-like humanoids who have an avowed hatred of Wookiees. They can be found wherever a
+  strong hand or a big gun is desired.
+
+  **Physiology:** Standing on average a little shorter than their Wookiee nemeses, the cold blooded Trandoshans'
+  three-fingered hands lack the manual dexterity of a thumb, causing them difficulty manipulating technology. Making up
+  for this clumsiness are the three enormous claws on each hand. Their supersensitive vision allows them to see the
+  infrared spectrum. At younger ages, their regenerative powers are capable of restoring whole limbs if need be. Their
+  scales range from bright green to orange, and can change in the molting season.
+
+  **Society:** Trandoshans, who call themselves the "T'doshok" in Dosh, come from a society that emphasizes strength,
+  skill at hunting, resilience, and self-reliance. Clutches of four eggs are raised by the mother (the father seldom has
+  any involvement); young Trandoshans can walk and possess an instinctual hunting ability almost from birth. By two
+  years of age, their mother takes them on their first hunts, and by ten they are largely self-sufficient.
+
+  Trandoshan society revolves around two things: the hunt, and worship of a goddess known as the Scorekeeper. She
+  watches over the Trandoshan people, blessing or punishing them based on the success of their hunts. For each
+  successful hunt and quarry brought to ground, the Trandoshans receive jagannath, "divine marks," that show a
+  Trandoshan's status in society when tallied. As a Trandoshan gains jagannath, he also gains favor with the goddess.
+  When a Trandoshan dies, he bows before the Scorekeeper and presents his jagannath quiver. That final tally of
+  jagannath decides his place in the afterlife.
+
+  As Trandoshan society has evolved in the galactic community, the importance of the hunt has merged with other societal
+  pursuits as well. Now, a Trandoshan doctor may "hunt" for a cure against a virulent disease threatening his people, or
+  a Trandoshan engineer may "hunt" for better starship designs or more potent weaponry. In fact, almost any action that
+  betters the Trandoshan people can be justified as a worthy "hunt" in the eyes of Trandoshan culture. Of course, this
+  leaves little room for "frivolous" pursuits such as the arts. Homeworld: Most Trandoshans call their home planet
+  Hsskor, though outlanders know it as Trandosha or 'Dosha. Trandosha shares the same star as the Wookiee homeworld of
+  Kashyyyk. Trandoshans also colonized Trandosha's forest moon Wasskah.
+
+  **Language:** The Trandoshan language, Dosh, sounds to the human ear like hisses and snarls. Trandoshans can learn and
+  converse in Basic, though most of the words they speak carry a heavy sibilance.
+characteristics:
+  brawn: 3
+  agility: 1
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 2
+woundThreshold: 12
+strainThreshold: 9
+startingXP: 90
+abilities:
+  - name: Regeneration
+    description: Whenever a trandoshan would recover one or more wounds from natural rest or recuperation in a Bacta tank,
+      he recovers one additional wound.  Trandoshans can regrow lost limbs as well, though it usully takes at least a
+      month before the limb is usable.
+  - name: Claws
+    description: When a Trandoshan makes Brawl checks to deal damage to an opponent, he deals +1 damage and has a Critical
+      Rating of 3.
+skillModifiers:
+  - skill: Perception
+    startingRanks: 1
+    rankLimit: 2
+talentModifiers: []
+reference:
+  - E-CRB:50
+specialAbilities: |-
+  Trandoshans begin the game with one rank in Perception. They still may not train Perception above rank 2 during
+  character creation.

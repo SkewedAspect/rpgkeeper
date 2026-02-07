@@ -1,0 +1,27 @@
+id: genesys-archetype-norr
+name: N'orr
+description: The N'orr are an insectoid species from the barren desert world of Quinarra and Tren'lak. As with the
+  Hylar, their subspecies exhibit a vast range of differences in morphology, from bipedal, beetle-headed physiques
+  roughly the size of a Human to hulking, four-legged variants with wedge-shaped heads, long arms, and a dozen small
+  eyes. Although their appearances vary wildly, all N'orr share the same basic DNA structure, to the point that some
+  biologists have claimed these differences are no stranger than the varied hair or skin colors of Human. Some beings
+  make the mistake of characterizing them as a "hive species," and the N'orr are known for working in close cooperation
+  with one another, with notably few cases of interspecies conflict. However, single N'orr do, in fact, maintain a sense
+  of individual identity and thus have names and personalities of their own.
+characteristics:
+  brawn: 3
+  agility: 3
+  intellect: 2
+  cunning: 2
+  willpower: 1
+  presence: 1
+woundThreshold: 12
+strainThreshold: 7
+startingXP: 85
+abilities:
+  - name: Rugged Biology
+    description: Once per session, you may spend a Story Point to have your character heal one Critical Injury with a
+      severity of <difficulty></difficulty> or <difficulty></difficulty><difficulty></difficulty> that they are
+      currently suffering as an incidental.
+skillModifiers: []
+reference: EotI:29

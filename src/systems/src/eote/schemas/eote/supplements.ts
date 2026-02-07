@@ -13,6 +13,7 @@ import {
     BaseSupplementDataSchema,
     GearDataSchema,
     QualityDataSchema,
+    SpeciesDataSchema,
     WeaponDataSchema,
     WeaponQualityRefSchema,
 } from '../shared/supplements.ts';
@@ -122,6 +123,17 @@ export const ForcePowerDataSchema = BaseSupplementDataSchema.extend({
     })
         .passthrough()
         .default({}),
+});
+
+//----------------------------------------------------------------------------------------------------------------------
+// Species Schema
+//----------------------------------------------------------------------------------------------------------------------
+
+/**
+ * EotE Species — extends shared species with specialAbilities text field
+ */
+export const EoteSpeciesDataSchema = SpeciesDataSchema.extend({
+    specialAbilities: z.string().default(''),
 });
 
 //----------------------------------------------------------------------------------------------------------------------

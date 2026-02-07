@@ -20,12 +20,14 @@ import {
     ArmorDataSchema,
     GearDataSchema,
     QualityDataSchema,
+    SpeciesDataSchema,
     WeaponDataSchema,
 } from './schemas/shared/supplements.ts';
 
 // EotE Supplement schemas
 import {
     EoteAttachmentDataSchema,
+    EoteSpeciesDataSchema,
     EoteTalentDataSchema,
     ForcePowerDataSchema,
 } from './schemas/eote/supplements.ts';
@@ -92,7 +94,7 @@ const genesysSkills : GenesysSkill[] = [
 
 const genesysDefaults : GenesysSystemDetails = {
     career: '',
-    species: '',
+    speciesRef: null,
     motivations: {
         strength: null,
         flaw: null,
@@ -128,8 +130,8 @@ const genesysDefaults : GenesysSystemDetails = {
         disoriented: false,
     },
     skills: genesysSkills,
-    talents: [],
     abilities: [],
+    talents: [],
     gear: [],
     armor: {
         name: '',
@@ -138,10 +140,10 @@ const genesysDefaults : GenesysSystemDetails = {
         hardpoints: 0,
         encumbrance: 0,
         rarity: 0,
-        attachments: [] as any[],
-        qualities: [] as any[],
+        attachments: [],
+        qualities: [],
     },
-    weapons: [] as any[],
+    weapons: [],
 };
 
 export const genesysDefinition : SystemDefinition<GenesysSystemDetails>
@@ -155,6 +157,7 @@ export const genesysDefinition : SystemDefinition<GenesysSystemDetails>
         defaults: genesysDefaults,
         supplements: {
             ability: { schema: AbilityDataSchema },
+            archetype: { schema: SpeciesDataSchema },
             armor: { schema: ArmorDataSchema },
             attachment: { schema: GenesysAttachmentDataSchema },
             gear: { schema: GearDataSchema },
@@ -245,6 +248,7 @@ export const eoteDefinition : SystemDefinition<EoteSystemDetails>
             forcepower: { schema: ForcePowerDataSchema },
             gear: { schema: GearDataSchema },
             quality: { schema: QualityDataSchema },
+            species: { schema: EoteSpeciesDataSchema },
             talent: { schema: EoteTalentDataSchema },
             weapon: { schema: WeaponDataSchema },
         },

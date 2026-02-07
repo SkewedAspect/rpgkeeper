@@ -1,6 +1,6 @@
 id: eote-px7heatsensor
 name: PX-7 Heat Sensor
-description: >-
+description: |-
   The ChandrilTech PX-7 heat sensor used to detect anomalous variations in temperature nearby. This is useful for
   finding heat-emitting life forms and isolating certain kinds of damage in machines. These devices are especially
   helpful for any task that combines the two, such as locating vermin infestations in the hull of a star ship. Many

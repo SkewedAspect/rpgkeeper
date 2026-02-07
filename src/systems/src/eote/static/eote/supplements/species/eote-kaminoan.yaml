@@ -1,0 +1,86 @@
+id: eote-kaminoan
+name: Kaminoan
+description: |-
+  The secretive and isolationist Kaminoans saw the end of an ice age flood their planet, and their scientists turned to
+  genetic manipulation to survive. Society changed rapidly as bioengineering became an integral part of their life. Not
+  content with simply altering the genetics of native flora and fauna to prevent a mass extinction, the Kaminoans began
+  to alter themselves.
+
+  Kaminoans isolated genes for intelligence, strength, speed, grace, abstract thinking, linear thinking, sensory
+  perception, and in some cases, aesthetics. They also developed a caste-like society based on genetic selection.
+  Determining the caste focus of the next generation combined a complex mixture of societal pressure, personal
+  preferences, economic considerations, and other current concerns.
+
+  This concentration on genetic manipulation pulled their society further away from galactic interaction. Eventually,
+  however, the Kaminoans saw a market for one of their skills: cloning. Their work attracted the attention of the
+  Republic, and the Kaminoans turned all their efforts toward creating its Grand Army.
+
+  **Physiology:** Taller on average than humans, Kaminoans tend to be slender, with an elongated neck and oblong head.
+  Descended from an aquatic species, they retain the flowing, graceful movements of their ancestors as well as the
+  ability to see into the ultra-violet spectrum with their large eyes. Although Kaminoans seem to favor white as a
+  design aesthetic, they are able to discern a vast range of patterns and colors that appear simply as white to other
+  species.
+
+  Unlike most species, Kaminoans utilize their knowledge of genetic engineering on themselves. Whether their current
+  physical presentation is as much a product of that engineering as it is "natural" is a matter of some debate.
+  Kaminoans enjoy an extended but healthy old age without the usual physical debility or mental degradation. Gender is
+  considered an aesthetic choice, the only difference being that male Kaminoans sport a headcrest, while female
+  Kaminoans do not.
+
+  **Society:** Kaminoans generally maintain an air of polite impassiveness. As a result, outsiders consider them
+  emotionless and identical. It doesn't help that Kaminoans choose similar clothing, although many important individuals
+  wear a large, pale collar around their neck. In reality, Kaminoans express a more relaxed emotional attitude with each
+  other.
+
+  As a genetically and socially engineered society, the Kaminoans remain isolationist and culturally naive. Their caste
+  structure assigns each Kaminoan to a specific duty based on genetic and intellectual predisposition. Outliers do
+  exist, and though they are not shunned, they tend to become curiosities as others try to determine how the deviation
+  occurred.
+
+  **Homeworld:** The thawing at the end of its last ice age dramatically changed Kamino. The world, now covered in a
+  global ocean, suffers from constant storms and massive winds. Cities provide shelter from the wind, rain, and water,
+  rising high above the ocean surface on stilted anchors. The cities harness electricity from the storms, while the warm
+  ocean provides plenty of rich nutrients and biodiversity. Kaminoan trade in genetic samples means that several
+  offworld creatures, such as the aiwha, now also live there.
+
+  Of particular note is that many stellar databases don't contain Kamino's location, beyond the Outer Rim near the Rishi
+  Maze. When they developed the cloning program for the Republic, the Kaminoans asked to have the location of their
+  planet redacted to protect their privacy. Since the Clone Wars ended, that information has trickled back sporadically.
+
+  **Language:** While Kaminoans speak their native language, those who choose to deal with outsiders learn Basic.
+  Conversely, very few outsiders speak Kaminoan, and those who do are reluctant to teach others. Kaminoans guard their
+  written language carefully, relying on written Basic in their communications with other species.
+
+  **Life in the Alliance:** Kaminoans have a difficult relationship with the Rebel Alliance. Their species not only
+  developed and supplied the clone army for the Republic, but also joined the Galactic Senate to fight against the
+  Separatists. Some have joined the Alliance as engineers, biogeneticists, and physicians. Their amorality In medical
+  matters and others' general distrust of them due to their role in the Empire's ascendency puts these Kaminoans under
+  scrutiny.
+characteristics:
+  brawn: 1
+  agility: 2
+  intellect: 3
+  cunning: 2
+  willpower: 2
+  presence: 2
+woundThreshold: 9
+strainThreshold: 10
+startingXP: 100
+abilities:
+  - name: Expressionless
+    description: |-
+      Kaminoans add <setback/> to all Charm checks they make. However, other characters add <setback/> to all social
+      skill checks they make targeting a Kaminoan.
+skillModifiers:
+  - skill: Medicine
+    startingRanks: 1
+    rankLimit: 2
+talentModifiers:
+  - talent: Researcher
+    startingRanks: 1
+reference:
+  - FO:20
+  - RotS:14
+specialAbilities: |-
+  Kaminoans begin the game with one rank in Medicine. They still may not train Medicine above rank 2 during character
+  creation. They also start the game with one rank in the Researcher talent.

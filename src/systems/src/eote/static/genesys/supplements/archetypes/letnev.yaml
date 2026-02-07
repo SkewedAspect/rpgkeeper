@@ -1,0 +1,26 @@
+id: genesys-archetype-letnev
+name: Letnev
+description: A stereotypically proud, aggressive, and arrogant people, the Letnev are mammalian humanoids who bear a
+  passing resemblance to Human, though neither species likes to admit it. The principle physiological differences are
+  the Letnev's skin tones (ranging from pale blue to light gray), their hair color (often a cold blue-white, or inky
+  blue-black), and their aversion to intense or bright light. This last may be because of their evolution in the caverns
+  deep below the surface of their sunless homeworld of Arc Prime and Wren Terra. The Letnev are an ancient people, among
+  the first to join the Lazax Empire. That history, coupled with their traditionally powerful militarist culture,
+  engenders a strong sense of arrogance in most Letnev. And even if a Letnev avoids this character trait, most other
+  individuals they meet expect it of them.
+characteristics:
+  brawn: 2
+  agility: 2
+  intellect: 2
+  cunning: 1
+  willpower: 3
+  presence: 2
+woundThreshold: 10
+strainThreshold: 10
+startingXP: 100
+abilities:
+  - name: Unmatched Arrogance
+    description: When a Letnev makes a Leadership or Coercion check, they add <success></success> to the results. When a
+      Letnev makes a Charm or Negotiation check, they add <despair></despair> to the results.
+skillModifiers: []
+reference: EotI:28

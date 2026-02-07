@@ -1,0 +1,30 @@
+id: genesys-archetype-average-human
+name: Average Human
+description: The average human archetype is our baseline for character creation, and portrays the most customizable
+  example of a person. You should choose this archetype if you prefer to play "generalist" characters, who are never
+  going to be terrible at anything. You should also choose this archetype if you have a very specific type of character
+  in mind, since this archetype has the most customization options of the four choices. The characteristics all start at
+  2, meaning your character is going to have a hard time increasing any one characteristic to a 4 or 5, but also that
+  your character isn't going to have any characteristic they are truly lacking in. Likewise, the strain and wound
+  thresholds start at the average 10. Your character starts with more ranks in skills than anyone else, again playing to
+  the idea of being a generalist. Your archetype ability is also a generalist ability. Effectively, your group gains a
+  Story Point to spend whenever it needs it. And finally, your character starts with the most experience of any of the
+  four archetypes. Just remember, character creation is your only chance to spend XP on characteristics (otherwise, to
+  increase a characteristic you need to purchase the Dedication talent; see page 81). We recommend you spend most of
+  these XP on improving your characteristics, while saving at most 25-35 experience for talents and skills.
+characteristics:
+  brawn: 2
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 2
+woundThreshold: 10
+strainThreshold: 10
+startingXP: 110
+abilities:
+  - name: Ready for Anything
+    description: Once per session as an out-of-turn incidental, you may move one Story Point from the Game Master's pool to
+      the players' pool.
+skillModifiers: []
+reference: G-CRB:36

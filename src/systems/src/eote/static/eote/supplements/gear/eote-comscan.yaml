@@ -1,6 +1,6 @@
 id: eote-comscan
 name: Com-Scan
-description: >-
+description: |-
   Nearly every person and vehicle carries a comlink or a transceiver. While most are encrypted at some
   level—particularly military grade gear—sophisticated sensory apparatuses can detect the act of sending a signal,
   regardless of its content. If a system is able to identify the transceiver codes from a particular device, that unit

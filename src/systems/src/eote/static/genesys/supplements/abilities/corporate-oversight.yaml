@@ -1,5 +1,0 @@
-id: genesys-ability-corporate-oversight
-name: Corporate Oversight
-description: When performing the assist maneuver, add <success></success><despair></despair><despair></despair> to the
-  result instead of adding <boost></boost>.
-reference: G-EPG
