@@ -80,14 +80,14 @@ export const EoteWeaponRefSchema = BaseWeaponRefSchema.extend({
 
 export const EoteSystemDetailsSchema = z.object({
     career: z.string(),
-    species: z.string(),
+    speciesRef: supplementId('species').nullable(),
     specialization: z.string().optional(),
     characteristics: BaseCharacteristicsSchema,
     experience: ExperienceSchema,
     defenses: DefensesSchema,
     health: HealthSchema,
     skills: z.array(BaseSkillSchema),
-    abilities: z.array(supplementId('ability')),
+    abilities: z.array(supplementId('ability')).default([]),
     talents: z.array(BaseTalentInstSchema),
     gear: z.array(BaseGearSchema),
     armor: EoteArmorRefSchema,

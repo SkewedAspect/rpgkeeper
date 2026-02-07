@@ -33,14 +33,15 @@
             <BFormGroup
                 label="Name"
                 label-class="fw-bold"
-                label-for="name-input"
+                label-for="ability-name-input"
             >
-                <BFormInput id="name-input" v-model="name" autocomplete="off" />
+                <BFormInput id="ability-name-input" v-model="name" autocomplete="off" />
             </BFormGroup>
             <BFormGroup
-                id="extras-input-group"
                 label="Description"
-                label-for="extras-input"
+                label-class="fw-bold"
+                label-for="ability-desc-input"
+                class="mt-2"
             >
                 <MarkdownEditor v-model:text="description" />
             </BFormGroup>
@@ -70,15 +71,15 @@
     import { computed, ref, useTemplateRef } from 'vue';
 
     // Models
-    import type { EoteAbility } from '../../../models.ts';
+    import type { Supplement } from '@rpgk/core';
 
     // Stores
     import { useSystemStore } from '@client/lib/resource-access/stores/systems';
     import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Components
-    import MarkdownEditor from '@client/components/ui/markdownEditor.vue';
     import EditReference from '@client/components/character/editReference.vue';
+    import MarkdownEditor from '@client/components/ui/markdownEditor.vue';
     import { BModal } from 'bootstrap-vue-next';
     import CloseButton from '@client/components/ui/closeButton.vue';
 
@@ -90,8 +91,8 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const emit = defineEmits<{
-        add : [ability: EoteAbility]
-        edit : [ability: EoteAbility]
+        add : [ability : Supplement]
+        edit : [ability : Supplement]
     }>();
 
     //------------------------------------------------------------------------------------------------------------------
@@ -113,19 +114,19 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const mode = computed(() => systemStore.current?.id ?? 'eote');
-    const isEdit = computed(() => !!id.value);
+    const isEdit = computed(() => id.value !== undefined);
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function show(ability ?: EoteAbility) : void
+    function show(ability ?: Supplement) : void
     {
         if(ability)
         {
             id.value = ability.id;
             name.value = ability.name;
-            description.value = ability.description;
+            description.value = ability.description ?? '';
             reference.value = normalizeReference(ability.reference);
         }
         else
@@ -136,12 +137,16 @@
             reference.value = '';
         }
 
-        // Show the modal
         innerModal.value?.show();
     }
 
     function hide() : void
     {
+        id.value = undefined;
+        name.value = '';
+        description.value = '';
+        reference.value = '';
+
         innerModal.value?.hide();
     }
 
@@ -149,7 +154,7 @@
     {
         if(isEdit.value)
         {
-            const ability = await supplementStore.update<EoteAbility>(mode.value, 'ability', {
+            const ability = await supplementStore.update<Supplement>(mode.value, 'ability', {
                 id: id.value,
                 name: name.value,
                 description: description.value,
@@ -161,7 +166,7 @@
         }
         else
         {
-            const ability = await supplementStore.add<EoteAbility>(mode.value, 'ability', {
+            const ability = await supplementStore.add<Supplement>(mode.value, 'ability', {
                 name: name.value,
                 description: description.value,
                 reference: reference.value,

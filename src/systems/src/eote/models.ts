@@ -43,11 +43,42 @@ export interface BaseAttachmentRef
     id : string;
 }
 
-export interface BaseAbility extends Supplement
+export interface SpeciesAbility
+{
+    name : string;
+    description : string;
+}
+
+export interface SpeciesSkillModifier
+{
+    skill : string;
+    startingRanks : number;
+    rankLimit ?: number;
+}
+
+export interface SpeciesTalentModifier
+{
+    talent : string;
+    startingRanks : number;
+}
+
+export interface BaseSpecies extends Supplement
 {
     id ?: string;
     description : string;
+    characteristics : BaseCharacteristics;
+    woundThreshold : number;
+    strainThreshold : number;
+    startingXP : number;
+    /** Inline abilities granted by this species/archetype */
+    abilities : SpeciesAbility[];
+    skillModifiers : SpeciesSkillModifier[];
+    /** Fixed talent modifiers (e.g., Bothan Convincing Demeanor) */
+    talentModifiers : SpeciesTalentModifier[];
 }
+
+/** Species/Archetype reference is just a supplement ID string */
+export type BaseSpeciesRef = string;
 
 export interface BaseTalent extends Supplement
 {
@@ -185,7 +216,8 @@ export interface BaseCharacteristics
 interface BaseSystemDetails
 {
     career : string;
-    species : string;
+    /** Supplement ID for species (EotE) or archetype (Genesys) */
+    speciesRef : string | null;
     characteristics : BaseCharacteristics;
     experience : {
         total : number;
@@ -223,7 +255,11 @@ export type EoteCharacteristics = BaseCharacteristics;
 export type EoteCriticalInjury = BaseCriticalInjury;
 export type EoteCritical = BaseCriticalInjuryEntry;
 export type EoteCriticalDetailConfig = BaseCriticalInjuryDetailConfig;
-export type EoteAbility = BaseAbility;
+export interface EoteSpecies extends BaseSpecies
+{
+    specialAbilities : string;
+}
+export type EoteSpeciesRef = BaseSpeciesRef;
 export type EoteSkill = BaseSkill;
 export type EoteGear = BaseGear;
 export type EoteGearRef = BaseGearRef;
@@ -344,7 +380,8 @@ export interface EoteCharacter extends Omit<Character, 'details'>
 //----------------------------------------------------------------------------------------------------------------------
 
 export type GenesysCritical = BaseCriticalInjuryEntry;
-export type GenesysAbility = BaseAbility;
+export type GenesysArchetype = BaseSpecies;
+export type GenesysArchetypeRef = BaseSpeciesRef;
 export type GenesysTalentInst = BaseTalentInst;
 
 export interface GenesysTalent extends BaseTalent

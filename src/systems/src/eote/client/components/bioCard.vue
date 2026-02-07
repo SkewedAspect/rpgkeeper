@@ -29,8 +29,8 @@
             </div>
             <div :class="{ 'd-flex': char.system === 'eote' }">
                 <div class="bio-line" :class="{ 'w-50': mode === 'eote' }">
-                    <b>Species<span v-if="char.system === 'genesys'">/Archetype</span>:</b>
-                    <span class="ms-1">{{ species }}</span>
+                    <b>{{ char.system === 'genesys' ? 'Archetype' : 'Species' }}:</b>
+                    <SpeciesTag :id="char.details.speciesRef" class="ms-1" />
                 </div>
                 <div class="bio-line" :class="{ 'w-50 ms-1': char.system === 'eote' }">
                     <b>Career:</b>
@@ -43,8 +43,23 @@
             </div>
             <div class="bio-line">
                 <b>Abilities:</b>
-                <AbilityTag v-for="id in abilities" :id="id" :key="id" class="ms-1" />
-                <span v-if="abilities.length === 0" class="ms-1">None</span>
+                <AbilityTag
+                    v-for="(ability, idx) in speciesAbilities"
+                    :key="`species-${ idx }`"
+                    :name="ability.name"
+                    :description="ability.description"
+                    :reference="String(species?.reference ?? '')"
+                    class="ms-1"
+                />
+                <AbilityTag
+                    v-for="ability in characterAbilities"
+                    :key="`char-${ ability.id }`"
+                    :name="ability.name"
+                    :description="ability.description ?? ''"
+                    :reference="String(ability.reference ?? '')"
+                    class="ms-1"
+                />
+                <span v-if="speciesAbilities.length === 0 && characterAbilities.length === 0" class="ms-1">None</span>
             </div>
         </div>
 
@@ -60,16 +75,21 @@
     import { storeToRefs } from 'pinia';
 
     // Interfaces
-    import type { EoteOrGenCharacter } from '../../models.ts';
+    import type { Supplement } from '@rpgk/core';
+    import type { EoteOrGenCharacter, SpeciesAbility } from '../../models.ts';
 
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';
-    import { useSystemStore } from '@client/lib/resource-access/stores/systems';
+    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Components
     import RpgkCard from '@client/components/ui/rpgkCard.vue';
     import EditModal from './modals/editBiographyModal.vue';
     import AbilityTag from './sub/abilityTag.vue';
+    import SpeciesTag from './sub/speciesTag.vue';
+
+    // Utils
+    import { useSpeciesLookup } from '../lib/useSpeciesLookup.ts';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -80,10 +100,10 @@
         name : string;
         description : string;
         career : string;
-        species : string;
+        speciesRef : string | null;
+        abilities : string[];
         specializations : string;
         forceSensitive : boolean;
-        abilities : string[];
     }
 
     interface Props
@@ -91,29 +111,41 @@
         readonly : boolean;
     }
 
-    const props = defineProps<Props>();
+    defineProps<Props>();
 
-    type Events = (e : 'save') => void;
-
-    const emit = defineEmits<Events>();
+    const emit = defineEmits<{
+        save : [];
+    }>();
 
     //------------------------------------------------------------------------------------------------------------------
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
     const { current } = storeToRefs(useCharacterStore());
+    const supplementStore = useSupplementStore();
     const editModal = useTemplateRef('editModal');
-    const systemStore = useSystemStore();
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const char = computed<EoteOrGenCharacter>(() => current.value as any);
-    const mode = computed(() => systemStore.current?.id ?? 'eote');
+    const char = computed<EoteOrGenCharacter>(() => current.value as EoteOrGenCharacter);
 
-    const abilities = computed(() => char.value.details.abilities);
-    const species = computed(() => char.value.details.species);
+    const speciesRef = computed(() => char.value.details.speciesRef ?? null);
+    const { mode, species } = useSpeciesLookup(speciesRef);
+
+    const speciesAbilities = computed<SpeciesAbility[]>(() => species.value?.abilities ?? []);
+
+    const allAbilitySupplements = computed(() => supplementStore.get<Supplement>(mode.value, 'ability'));
+
+    const characterAbilities = computed(() =>
+    {
+        const abilityIds = char.value.details.abilities ?? [];
+        return abilityIds
+            .map((abilityId) => allAbilitySupplements.value.find((supp) => supp.id === abilityId))
+            .filter((supp) : supp is Supplement => supp !== undefined);
+    });
+
     const career = computed(() => char.value.details.career);
     const specialization = computed(() =>
     {
@@ -125,8 +157,6 @@
 
         return 'Unknown';
     });
-
-    const readonly = computed(() => props.readonly);
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
@@ -143,15 +173,14 @@
         character.name = bio.name;
         character.description = bio.description;
         character.details.career = bio.career;
-        character.details.species = bio.species;
+        character.details.speciesRef = bio.speciesRef;
+        character.details.abilities = bio.abilities;
 
         if(character.system === 'eote')
         {
             character.details.specialization = bio.specializations;
             character.details.force.sensitive = bio.forceSensitive;
         }
-
-        character.details.abilities = bio.abilities;
 
         emit('save');
     }

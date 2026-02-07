@@ -54,7 +54,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, ref } from 'vue';
+    import { computed, nextTick, ref } from 'vue';
 
     // Models
     import type { Supplement, SupplementInst } from '@rpgk/core';
@@ -150,7 +150,10 @@
         if(supp?.id)
         {
             emit('add', { id: supp.id });
-            search.value = '';
+
+            // Clear after nextTick — the autocomplete overwrites the model with the
+            // serialized hit text after this handler returns.
+            nextTick(() => { search.value = ''; });
         }
     }
 </script>

@@ -4,14 +4,12 @@
 
 <template>
     <span class="eote-ability">
-        <BBadge :id="`ability-${ id }`">
-            {{ abilityName }}
+        <BBadge :id="`ability-${ uid }`">
+            {{ name }}
         </BBadge>
-        <BPopover :title="abilityName" :target="`ability-${ id }`" triggers="hover" placement="top" teleport-to="body">
-            <div :class="`${ mode }-system`">
-                <MarkdownBlock :text="abilityText" inline />
-                <Reference v-if="abilityReference" class="float-end mt-2 mb-2" :reference="abilityReference" />
-            </div>
+        <BPopover :title="name" :target="`ability-${ uid }`" triggers="hover" placement="top" teleport-to="body">
+            <MarkdownBlock :text="description" inline />
+            <Reference v-if="reference" :reference="reference" class="float-end mt-2" />
         </BPopover>
     </span>
 </template>
@@ -31,21 +29,11 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed } from 'vue';
-
-    // Models
-    import type { EoteAbility } from '../../../models.ts';
-
-    // Stores
-    import { useSystemStore } from '@client/lib/resource-access/stores/systems';
-    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
+    import { useId } from 'vue';
 
     // Components
-    import Reference from '@client/components/character/referenceBlock.vue';
     import MarkdownBlock from '@client/components/ui/markdownBlock.vue';
-
-    // Utils
-    import { normalizeReference } from '@client/lib/utils/misc';
+    import Reference from '@client/components/character/referenceBlock.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -53,29 +41,14 @@
 
     interface Props
     {
-        id : string;
+        name : string;
+        description : string;
+        reference ?: string;
     }
 
-    const props = defineProps<Props>();
+    defineProps<Props>();
 
-    const systemStore = useSystemStore();
-    const supplementStore = useSupplementStore();
-
-    //------------------------------------------------------------------------------------------------------------------
-    // Computed
-    //------------------------------------------------------------------------------------------------------------------
-
-    const mode = computed(() => systemStore.current?.id ?? 'eote');
-
-    const ability = computed(() =>
-    {
-        const abilities = supplementStore.get<EoteAbility>(mode.value, 'ability');
-        return abilities.find((item) => item.id === props.id);
-    });
-
-    const abilityName = computed<string>(() => ability.value?.name ?? 'Unknown');
-    const abilityText = computed<string>(() => ability.value?.description ?? 'Unknown ability.');
-    const abilityReference = computed<string>(() => normalizeReference(ability.value?.reference));
+    const uid = useId();
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->
