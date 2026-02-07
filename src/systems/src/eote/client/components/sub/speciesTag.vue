@@ -49,6 +49,12 @@
                     class="mb-2"
                 />
 
+                <!-- Special Abilities (EotE only) -->
+                <div v-if="eoteSpecialAbilities" class="abilities mb-2">
+                    <b>Special Abilities:</b>
+                    <MarkdownBlock :text="eoteSpecialAbilities" inline />
+                </div>
+
                 <!-- Abilities -->
                 <div v-if="species.abilities.length > 0" class="abilities mb-2">
                     <b>Abilities:</b>
@@ -59,15 +65,9 @@
                     </ul>
                 </div>
 
-                <!-- Special Abilities (EotE only) -->
-                <div v-if="eoteSpecialAbilities" class="abilities mb-2">
-                    <b>Special Abilities:</b>
-                    <MarkdownBlock :text="eoteSpecialAbilities" inline />
-                </div>
-
                 <!-- Skill Modifiers -->
                 <div v-if="species.skillModifiers && species.skillModifiers.length > 0" class="skills mb-2">
-                    <b>Starting Skills:</b>
+                    <b>Starting Skills: </b>
                     <span v-for="(mod, idx) in species.skillModifiers" :key="mod.skill">
                         {{ mod.skill }} {{ mod.startingRanks }}<span v-if="idx < species.skillModifiers.length - 1">, </span>
                     </span>
