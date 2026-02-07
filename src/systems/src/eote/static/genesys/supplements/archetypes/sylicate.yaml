@@ -1,0 +1,32 @@
+id: genesys-archetype-sylicate
+name: Sylicate
+description: Sylicates are sentient beings of stone and minerals who lack organic flesh and carbon-based physiologies.
+  Most of whom have a core of glowing energy; sometimes stone and minerals almost completely obscure the core, with only
+  the being's shining eyes revealing their inner energy. Other sylicates have an exposed core with layers of rock
+  flowing around it. Still others are quite solid, while a few are quasi-colloids made of sand and liquid that somehow
+  hold their form. Almost all are vaguely humanoid, though smaller pebblings are shapeless shards who can bounce and
+  even float about in the air until they achieve enough mass to form legs. As they age, many sylicates grow vibrant
+  crystals along their body. Most sylicates are quite durable. This high level of resiliency still may not have been
+  enough on their homeworld, a place sylicates refuse to speak of other than to mention eternal volcanic eruptions and
+  unending acidic storms. Possibly as a result, sylicates seem to love the new world they are on. They are almost
+  universally easygoing, with lifespans that are extraordinarily long. There are tales of sylicates who feel the need to
+  rest for a while and so lie down for a few hundreds of years. Others, the truly ancient ones, sit and simply grow in
+  size as they allow their accumulated wisdom and experience to seep into the ground below. Many mountains are believed
+  to be such sylicates, and smaller hills the gestation places from which one day new sylicates will emerge.
+characteristics:
+  brawn: 3
+  agility: 1
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 2
+woundThreshold: 11
+strainThreshold: 10
+startingXP: 95
+abilities:
+  - name: Tough as Rock
+    description: Decrease the difficulty to heal any Critical Injuries a sylicate is suffering from by one (Hard becomes
+      Average, Average becomes Easy, and so on). A sylicate doesn't suffer the normal penalties for making a Medicine
+      check to heal their own wounds or Critical Injuries.
+skillModifiers: []
+reference: SotC:36

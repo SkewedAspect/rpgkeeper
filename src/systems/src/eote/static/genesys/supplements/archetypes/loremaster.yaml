@@ -1,0 +1,21 @@
+id: genesys-archetype-loremaster
+name: Loremaster
+description: Even in a modern age, there is power to be gleaned from ancient knowledge. Loremasters know the importance
+  of crosses, silver, and other items against the supernatural, and often take the lead in defeating monsters.
+characteristics:
+  brawn: 1
+  agility: 2
+  intellect: 3
+  cunning: 2
+  willpower: 2
+  presence: 2
+woundThreshold: 8
+strainThreshold: 11
+startingXP: 100
+abilities:
+  - name: Know Its Weakness
+    description: Once per session, you may spend a Story Point to have your loremaster character increase the damage dealt
+      by all allies' combat checks by the loremaster's ranks in knowledge (supernatural) until the end of the
+      loremaster's next turn.
+skillModifiers: []
+reference: G-EPG:21

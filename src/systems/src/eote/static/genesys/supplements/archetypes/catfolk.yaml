@@ -1,0 +1,24 @@
+id: genesys-archetype-catfolk
+name: Catfolk
+description: Given their animalistic appearance, straightforward culture, and soft-spoken nature, it is easy for the
+  other races to see the Catfolk as lesser beings. They are surprisingly quick-witted and incredibly cunning, although
+  most are happy to "play primitive" if it gains them an advantage while bartering or fighting.
+characteristics:
+  brawn: 2
+  agility: 2
+  intellect: 1
+  cunning: 3
+  willpower: 2
+  presence: 2
+woundThreshold: 9
+strainThreshold: 8
+startingXP: 90
+abilities:
+  - name: Claws
+    description: "Catfolk possess sharp, retractable claws and may choose to attack with the following weapon profile:
+      (Brawl; Damage +1; Critical 3; Range [Engaged]; Vicious 1). [Table]"
+  - name: Fleet of Paw
+    description: Catfolk can perform a second maneuver to move without suffering strain. They still cannot exceed the
+      limitation of two maneuvers in a turn.
+skillModifiers: []
+reference: RoT:68

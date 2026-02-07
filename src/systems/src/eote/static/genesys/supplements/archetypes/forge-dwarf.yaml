@@ -1,0 +1,25 @@
+id: genesys-archetype-forge-dwarf
+name: Forge Dwarf
+description: Not all Dwarves feel that their destiny belongs underground. Like their ancestors of old, some of them wish
+  to spread out under the sky, an aspiration they can largely achieve in Terrinoth. These Forge Dwarves have made their
+  homes in Free Cities and baronial settlements across the Land of Steel, using their distinctive craftsmanship to
+  create their own fate. They wheel and deal alongside other races, content to make their home away from the shadows and
+  fire of the Molten Heath.
+characteristics:
+  brawn: 2
+  agility: 1
+  intellect: 2
+  cunning: 2
+  willpower: 3
+  presence: 2
+woundThreshold: 11
+strainThreshold: 10
+startingXP: 90
+abilities:
+  - name: Stubborn
+    description: Forge Dwarves add <setback></setback> to social skill checks targeting them.
+  - name: Tough as Nails
+    description: Once per session, a Dwarf may spend a Story Point as an out-of-turn incidental immediately after suffering
+      a Critical Injury and determining the result. If they do so, they count the result rolled as "01."
+skillModifiers: []
+reference: RoT:65

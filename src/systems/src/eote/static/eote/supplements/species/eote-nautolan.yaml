@@ -1,0 +1,63 @@
+id: eote-nautolan
+name: Nautolan
+description: |-
+  Nautolans are an amphibious species native to Glee Anselm. They are renowned for empathetic and cheerful natures and
+  for enjoying everyday activities. Though generally peaceful, they are also tough and strong.
+
+  **Physiology:** Nautolans are a natively aquatic humanoid species capable of breathing underwater. Webbed toes and
+  fingers aid them in swimming through the depths. A dense cartilaginous support network combines with a bony
+  endoskeleton to make them exceptionally tough. Lengthy green tendrils emerge from their heads, serving as sensory
+  organs that detect the pheromones of nearby sentients. Their large black eyes are adapted to pierce the murkiest
+  underwater environments. However, Nautolans are capable of surviving for extended periods on dry land.
+
+  Nautolans are an egg-laying species. When hatching, they emerge from the eggs as tadpoles. Arms, legs, and head-tails
+  begin to emerge during the second year of life, at which point they are roughly the same size as a human infant.
+  Initially, these limbs are not strong enough to support their weight on land, so most spend their early years in
+  aquatic environments.
+
+  **Society:** An elected Council of Elders forms the centralized government for Nautolan settlements. On Glee Anselm,
+  representatives from each settlement cooperate to form an overarching centralized government. Notably, ''elder" is a
+  title of respect, as representatives are elected based upon merit rather than age.
+
+  Nautolans mate for life and are extremely loyal to their families. Both parents contribute equally to raising their
+  young. Historically, Nautolan parents arranged marriages for their children, but in modern times this has become much
+  less common.
+
+  Nautolan moods often reflect those of nearby sentients due to the pheromone sensitivity of their tendrils. As a broad
+  generalization. Nautolans are happy and free-spirited, particularly when given an opportunity to pursue their
+  interests. However, when confronted with anger or despair, members of this empathetic species are prone to respond in
+  kind.
+
+  **Homeworld:** Glee Anselm is a Mid Rim world filled with a broad range of aquatic environments. Its few landmasses
+  are largely archipelagos. While Nautolans evolved in Glee Anselm's oceans, another unrelated species—the Anselmi—arose
+  to dwell upon its landmasses. Constant fighting over the land turned the Anselmi into a warlike people. This has led
+  to many conflicts throughout the world's history.
+
+  **Language:** Nautolans' native language is Nautila, which was originally created for underwater use. In atmosphere,
+  the language is largely unpronounceable, as it is dependent upon pheromones that are dispersed through the water in
+  conjunction with spoken sounds. Consequently, Nautolans invariably learn to speak another language, most commonly
+  Basic or Anselmian.
+characteristics:
+  brawn: 3
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 1
+  presence: 2
+woundThreshold: 11
+strainThreshold: 9
+startingXP: 100
+abilities:
+  - name: Amphibious
+    description: |-
+      Nautolans may breathe underwater without penalty and never suffer movement penalties for traveling through water.
+skillModifiers:
+  - skill: Athletics
+    startingRanks: 1
+    rankLimit: 2
+talentModifiers: []
+reference:
+  - F-CRB:59
+specialAbilities: |-
+  Nautolans begin the game with one rank in Athletics. They still may not train Athletics above rank 2 during character
+  creation.

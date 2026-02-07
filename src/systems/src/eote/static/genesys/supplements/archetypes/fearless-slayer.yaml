@@ -1,0 +1,21 @@
+id: genesys-archetype-fearless-slayer
+name: Fearless Slayer
+description: Those who stalk the monsters of the night can be terrifying individuals themselves. Consumed with
+  vengeance, they attack with all the fury of the creatures they hunt. One day, they will also fall, but not before they
+  end the existence of as many of their hated foes as possible.
+characteristics:
+  brawn: 3
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 1
+woundThreshold: 10
+strainThreshold: 9
+startingXP: 90
+abilities:
+  - name: Strike True
+    description: Once per session, when a fearless slayer inflicts a Critical Injury, you may spend one Story Point to roll
+      two separate results and choose which result to apply.
+skillModifiers: []
+reference: G-EPG:21

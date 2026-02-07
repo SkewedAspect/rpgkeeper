@@ -1,0 +1,63 @@
+id: eote-aleena
+name: Aleena
+description: |-
+  The diminutive Aleena are enthusiastic explorers and travelers, making them a common sight throughout the galaxy.
+  Renowned for their quickness and adaptability, Aleena readily embrace adventure, often in the form of competitive
+  sports, including Podracing. Some use their natural athleticism to fund their travels, working as entertainers or
+  athletes. Others take on service with military groups. Their small stature makes them ideally suited to roles as
+  explorers or scouts.
+
+  **Physiology:** Aleena are a reptilian species. Their skin is covered in scales that typically range in color from tan
+  to blue or purple. Their elongated skulls house two large eyes, a broad nose, and a large, tooth-filled mouth. The
+  curvature of their mouth suggests a perpetual smile to many non-Aleena. Mature Aleena average about eighty centimeters
+  in height.
+
+  Unlike many reptilian species, Aleena are warm-blooded. They maintain their body temperature in part through a
+  particularly rapid digestive system, believed to be a by-product of the competitive nature of their homeworld. The
+  ability to rapidly convert food into energy is tightly linked to the species’ characteristic quickness. Aleena are
+  omnivores who typically prefer very spicy cuisine, but there is no clear physiological basis for this preference.
+  Visitors to their homes and world are often surprised by the food's intensity.
+
+  **Society:** Aleena are fiercely loyal to their families. In their native cultures, extended families dwell together,
+  often sharing interlinked rooms within a larger structure. All Aleena within a village typically share blood ties.
+
+  This strong connection continues when they travel beyond their worlds of origin. It is rare for an Aleena to travel
+  alone. Instead, family members commonly travel together. In cases where a single Aleena travels as a performer,
+  relatives join the performer as an entourage. They rejoice in their kin’s success and offer comfort at times of
+  disappointment.
+
+  **Homeworld:** Aleen Minor is an Inner Rim world and the species’ planet of origin. It held membership in the Galactic
+  Senate for millennia. The world’s climate is unrelentingly harsh, and the planet is home to such vicious predators as
+  sagcatchers. Frequent travelers, Aleena have colonized other worlds,including Aleen, a world in the Mid Rim that many
+  galactic citizens understandably confuse with the Aleena world of origin. Their population has grown substantially
+  through their travels, such that far more Aleena live elsewhere in the galaxy than on Aleen Minor.
+
+  **Languages:** All Aleena are fluent in their native language of Aleena. Most also learn Basic, especially those who
+  choose to travel from their homeworld.
+
+  **Perception of the Force:** Aleena do not have their own distinct cultural Force tradition. As the Aleena were
+  long-time members of the Galactic Republic, the Jedi Order typically inducted young Aleena who evinced Force
+  sensitivity. Aleena familial loyalty sometimes created a conflict for Padawans. Family members reestablished contact
+  with their children, and many Aleena Jedi spent their careers upon Aleena. This was officially frowned upon by the
+  Jedi Order, because Aleena Jedi were seen as not contributing to the greater galaxy.
+characteristics:
+  brawn: 1
+  agility: 3
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 2
+woundThreshold: 8
+strainThreshold: 10
+startingXP: 95
+abilities: []
+skillModifiers:
+  - skill: Coordination
+    startingRanks: 1
+    rankLimit: 2
+talentModifiers:
+  - talent: Durable
+    startingRanks: 1
+reference:
+  - NoP:98
+specialAbilities: Aleena begin the game with one rank in Coordination. They still may not train Coordination above rank 2 during character creation. Aleena are smaller than average and count as silhouette 0.

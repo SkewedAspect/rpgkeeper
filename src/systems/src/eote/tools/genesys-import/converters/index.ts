@@ -22,8 +22,8 @@ export type { InternalAttachment } from './attachment.ts';
 export { convertGear, isGear } from './gear.ts';
 export type { InternalGear } from './gear.ts';
 
-export { convertAbility, convertAbilities, convertAllAbilities } from './ability.ts';
-export type { InternalAbility } from './ability.ts';
+export { convertArchetypes } from './archetype.ts';
+export type { InternalArchetype, InternalArchetypeAbility, InternalArchetypeSkillModifier } from './archetype.ts';
 
 export { fixTypos } from './typos.ts';
 

@@ -1,0 +1,83 @@
+id: eote-nikto
+name: Nikto
+description: |-
+  Perhaps the most well-known slaves of the Hutts, the fierce and humorless Niktos of Kintan have served their masters
+  for thousands of years, though not always with unwavering loyalty. Hardy and stoic, the five Nikto subspecies are a
+  common sight throughout Hutt Space and the Outer Rim Territories.
+
+  **Physiology:** Reptilian humanoids with tough, leathery skin and standing roughly the height of an average human, the
+  Niktos are a product of their harsh environment. Bombarded for thousands of years by gamma radiation from a nearby
+  magnetar star known as M'dweshuu, life on Kintan has had to adapt rapidly or face extinction. The frequency of
+  mutation among the Niktos has sped up their evolution, altering their genome thousands of times faster than would
+  otherwise be the case. The Niktos are capable of only very limited facial expression due to their lack of
+  well-developed mimetic musculature, and their eyes are protected by a thin, transparent membrane. Their seemingly
+  blank expressions and unblinking stares often cause others to underestimate their intelligence.
+
+  **Society:** Nikto civilization grew from necessity. Banding together to survive against their homeworld's fearsome,
+  mutated predators—vicious spine dragons, enormous trogwhales, and ferocious tuskbeasts among them—the Niktos learned
+  the value of cooperation as they worked together to tame and conquer their harsh world. Though racial tensions between
+  the various subspecies of Niktos resulted in several bloody, planetwide wars prior to the Treaty of Vontor, the Hutts
+  imposed a unified peace on the Niktos. While there are certain long-standing taboos against interbreeding among the
+  subspecies, children are occasionally born of mixed parentage. Most offspring of such couplings display only the
+  characteristics of one parent or the other; relatively few genuine hybrids are born.
+
+  Life for most Niktos is harsh, in spite of the "beneficence" of the Hutts, and they toil hard in the service of their
+  callous and cruel masters. Few Niktos are natural leaders, and servitude is simply a way of life—relatively few aspire
+  to anything more than bondage to a Hutt who has fewer sadistic tendencies than a Dark Lord of the Sith. Even so, there
+  is an undercurrent of yearning for freedom among the Niktos that has not been entirely extinguished by millennia of
+  slavery. Occasion-ally a Nikto will escape his master or purchase his freedom, but such an emancipated slave must
+  remain ever-vigilant lest he fall into the clutches of another Hutt.
+
+  **Homeworld:** The Niktos evolved on Kintan, a planet in the Si'klaata Cluster. It is a world of varied climates and
+  environments, from vast deserts and dry tundra to forested mountains and tropical archipelagoes. The unifying factor
+  on Kintan is M'dweshuu and its radiation, which permeates the whole planet, causing strange mutations among the
+  ecosystems. While the radiation levels are not lethal (at least not immediately), Kintan is still a dangerous, violent
+  world.
+
+  **Language:** Unlike the Klatooinians and Vodrans, the Niktos have not abandoned their own language. Most Niktos are
+  able to speak their native tongue, as well as Huttese. Many Niktos are also able to speak at least some Basic, though
+  the limited articulation of their mouths can make them somewhat difficult to understand.
+characteristics:
+  brawn: 3
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 1
+woundThreshold: 11
+strainThreshold: 10
+startingXP: 100
+abilities:
+  - name: Subspecies Options
+    description: |-
+      A player choosing to play a Nikto character must choose one of the following subspecies. No matter which
+      subspecies is chosen, no skills may be trained above rank 2 during character creation.
+
+
+      **Kajain'sa'Niktos (Red Niktos):** Kajain'sa'Niktos begin the game with one rank in Resilience. When making
+      skill checks, Red Niktos may remove <setback/> imposed due to arid or hot environmental conditions.
+
+
+      **Kadas'sa'Niktos (Green Niktos):** Kadas'sa'Niktos begin the game with one rank in Coordination. They also
+      gain <boost/> to Athletics checks made to climb trees and other surfaces their claws can pierce. When a Green
+      Nikto makes Brawl checks to deal damage to an opponent, he deals +1 damage and has a Critical Rating of 3.
+
+
+      **Esral'sa'Niktos (Mountain Niktos):** Esral'sa'Niktos begin the game with one rank in Survival. They also
+      gain the Natural Outdoorsman talent (once per game session, a Mountain Nikto may reroll any one Resilience or
+      Survival check).
+
+
+      **Gluss'sa'Niktos (Pale Niktos):** Gluss'sa'Niktos begin the game with one rank in Athletics. A Pale Nikto
+      never suffers movement penalties for traveling through water and can hold his breath for a number of rounds
+      equal to twice his Brawn rating before beginning to drown.
+
+
+      **M'shento'su'Niktos (Southern Niktos):** M'shento'su'Niktos begin the game with one rank in Perception.
+      Southern Niktos may add <boost/> to Perception and Vigilance checks to detect sounds.
+skillModifiers: []
+talentModifiers: []
+reference:
+  - LoNH:96
+specialAbilities: |-
+  Each Nikto subspecies has its own special abilities, listed below.

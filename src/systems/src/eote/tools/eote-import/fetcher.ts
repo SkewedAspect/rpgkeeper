@@ -18,6 +18,7 @@ import type {
     ItemDescriptorsDocument,
     SkillsDocument,
     SpecializationDocument,
+    SpeciesDocument,
     TalentsDocument,
     WeaponsDocument,
     XmlArmor,
@@ -26,6 +27,7 @@ import type {
     XmlItemDescriptor,
     XmlSkill,
     XmlSpecialization,
+    XmlSpecies,
     XmlTalent,
     XmlWeapon,
 } from './types.ts';
@@ -38,6 +40,7 @@ const REPO_URL = 'https://github.com/Septaris/OggDudes-Custom-Dataset-SW.git';
 const TEMP_DIR = join(tmpdir(), 'rpgk-eote-import');
 const DATA_DIR = 'DataCustom';
 const SPECIALIZATIONS_DIR = 'DataCustom/Specializations';
+const SPECIES_DIR = 'DataCustom/Species';
 
 /**
  * XML files to process
@@ -80,6 +83,10 @@ const xmlParser = new XMLParser({
             'Source',
             'WeaponModifier',
             'TalentRow',
+            'OptionChoice',
+            'Option',
+            'SkillModifier',
+            'TalentModifier',
         ];
 
         // Key should be an array only within TalentRows.TalentRow.Talents
@@ -238,6 +245,28 @@ export async function loadSpecializations(repoPath : string) : Promise<XmlSpecia
     return parseResults.filter((spec) : spec is XmlSpecialization => spec !== null);
 }
 
+/**
+ * Load all species from the Species directory
+ */
+export async function loadSpeciesData(repoPath : string) : Promise<XmlSpecies[]>
+{
+    const speciesDir = join(repoPath, SPECIES_DIR);
+    const files = await readdir(speciesDir);
+    const xmlFiles = files.filter((file) => file.endsWith('.xml'));
+
+    const parseResults = await Promise.all(
+        xmlFiles.map(async (file) =>
+        {
+            const filePath = join(speciesDir, file);
+            const content = await readFile(filePath, 'utf-8');
+            const doc = xmlParser.parse(content) as SpeciesDocument;
+            return doc.Species ?? null;
+        })
+    );
+
+    return parseResults.filter((spec) : spec is XmlSpecies => spec !== null);
+}
+
 //----------------------------------------------------------------------------------------------------------------------
 // Exported Interface
 //----------------------------------------------------------------------------------------------------------------------
@@ -255,6 +284,7 @@ export interface LoadedData
     qualities : XmlItemDescriptor[];
     skills : XmlSkill[];
     specializations : XmlSpecialization[];
+    species : XmlSpecies[];
 }
 
 /**
@@ -290,7 +320,10 @@ export async function fetchAndLoadData() : Promise<LoadedData>
     const specializations = await loadSpecializations(repoPath);
     console.info(`  - Loaded ${ specializations.length } specializations`);
 
-    return { armors, weapons, gear, talents, attachments, qualities, skills, specializations };
+    const species = await loadSpeciesData(repoPath);
+    console.info(`  - Loaded ${ species.length } species`);
+
+    return { armors, weapons, gear, talents, attachments, qualities, skills, specializations, species };
 }
 
 //----------------------------------------------------------------------------------------------------------------------

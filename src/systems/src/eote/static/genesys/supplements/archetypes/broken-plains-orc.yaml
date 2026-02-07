@@ -1,0 +1,22 @@
+id: genesys-archetype-broken-plains-orc
+name: Broken Plains Orc
+description: The Orcs who hunt the Broken Plains are among the most powerful, ferocious beings in the world. They live
+  the hard, lean life of nomads, following the great herds of elk, boars, and moose from one side of the Broken Plains
+  to the other, forging a society that is equally influenced by their spirit-based magic, brutal war axes, and fearsome
+  throwing spears.
+characteristics:
+  brawn: 3
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 1
+woundThreshold: 12
+strainThreshold: 8
+startingXP: 100
+abilities:
+  - name: Battle Rage
+    description: When making a melee attack, an orc can choose to add <setback></setback> to the check to add +2 to the
+      damage dealt by one hit of that attack.
+skillModifiers: []
+reference: RoT:67

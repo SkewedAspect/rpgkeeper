@@ -1,0 +1,33 @@
+id: genesys-archetype-goblin
+name: Goblin
+description: Like elves, goblins are generally diminutive and quick. The similarity, however, essentially ends there.
+  Goblins are almost universally tough and hardy; in their own way, they are more akin to the exceptionally loud and
+  violent giants than to the subtle elves. Most goblins have blue- or purple-hued skin stretched taut over an angular
+  face and long, sinewy arms. The wild and flowing tufts of brightly colored hair on their extremities give them the
+  appearance of having just received large electrical shocks. Their appearance fits well with their unruly social
+  behavior and wildly antagonistic approaches to many situations— approaches they often employ just to see what will
+  happen. When a spark is needed to launch a conflict, goblins are quick to provide the Æmber and flint. Fortunately,
+  their resilient nature helps them survive when things go bad. Goblins are quite competitive and are among the most
+  prominent gamblers on the Crucible. They are very adaptable too—a trait that has become an essential aspect of many
+  Crucible cultures. Adept engineers, they especially delight in constructing explosives of all types. Unfortunately,
+  most also disdain test protocols, blueprints, and trial runs. Instead, they tend toward a "Let's try it and find out!"
+  method of invention. Surprisingly, their creations and upgrades actually work slightly more often than they explode.
+  Perhaps also surprisingly, given how easily goblins are dismissed by other species due to their diminutive size, an
+  unusual number of goblins serve as respected shamans and other leadership positions. Many beings tend to underestimate
+  them, and so goblins tend to surprise friends and foes alike with unexpected expertise.
+characteristics:
+  brawn: 1
+  agility: 2
+  intellect: 3
+  cunning: 3
+  willpower: 2
+  presence: 1
+woundThreshold: 8
+strainThreshold: 10
+startingXP: 95
+abilities:
+  - name: More Upset than Injured
+    description: Once per session when a goblin suffers wounds, you may spend a Story Point to convert any number of those
+      wounds to half that number of strain (rounding up).
+skillModifiers: []
+reference: SotC:27

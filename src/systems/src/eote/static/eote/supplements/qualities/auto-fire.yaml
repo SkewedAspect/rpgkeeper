@@ -1,6 +1,6 @@
 id: eote-quality-auto-fire
 name: Auto-Fire
-description: >-
+description: |-
   A weapon with Auto-fire can be set to shoot in rapid succession and potentially spray an area with bolts, flechettes,
   slugs, or other types of projectiles. The advantage in using Auto-fire is that it has the chance to hit multiple
   targets or hit a single target multiple times.

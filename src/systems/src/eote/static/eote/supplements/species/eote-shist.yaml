@@ -1,0 +1,53 @@
+id: eote-shist
+name: Shistavanen
+description: |-
+  The Shistavanens, colloquially nicknamed wolfmen for their lupine appearance, are a biped species from the planets of
+  the Uvena system, such as Uvena Prime and Uvena III.
+
+  **Physiology:** Like most canine-based species, Shistavanens have pronounced muzzles, sharp claws, long pointed teeth,
+  and pointed ears set on top of their heads. Shistavanens also possess large glowing eyes, and can also run at high
+  speed for long periods without getting tired, alternately using two or four legs. As expected for a species of
+  hunters, they have a keen sense of hearing, keen sense of smell, and excellent night vision.
+
+  **Society:** As a species, the Shistavanens are isolationists. This is evident by the species colonizing all the
+  unpopulated worlds in the Uvena system to prevent them from being settled by non-Shistavanen settlers, their
+  restrictive trade laws (which were unapologetic in how they favored their own kind over off-world traders), and from
+  the fact that they do not mix with non-Shistavanens much. Most of their society uses technology similar to the rest of
+  the galaxy, though some parts of Uvena Prime use slightly less sophisticated technology.
+
+  A minority of Shistavanens are more outgoing, and travel the galaxy's hyperlanes. Even these Shistavanens usually
+  remain by themselves or with other Shistavanens. Due to their natural predatory instincts, keen sense of hearing,
+  excellent eyesight and sharp sense of smell, Shistavanens find common employment as scouts, mercenaries and bounty
+  hunters. Many non-Shistavanens react badly to Shistavanens, since their isolationist culture makes them an unfamiliar
+  sight, and their predatory appearance puts many other species on edge.
+
+  **Homeworld:** Uvena Prime, or Uvena I, is the home planet of the Shistavanens in the Uvena system. The species,
+  capable of hyperspace-level technology, emigrated to other uninhabited worlds of the system, including Uvena III, to
+  prevent strangers from outlying systems from arriving and settling them.
+
+  **Language:** Shistavanen is the native language of the Shistavanen species from Uvena Prime. This language is mainly
+  formed by growls and barks.
+
+  Since the time of the Galactic Empire, most Shistavanen have been fluent in both Shistavanen and Basic, although they
+  are only literate in their own language.
+characteristics:
+  brawn: 2
+  agility: 3
+  intellect: 3
+  cunning: 2
+  willpower: 1
+  presence: 1
+woundThreshold: 12
+strainThreshold: 10
+startingXP: 80
+abilities: []
+skillModifiers:
+  - skill: Brawl
+    startingRanks: 1
+  - skill: Survival
+    startingRanks: 1
+talentModifiers: []
+reference:
+  - FiB:24
+specialAbilities: Shistavanens may begin the game with one rank in either Brawl or Survival. They still may not train either
+  Brawl or Survival above rank 2 during character creation.

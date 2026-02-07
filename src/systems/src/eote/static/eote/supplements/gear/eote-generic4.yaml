@@ -1,6 +1,6 @@
 id: eote-generic4
 name: Medium-Large Item
-description: >-
+description: |-
   Use this item to represent any medium-large (Encumbrance 4) item.  Use the "Rename" button to give it a name, and the
   "Notes" button
         to describe the item.  If the item is purchased, be sure to deduct the cost from your credit total.

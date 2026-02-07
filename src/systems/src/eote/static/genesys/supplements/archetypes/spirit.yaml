@@ -1,0 +1,37 @@
+id: genesys-archetype-spirit
+name: Spirit
+description: In a world filled with bizarre sentients, spirits certainly stand out. Unlike organic or even inorganic
+  beings, spirits have no physical body. Each is made of energy of an unknown type and often appear as luminous forms.
+  Stories of spirits' origins vary as much as the colors they can manifest (many of which flow into spectra not visible
+  without expensive equipment). The spirits of Sanctum, for example, say that they came to be at the very moment of
+  their glorious Enlightenment. Each Sanctum spirit arises, they claim, from an act of extreme selflessness or
+  righteousness—an act so noble that it makes the being transcend physical form and burst forth with eternal light.
+  Other beings who could also be classified as spirits maintain they are artificial constructs who always existed on the
+  Crucible. Other spirits state they are simply another species brought to this world long ago and who wander the
+  impossible breadth of this world seeking new interests through which to stave off boredom. There are many other tales,
+  all equally improbable, yet all equally possible. What is known about spirits is that in order to interact normally
+  with the physical world, they need to wear containment suits, which can look like anything from heavy armor to simple
+  robes. Without these, it is a major effort for them just to lift a pebble or turn a page. For some spirits, life
+  without a containment suit is perfectly acceptable, as they loathe the mundane harshness of corporeal life. For
+  others, wearing the suits serves only to remind them of the vast gulf that exists between them and other sentients on
+  the Crucible.
+characteristics:
+  brawn: 1
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 3
+  presence: 2
+woundThreshold: 7
+strainThreshold: 12
+startingXP: 90
+abilities:
+  - name: Incorporeal
+    description: Your character lacks corporeal presence. When your character makes Brawn- or Agility-based checks, increase
+      the difficulty by two. When a corporeal character makes a Brawn- or Agility-based check targeting your character,
+      increase the difficulty by two. Your character increases their soak by their Willpower (in addition to their
+      Brawn). Your character can move through most mundane types of difficult and impassable terrain without penalty
+      (but cannot stop inside solid surfaces). None of the preceding effects of this rule apply while your character is
+      wearing armor. In addition, your character does not need to eat, breathe, or sleep.
+skillModifiers: []
+reference: SotC:35

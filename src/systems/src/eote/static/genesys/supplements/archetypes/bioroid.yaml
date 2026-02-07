@@ -1,0 +1,28 @@
+id: genesys-archetype-bioroid
+name: Bioroid
+description: This profile works for just about any humanoid robot with human-level intelligence and a certain degree of
+  free will. Because robots are built to meet certain specifications, we gave the bioroid low starting characteristics
+  but a lot of experience. That way, you can customize your characteristics and skills to represent any of the different
+  "models" of bioroid.
+characteristics:
+  brawn: 3
+  agility: 1
+  intellect: 1
+  cunning: 1
+  willpower: 1
+  presence: 1
+woundThreshold: 11
+strainThreshold: 8
+startingXP: 155
+abilities:
+  - name: Special Abilities (Bioroid)
+    description: Bioroids do not need to eat, sleep, or breathe, and are unaffected by toxins and poisons. Bioroids do not
+      reduce their strain threshold when they receive cybernetics (in the case of bioroids, the cybernetics can
+      represent upgraded mechanical components instead of true cybernetics).
+  - name: Inorganic (Bioroid)
+    description: Since bioroids are inorganic, they do not gain the benefits of healing wounds with painkiller or a Medicine
+      check. Bioroids can heal wounds and strain naturally by resting, as their systems attempt self-repairs. Bioroids
+      can also be "healed" by using the Mechanics skill instead of the Medicine skill, but otherwise following the
+      guidelines detailed on page 116.
+skillModifiers: []
+reference: G-CRB:17

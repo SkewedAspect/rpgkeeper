@@ -1,0 +1,23 @@
+id: genesys-archetype-burrow-gnome
+name: Burrow Gnome
+description: Burrow Gnomes are those who have mostly abandoned interactions with the other races. When they do leave
+  their comfortable homes, it is typically for trade, alliance building, espionage, or, of course, the lure of
+  adventure.
+characteristics:
+  brawn: 1
+  agility: 2
+  intellect: 2
+  cunning: 3
+  willpower: 1
+  presence: 3
+woundThreshold: 6
+strainThreshold: 11
+startingXP: 90
+abilities:
+  - name: Small
+    description: This character is silhouette 0.
+  - name: Militia Training
+    description: Burrow Gnomes add <boost></boost> to all combat checks that target characters who have a larger silhouette
+      than they do.
+skillModifiers: []
+reference: RoT:69

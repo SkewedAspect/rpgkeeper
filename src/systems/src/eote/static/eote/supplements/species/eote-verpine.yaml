@@ -1,0 +1,80 @@
+id: eote-verpine
+name: Verpine
+description: |-
+  Verpine are an insectoid sentient species from the Roche asteroids. Best known for their technological aptitude, the
+  Verpine are considered to be among the finest starship engineers in the galaxy.
+
+  **Physiology:** Verpine are thin bipedal insectoids, standing 1.9 meters tall on average. Unlike many insectoids,
+  including the Kibnon to which they are distantly related, the Verpine have only four limbs (two arms and two legs),
+  though there are instances of Verpine growing vestigial wings. Their heads are dominated by large compound eyes. They
+  also have two antennae, one located behind each eye. Their hardened carapace, composed of a green chitinous substance
+  called carahide, is as flexible as the skin of other creatures, yet tough enough to deflect a blade or even absorb a
+  glancing blaster bolt. The Verpine circulatory system does not contain a heart — at least, not an organ which Human
+  physiologists would identify as a heart.
+
+  Verpine eyes are keen enough to pick out microscopic details. Their antennae contain tympanic nerves which pick up
+  sound. Their antennae are also sensitive to radio waves, giving Verpine the natural ability to sense and transmit
+  radio waves to communicate with another Verpine in their language over distances on the order of one hundred
+  kilometers. Some observers mistake this nearly instant, silent communication for true telepathy. Thanks to their
+  natural radio communication network, their colonies are run as a consensus democracy, with all Verpine instantly
+  consulted on questions affecting the hive. Given their reliance on radio communication, Verpine frequently suffer
+  negative consequences when their antenna are damaged.
+
+  Verpine come in two types—intelligent, hermaphroditic Verpine and unintelligent worker drones. At the time of their
+  entrance into Galactic society, only five percent of Verpine were intelligent, but the demands of technological
+  civilization required the Verpine to restructure their society. After the change, egg-laying Verpine use a special
+  enzyme to ensure all eggs laid develop into intelligent Verpine. Any drones needed by a Verpine hive are produced via
+  cloning.
+
+  When a Verpine hive need more members, some of the fertile Verpine will be asked to lay eggs, while others will be
+  assigned to fertilize them. The eggs are cared for in colony incubators, and hatchlings are cared for by the entire
+  hive.
+
+  While hermaphrodite, there is evidence to indicate that individual Verpine have definite genders, either permanently
+  or at some point of their existences.
+
+  The fungus Magenge, which grows inside the asteroid colonies of the Verpine, form the basis of the Verpine diet.
+
+  **Society:** Verpine have variable naming customs. Some have single names such as Fxz'et, Zix, Ss's, or Moegid. Others
+  have first and last names such as Kuli Ned'lx, Kyli Ned'Ix, or Osos Niskooen. Many, though not all, Verpine names
+  contain sibilant consonants and glottal stops.
+
+  Verpines are also known to make highly sought after weapons such as the Verpine shatter gun, the Verpine headband, and
+  the Verpine prototype shield.
+
+  **Homeworld:** The Roche asteroid field, sometimes known simply as Roche, is a series of asteroids colonized by the
+  Verpine, including Nickel One (the capital), Slayn, Korpil, Roche G42, and Shantipole.
+
+  **Language:** Verpine is the native language of the Verpine species from Roche asteroid field.
+
+  Although Verpine language is usually spoken, Verpine can also use radio waves to communicate with other Verpine in
+  their language.
+
+  Most Verpine are fluent in both Verpine language and Basic, although they are only literate in their own language.
+characteristics:
+  brawn: 2
+  agility: 3
+  intellect: 3
+  cunning: 1
+  willpower: 2
+  presence: 1
+woundThreshold: 9
+strainThreshold: 12
+startingXP: 80
+abilities:
+  - name: Microvision
+    description: |-
+      The compound eyes of a Verpine are capable of seeing tiny, even microscopic, details. When closely examining an
+      object, Verpine characters add <boost/> to their Perception checks.
+  - name: Radio-wave Communication
+    description: |-
+      Verpine can produce and hear radio waves, which allows them to silently communicate with other Verpine and
+      specially tuned comlinks within a 100-kilometer range.
+skillModifiers:
+  - skill: Mechanics
+    startingRanks: 1
+    rankLimit: 0
+talentModifiers: []
+reference:
+  - SoR:102
+specialAbilities: Verpine begin the game with one rank in Mechanics. They still may not train Mechanics above rank 2 during character creation.

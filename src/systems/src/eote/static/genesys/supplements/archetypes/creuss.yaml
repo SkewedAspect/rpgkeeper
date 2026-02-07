@@ -1,0 +1,43 @@
+id: genesys-archetype-creuss
+name: Creuss
+description: The Creuss have the dubious distinction of being a species not of the material universe. They come from a
+  region of twisted and torn space known as the Shaleri anomaly. Here the physical laws of the universe begin to break
+  down. The heart of the anomaly is a wormhole known as the Creuss Gate, which leads to a universe completely unlike our
+  own, where exotic energies replace molecular bonds and coalesce into beings of light and radiation. These beings call
+  themselves the Creuss. In their natural state, they are nothing more than a wispy glow of fluctuating blue energy,
+  formless and insubstantial. Such beings have great difficulty interacting with the material universe, so in the
+  shattered space where the two universes meet, the Creuss have established foundries and stations where they can
+  manipulate solid matter. They create armor that can contain their ethereal forms and give them a physical presence,
+  and ships and equipment to further their interactions in the material universe.
+characteristics:
+  brawn: 1
+  agility: 2
+  intellect: 2
+  cunning: 1
+  willpower: 3
+  presence: 2
+woundThreshold: 7
+strainThreshold: 12
+startingXP: 100
+abilities:
+  - name: Incorporeal
+    description: Your character lacks corporeal presence. When your character makes Brawn- or Agility-based checks, increase
+      the difficulty by two. When a corporeal character makes a Brawn- or Agility-based check targeting your character,
+      increase the difficulty by two. Your character increases their soak by their Willpower (in addition to their
+      Brawn). Your character can move through most mundane types of difficult and impassable terrain without penalty
+      (but cannot stop inside solid surfaces). None of the preceding effects of this rule apply while your character is
+      wearing armor. In addition, your character does not need to eat, breathe, or sleep.
+  - name: Insubstantial Form
+    description: Creuss do not gain the benefits of healing wounds with dermal sealer (painkillers) or Medicine checks.
+      Creuss do heal wounds and strain naturally by resting. In addition, when they make a check to heal strain at the
+      end of an encounter, they may spend <advantage></advantage> to heal 1 wound (and may spend multiple
+      <advantage></advantage> to do so), and they may spend <advantage></advantage> equal to a Critical Injury's
+      severity (or <threat></threat>) to heal a Critical Injury.
+  - name: Ethereal Awareness
+    description: Once per session as an out-of-turn incidental, you may spend a Story Point to have your character become
+      aware of everything that is currently within long range of your character (this includes concealed enemies, hidden
+      passageways, and what is behind sealed doors).
+  - name: Environmental Suit
+    description: Your character starts the game with a sealed environmental suit.
+skillModifiers: []
+reference: EotI:22

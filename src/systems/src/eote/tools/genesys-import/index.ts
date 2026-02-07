@@ -9,7 +9,7 @@
 //
 // Options:
 //   --dry-run       Show what would be written without writing
-//   --type=TYPE     Only import specific type (talent, quality, weapon, armor, attachment, ability)
+//   --type=TYPE     Only import specific type (talent, quality, weapon, armor, attachment, archetype, gear)
 //   --book=ABBR     Only import from specific book (CRB, EPG, RoT, SotB, SotC, EotI)
 //   --mode=MODE     Import mode: replace (default), append, or merge
 //                   - replace: Overwrite all files (default behavior)
@@ -28,14 +28,14 @@ import { fetchAndLoadBooks } from './fetcher.ts';
 
 // Converters
 import {
-    type InternalAbility,
+    type InternalArchetype,
     type InternalArmor,
     type InternalAttachment,
     type InternalGear,
     type InternalQuality,
     type InternalTalent,
     type InternalWeapon,
-    convertAllAbilities,
+    convertArchetypes,
     convertArmors,
     convertAttachments,
     convertGear,
@@ -311,7 +311,7 @@ async function main() : Promise<void>
     const allArmors : InternalArmor[] = [];
     const allAttachments : InternalAttachment[] = [];
     const allGear : InternalGear[] = [];
-    const allAbilities : InternalAbility[] = [];
+    const allArchetypes : InternalArchetype[] = [];
 
     for(const [ filename, book ] of filteredBooks.entries())
     {
@@ -365,16 +365,12 @@ async function main() : Promise<void>
             allGear.push(...gearItems);
         }
 
-        // Convert abilities
-        if(!options.type || options.type === 'ability')
+        // Convert archetypes
+        if(!options.type || options.type === 'archetype')
         {
-            const abilities = convertAllAbilities(
-                book.adversaryAbility,
-                book.archetypeAbility,
-                filename
-            );
-            console.info(`  - Abilities: ${ abilities.length }`);
-            allAbilities.push(...abilities);
+            const archetypes = convertArchetypes(book.archetype, filename);
+            console.info(`  - Archetypes: ${ archetypes.length }`);
+            allArchetypes.push(...archetypes);
         }
     }
 
@@ -386,7 +382,7 @@ async function main() : Promise<void>
     const armors = deduplicateById(allArmors);
     const attachments = deduplicateById(allAttachments);
     const gear = deduplicateById(allGear);
-    const abilities = deduplicateById(allAbilities);
+    const archetypes = deduplicateById(allArchetypes);
 
     console.info(`  - Talents: ${ allTalents.length } -> ${ talents.length }`);
     console.info(`  - Qualities: ${ allQualities.length } -> ${ qualities.length }`);
@@ -394,7 +390,7 @@ async function main() : Promise<void>
     console.info(`  - Armors: ${ allArmors.length } -> ${ armors.length }`);
     console.info(`  - Attachments: ${ allAttachments.length } -> ${ attachments.length }`);
     console.info(`  - Gear: ${ allGear.length } -> ${ gear.length }`);
-    console.info(`  - Abilities: ${ allAbilities.length } -> ${ abilities.length }`);
+    console.info(`  - Archetypes: ${ allArchetypes.length } -> ${ archetypes.length }`);
 
     // Write files
     console.info('\nWriting files...');
@@ -442,7 +438,7 @@ async function main() : Promise<void>
     await writeItemsToDirectory(armors, 'armor', 'armors');
     await writeItemsToDirectory(attachments, 'attachment', 'attachments');
     await writeItemsToDirectory(gear, 'gear', 'gear');
-    await writeItemsToDirectory(abilities, 'ability', 'abilities');
+    await writeItemsToDirectory(archetypes, 'archetype', 'archetypes');
 
     console.info(`\n${ '='.repeat(80) }`);
     console.info('Import complete!');

@@ -1,0 +1,29 @@
+id: genesys-archetype-winnu
+name: Winnu
+description: The Winnu are one species with two distinctly separate cultures. The first are the Winnaran Custodians,
+  citizens of Mecatol Rex and guardians of the throneworld until the day when a new emperor arises. The second are the
+  Winnu of their ancestral homeworld. The Winnaran Custodians tend to be a studious, dutiful lot, with a dour demeanor
+  bred from millennia of caring for a shattered world. Their Winnu cousins could not be more different. All Winnu are a
+  bipedal humanoid species with hairless, green skin that denotes a very distant reptilian ancestry. Biologically they
+  don't have any particularly distinguishing characteristics; they're omnivorous and warm-blooded, and have adapted to a
+  range of climates. Socially, however, both Winnu cultures tend to be very strong-willed. Whether this a coincidence or
+  evidence of some deep-seated genetic trait is up for debate. But even as the Winnu of their homeworld insist on their
+  right to rule and call their cousins weak and submissive, they forget that the Winnaran Custodians have preserved the
+  shattered throneworld of Mecatol Rex for over three millennia, and thus far have not relinquished it to any claimant.
+characteristics:
+  brawn: 2
+  agility: 1
+  intellect: 2
+  cunning: 1
+  willpower: 3
+  presence: 3
+woundThreshold: 9
+strainThreshold: 10
+startingXP: 90
+abilities:
+  - name: Righteous
+    description: Once per session when your character is targeted by a skill check (this includes combat checks and social
+      skill checks), you may spend a Story Point to add <failure></failure><failure></failure><failure></failure> to the
+      results.
+skillModifiers: []
+reference: EotI:35

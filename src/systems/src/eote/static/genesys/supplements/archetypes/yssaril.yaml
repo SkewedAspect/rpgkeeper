@@ -1,0 +1,31 @@
+id: genesys-archetype-yssaril
+name: Yssaril
+description: Long ago, many civilizations dismissed the Yssaril as a "primitive" people ripe for exploitation. That was
+  before they fought the Lazax Empire to a bloody stalemate, eventually forcing it to withdraw from the Yssaril
+  homeworld of Retillion and Shalloq—and before the Yssaril began to use their talents for infiltration and covert
+  operations to play against the Great Civilizations and earn their own spot on the Galactic Council. Now the Yssaril
+  are citizens of the galaxy, but many still remember their historical mistreatment at the hands of others. Yssaril are
+  amphibious bipeds with mottled, green skin and large, lamp-like yellow eyes who typically grow to just over a meter in
+  height. They have a natural chameleonic ability that allows them to blend into their surroundings, and they can even
+  suppress their body temperature and slow their heart rate to make themselves hard to detect with thermal readers and
+  bioscans. This ability combined with their small stature makes them exceptionally good at sneaking and spying,
+  although plenty of Yssaril choose to follow other life paths.
+characteristics:
+  brawn: 1
+  agility: 2
+  intellect: 2
+  cunning: 4
+  willpower: 2
+  presence: 1
+woundThreshold: 8
+strainThreshold: 10
+startingXP: 90
+abilities:
+  - name: Diminutive
+    description: A Yssaril is silhouette 0.
+  - name: Chameleonic
+    description: May spend a Story Point to add <success></success><success></success> to the results of any Stealth check
+      this character makes or to add <failure></failure><failure></failure> to the results of a Vigilance or Perception
+      check another character makes to detect this character.
+skillModifiers: []
+reference: EotI:37

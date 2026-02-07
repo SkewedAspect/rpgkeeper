@@ -267,18 +267,43 @@ export interface ExternalArmor extends ExternalGearBase
 export type ExternalGear = ExternalWeapon | ExternalAttachment | ExternalArmor | ExternalGearBase;
 
 //----------------------------------------------------------------------------------------------------------------------
-// Ability Types
+// Archetype Types
 //----------------------------------------------------------------------------------------------------------------------
 
 /**
- * Ability from external source (adversaryAbility or archetypeAbility)
+ * Archetype skill configuration
  */
-export interface ExternalAbility
+export interface ExternalArchetypeSkills
+{
+    skills : string[];
+    ranksTotal : number;
+    ranksEach : number;
+    description : string[];
+    choice : boolean;
+}
+
+/**
+ * Archetype from external source
+ */
+export interface ExternalArchetype
 {
     name : string;
+    characteristics : {
+        brawn : number;
+        agility : number;
+        intellect : number;
+        cunning : number;
+        willpower : number;
+        presence : number;
+    };
+    wt : number; // wound threshold
+    st : number; // strain threshold
+    xp : number; // starting XP
+    skills ?: ExternalArchetypeSkills;
+    abilities ?: string[];
     description : VaryingDisplay;
-    tags ?: string[];
-    id ?: string;
+    settings ?: SettingReference[];
+    page ?: number;
 }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -311,12 +336,10 @@ export interface ExternalBook
     talent ?: ExternalTalent[];
     quality ?: ExternalQuality[];
     gear ?: ExternalGear[];
-    adversaryAbility ?: ExternalAbility[];
-    archetypeAbility ?: ExternalAbility[];
+    archetype ?: ExternalArchetype[];
 
     // Types we skip
     adversary ?: unknown[];
-    archetype ?: unknown[];
     career ?: unknown[];
     skill ?: unknown[];
     spell ?: unknown[];

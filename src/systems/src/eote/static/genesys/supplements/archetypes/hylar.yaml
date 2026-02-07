@@ -1,0 +1,36 @@
+id: genesys-archetype-hylar
+name: Hylar
+description: "The Hylar are actually a collection of closely related subspecies hailing from the twin oceanic worlds of
+  Jol and Nar. All of the Hylar variants are distinctly aquatic, but they range from subspecies that can breathe air and
+  survive out of the water for weeks at a time to Hylar who only possess gills and cannot live unless they are
+  continuously submerged. Still, each of the subspecies has similar physical characteristics: an oversized head with
+  bulbous eyes; slick, smooth skin; and thin, flexible limbs ending in finned appendages. Most notably, all subspecies
+  of Hylar also have a large and highly developed brain. Many xenobiologists agree that this could be an evolutionary
+  compensation for their soft bones and lack of physical strength. The Hylar have made the most of this ability
+  throughout their species' history, and even those who do not serve the Universities of Jol-Nar often find themselves
+  in jobs that leverage their significant innate intellect."
+characteristics:
+  brawn: 1
+  agility: 2
+  intellect: 4
+  cunning: 2
+  willpower: 1
+  presence: 2
+woundThreshold: 7
+strainThreshold: 8
+startingXP: 90
+abilities:
+  - name: Vast Intellect
+    description: Once per session, you may spend a Story Point as an incidental before your character makes a skill check to
+      count their ranks in the skill being used as equal to their Intellect.
+  - name: Aquatic
+    description: This creature suffers no penalties for moving through water and can breathe underwater, but cannot move or
+      survive on land.
+  - name: Species Variants
+    description: Your character can start the game either as an air-breathing Hylar or as a water-breathing Hylar. If they
+      start the game as an air-breathing Hylar, they can also function normally in all oxygen atmospheres. If they start
+      the game as a water-breathing Hylar, they gain 5 additional starting XP. However, if exposed to the air, they
+      follow the rules for drowning (see page 111 of the Core Rulebook). They also start the game with a sealed
+      environmental suit (see page 117).
+skillModifiers: []
+reference: EotI:27

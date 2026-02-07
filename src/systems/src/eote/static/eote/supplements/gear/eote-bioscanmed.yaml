@@ -1,6 +1,6 @@
 id: eote-bioscanmed
 name: Bioscan (Medical)
-description: >-
+description: |-
   A healer must be able to recognize any anomalies in a patient's biological makeup in order to properly cure an injury.
   A bioscan is capable of identifying an individual's species, age, and condition based upon a given set of parameters.
   It can also recognize any disruptions to the anatomy from injuries or diseases, as well as deliberate modifications

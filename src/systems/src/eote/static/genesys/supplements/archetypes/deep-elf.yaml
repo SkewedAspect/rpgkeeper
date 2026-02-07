@@ -1,0 +1,29 @@
+id: genesys-archetype-deep-elf
+name: Deep Elf
+description: "All Elves feel the pain and loss of falling from the Empyrean to dwell among the younger races, and many
+  are striving to ascend again. However, the Tribe of the Deep Elves feels an additional, far more ignoble shame: they
+  fell not once but twice, the second time to Malcorne's corruption. Those who survived the War of the Shadow Tear—the
+  darkness that enveloped Mennara long before the mortal races came into being—have spent their long lives trying to
+  atone by hunting Ynfernael creatures wherever they are found. The Deep Elves have an almost singular focus in this
+  crusade and will stop at nothing to purge the Ynfernael from the world, as well as purge their still-fallen
+  counterparts, the Daewyl Elves. However, there are those who feel that this drive is leading their clan down a
+  dangerous path, as their search for a strategic advantage finds them ever more willing to embrace any power that may
+  help them in their quest. This means that many Elves, including some among the Deep Elves themselves, are watching
+  things unfold with a wary eye, guarding diligently against the day when the rest of the Elves might again be forced to
+  wage war against their cousins."
+characteristics:
+  brawn: 2
+  agility: 3
+  intellect: 2
+  cunning: 2
+  willpower: 1
+  presence: 2
+woundThreshold: 9
+strainThreshold: 10
+startingXP: 90
+abilities:
+  - name: Ynfernael Lore
+    description: Deep Elves gain Knowledge (Forbidden) as a career skill and begin with two ranks in Knowledge (Forbidden).
+      You still cannot train their Knowledge (Forbidden) above rank 2 during character creation.
+skillModifiers: []
+reference: RoT:63

@@ -1,0 +1,30 @@
+id: genesys-archetype-the-laborer
+name: The Laborer
+description: The laborer archetype represents a character who has a background in some form of manual labor, and who is
+  generally strong and tough. You should choose this archetype if you're planning on making a character who focuses on
+  fighting, especially fighting in melee combat. You should also choose this archetype if your character has a
+  background of manual labor and hard work. This archetype starts with the Brawn characteristic at 3 and the Willpower
+  characteristic at 1. You're starting with a character who has better than average Brawn (which makes it easier to
+  improve Brawn further), with the trade-off that your character has a worse than average Willpower. You'll have to
+  either spend valuable experience points buying that back to 2, or be satisfied with this drawback. Likewise, your
+  character's wound threshold is higher than average, but your strain threshold is lower than average. Finally, this
+  archetype gets a special ability that lets you turn a single Critical Injury result that your character suffers into
+  the mildest Critical possible. Not only does this protect your character from some debilitating Crit results, but
+  since the only way to permanently die in our game is through some Critical effects, this can even save your character
+  from certain death.
+characteristics:
+  brawn: 3
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 1
+  presence: 2
+woundThreshold: 12
+strainThreshold: 8
+startingXP: 100
+abilities:
+  - name: Tough as Nails (Laborer)
+    description: Once per session, your character may spend a Story Point as an out-of-turn incidental immediately after
+      suffering a Critical Injury and determining the result. If they do so, they count the result rolled as "01."
+skillModifiers: []
+reference: G-CRB:37

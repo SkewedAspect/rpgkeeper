@@ -1,0 +1,23 @@
+id: genesys-archetype-sorcerer
+name: Sorcerer
+description: In many mythologies, a person is born a magic user; magic is not a skill that can be learned or taught.
+  This archetype plays into this concept, and should only be used if the game is using the magic alternative rules
+  starting on page 210 of the Genesys Core Rulebook. It also plays with the idea that magic is something that is feared
+  in most mythologies.
+characteristics:
+  brawn: 1
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 2
+woundThreshold: 9
+strainThreshold: 11
+startingXP: 115
+abilities:
+  - name: Supernatural Suspicion
+    description: Once per session after this character makes a magic skill check, you may spend a Story Point to reroll one
+      or more dice of your choice in the pool. After doing so, all NPCs in the current encounter gain an aversion of
+      this character and their supernatural nature as a Fear facet of their Motivation
+skillModifiers: []
+reference: G-EPG:11

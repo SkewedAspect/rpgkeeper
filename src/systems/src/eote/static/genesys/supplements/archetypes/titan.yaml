@@ -1,0 +1,29 @@
+id: genesys-archetype-titan
+name: Titan
+description: Though the Titans may appear to be massive automata, they are in fact living biomechanical beings. Made by
+  the ancient Mahact Gene-Sorcerers to be the perfect servants, they have since evolved into an independent species who
+  bear no loyalty to their creators. Instead, most of the Titans have gathered on their homeworld of Elysium to
+  construct their own society. Titans are all bipeds who are entirely covered in massive plates of metallic armor. Their
+  eyes glow like photoreceptors, and their hands are massive manipulator claws. Nothing of their appearance suggests
+  anything but machine artifice. However, their bodies are constantly living, healing, and growing, albeit slowly.
+  Complex silicate polymers replace carbon-based tissues, a complex digestive system breaks down nonbiological materials
+  into useful building blocks, and thick circulatory fluids carry vital minerals throughout their bodies. They sleep to
+  give their minds a chance to rest and process, and although they do not die of natural causes, they can be killed.
+characteristics:
+  brawn: 4
+  agility: 1
+  intellect: 2
+  cunning: 1
+  willpower: 2
+  presence: 3
+woundThreshold: 14
+strainThreshold: 7
+startingXP: 60
+abilities:
+  - name: Titanic
+    description: A Titan is silhouette 2 and increases their encumbrance threshold by 4.
+  - name: Biomechanical
+    description: A Titan does not need to breathe and can survive in vacuum without protection. They do need to sleep and
+      consume moderate amounts of silicates and other minerals to survive.
+skillModifiers: []
+reference: EotI:34

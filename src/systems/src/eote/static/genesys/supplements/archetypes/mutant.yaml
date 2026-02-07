@@ -1,0 +1,29 @@
+id: genesys-archetype-mutant
+name: Mutant
+description: The mutant presented here is a basic brute. Since mutation is so fickle, we've given the mutant low
+  starting characteristics and a fair amount of experience. Using this basic template, players can customize their
+  mutant to their heart's content to make the perfect character.
+characteristics:
+  brawn: 2
+  agility: 1
+  intellect: 1
+  cunning: 2
+  willpower: 1
+  presence: 1
+woundThreshold: 10
+strainThreshold: 10
+startingXP: 160
+abilities:
+  - name: Just a Scratch
+    description: When making a check to recover strain at the end of an encounter, a mutant may use resilience instead of
+      discipline or cool. In addition, a mutant may spend <advantage></advantage><advantage></advantage> from that check
+      to heal 1 wound (and they may do so multiple times).
+  - name: Mutation
+    description: "Before spending starting experience, choose one of the following abilities for your mutant character: -
+      Flyer: Your mutant character can fly. See page 100 of the Genesys Core Rulebook for details on flying. -
+      Amphibious: Your mutant character can breathe underwater and move through water without penalty. - Scaly Hide:
+      Increase your mutant character's soak by +1. - Multiple Limbs: Your mutant character gains an additional free
+      maneuver per turn. They still may not perform more than two maneuvers during their turn. - Natural Weapons: Your
+      mutant character's unarmed attacks have their damage increased by +2 and have a Critical rating of 3."
+skillModifiers: []
+reference: G-EPG:33

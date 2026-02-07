@@ -1,0 +1,30 @@
+id: genesys-archetype-the-aristocrat
+name: The Aristocrat
+description: The aristocrat archetype represents any character who has the gift of a silver tongue. This could be a
+  noble of some sort, a politician, a bard, or even a salesperson or merchant. You should use this archetype if you want
+  to build a character who fits one of these molds. You should also choose this archetype if your character is good at
+  communicating. This archetype starts with the Presence characteristic at 3 and the Brawn characteristic at 1.
+  Unsurprisingly, this means you're starting with a character who already has a good Presence, and whose Presence can be
+  improved easily. However, the low Brawn (and thus low wound threshold and soak) means your character won't be much of
+  a combatant without a major investment in experience points. You also have an average starting wound and strain
+  threshold. Your character's starting ability is good on its own, but it can be paired with a number of talents or
+  social encounter actions for some really powerful effects. Coupled with the archetype's starting characteristics, this
+  archetype is perfect for characters who want to dominate social situations (even if they're not very good at
+  fighting)!
+characteristics:
+  brawn: 1
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 3
+woundThreshold: 10
+strainThreshold: 10
+startingXP: 100
+abilities:
+  - name: Forceful Personality
+    description: Once per session, your character may spend a Story Point as an incidental. If they do so, during the next
+      skill check they make during that turn, your character doubles the strain they inflict or the strain they heal
+      (you choose before making the check).
+skillModifiers: []
+reference: G-CRB:39

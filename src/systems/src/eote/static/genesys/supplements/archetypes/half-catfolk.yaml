@@ -1,0 +1,24 @@
+id: genesys-archetype-half-catfolk
+name: Half-Catfolk
+description: Though village-dwelling Catfolk predominantly keep to themselves, those exiled into the world must find
+  their place among the other races. This often leads to love, marriage, and offspring. Half-Catfolk most often retain
+  the reflexes, senses, and coordination of their Catfolk parent, but commonly gain the aesthetics of their other
+  parent's species. Many Half-Catfolk appear as heavily furred Humans with cat-like ears and clawed fingers, though
+  there are nearly limitless variations. While most of the nearby societies accept such beings for what they are,
+  full-blooded Catfolk see them as the byproducts of unworthy exiles. Thus, Half-Catfolk are often shunned and ridiculed
+  by their pure-blooded cousins.
+characteristics:
+  brawn: 2
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 2
+woundThreshold: 10
+strainThreshold: 9
+startingXP: 100
+abilities:
+  - name: Catfolk Ancestry
+    description: Half-Catfolk choose either the Claws or Fleet of Paw special ability from the Catfolk entry.
+skillModifiers: []
+reference: RoT:68

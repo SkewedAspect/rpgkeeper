@@ -1,0 +1,44 @@
+id: eote-lasat
+name: Lasat
+description: |-
+  The Lasan Honor Guard is an ancient order protecting the royal family. Rich in tradition, it is intertwined with the
+  fortunes of the royal family and Lasan, and it embodies strict codes of honor and etiquette. Very few of the Honor
+  Guard, notably Rebel Spectre-4 Garazeb “Zeb” Orrelios, survived Lasan’s destruction at the hands of the Empire.
+
+  These elite fighters are experts in hand-to-hand combat, as well as ranged and melee weapons. The Honor Guard’s
+  traditional weapon, the bo-rifle, combines all of these elements and more. The large weapon transforms into several
+  different modes and can be collapsed to a length of a little more than a meter for easier carrying. It is most
+  commonly extended in a double-ended electro-staff mode or deployed as a blaster rifle. Much like a sword in other
+  cultures, the bo-rifle is highly symbolic. It is an honor to wield, and Guards are offended when unworthy individuals
+  use the weapon. The bo-rifle even has a little-known ancient configuration used in mystical Lasan Ashla rituals. This
+  sometimes produces incredible results, such as making a starship pilot itself through hyperspace. A defeated Guard,
+  though, may give their bo-rifle to an enemy who has bested them.
+
+  The surviving Lasat are fugitives from the Empire’s wrath, and encountering even one member of the Lasan Honor Guard
+  is an extreme rarity. Most have likely moved to the fringes of society and the galaxy. A few may be searching for the
+  mythical Lasat homeworld of Lira San.
+
+  Members of the Honor Guard are very dangerous. Capable of destroying entire squads of troops, they are unafraid of
+  picking up individual enemies and hurling them toward other targets. While it is possible for a member to work for
+  anyone needing muscle, their code of honor typically deters them from working for violent criminals and other noxious
+  forces.
+characteristics:
+  brawn: 3
+  agility: 3
+  intellect: 2
+  cunning: 1
+  willpower: 2
+  presence: 1
+woundThreshold: 12
+strainThreshold: 10
+startingXP: 90
+abilities:
+  - name: Prehensile Feet
+    description: Lasats can move along a vertical surface as if the surface was horizontal.
+skillModifiers: []
+talentModifiers: []
+reference:
+  - AaA:19
+specialAbilities: |-
+  Lasats begin the game with one rank in either Brawl or Knowledge (Lore). They still may not train either skill
+  above rank 2 during character creation.

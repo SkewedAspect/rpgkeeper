@@ -1,0 +1,89 @@
+id: eote-clone
+name: Clone
+description: |-
+  Most citizens of the Galactic Republic regard clones as being synonymous with the Grand Army of the Republic.
+  Considered to be as faceless, identical, ones emotionless as the members of droid army they fight, clones know of
+  their origins and purpose. Rather than struggle against their destiny, most Republic clones fully accept their
+  engineered life, celebrating their bonds of purpose and background.
+
+  From a certain point of view, the clones of the Grand Army of the Republic have the strongest ethical fabric in the
+  galaxy. They fight for a greater good: the safety and protection of the Galactic Republic. They willingly sacrifice
+  themselves for - their brothers-in-arms. The majority would never even consider betraying those ideals. What other
+  sentient can say that?
+
+  **Physiology:** Physically identical, and based on the genetic template of bounty hunter Jango Fett, clones can be
+  considered standard humans-though they age at a vastly accelerated rate as a necessity for the creation and
+  sustainment of the fighting force. When decanted, almost all clones share Jango Fett’s black hair, dark-brown eye
+  color, and olive skin tone, Some genetic variants exist, although most are confined to Kamino as case studies-or
+  embarrassments.
+
+  **Society:** Genetically tailored to obedience and trained for loyalty, clones develop a sense of family with their
+  peers and many of their commanders, who are like their brothers and wise elders. Even though Jedi Knights and Jedi
+  Masters serve as general and high-ranked commanders, shaping and deeply affecting the clones' lives, clones don’t
+  consider them family. for example, even though it could be argued that Jedi Master Sifo-Dyas was responsible for the
+  clones' existence, the clones instead consider the near-mythologized Jango Fett to be their father figure.
+
+  Despite the common public perception, clones of the Grand Army do have individual traits and personalities. Most have
+  individual nicknames, and even clone commanders identify each of their soldiers with particular skills and talents.
+  After all, if one clone soldier has shown competence in an ability, such as demolitions, his commander has to be able
+  to identify and order him to perform that task. As sentient beings, the clones recognize not only their similarities
+  to but also their differences from each other; despite their rigorous military training, they experience unintentional
+  social pressures from their peers both to conform and to stand out. A clone soldier who takes on a reckless—but
+  successful—action gets called "reckless" by his peers. This gives him a reputation for recklessness, which, strangely
+  enough, might compel the clone to undertake further brash actions. The intensity of war exacerbates this tendency, so
+  the older and more seasoned a clone gets, the more personality quirks he develops.
+
+  Of course, the rare clones who escape the military program accrue a haphazard education, usually focused on surviva.l
+  Nevertheless, they retain many of their military habits. Despite their personality quirks and personal beliefs, these
+  runaway clones still refer to their peers as "brothers."
+
+  **Homeworld:** All clones come from Kamino, and official Republic documents likewise record it as the homeworld of
+  each clone. Like any natural species, dones feel a great regard for their homeworld and are fiercely protective of it.
+
+  As an engineered people in service to the Republic, clones of the Grand Army tend to see their fellow soldiers as
+  family, dead comrades as ancestors, new recruits as descendants, and their ships or barracks as their places of work.
+  Clones generally have little reason to return to Kamino, yet the word “home” conjures thoughts of the planet,
+  especially after the Separatists' attempted invasion.
+
+  **Language:** Clones speak Basic. the language of the Galactic Republic. While they have the capability to learn new
+  languages, military life restricts them for the most part to practical military knowledge. Continued exposure to other
+  cultures may give them time to learn, but not enough to be fluent. Time in the field tends to pepper a clone's
+  language with military jargon and slang, such as “clankers” or "rollers" (for droids), “poppers” (grenades), and
+  “shinies” (rookies), and acronyms such as BLOB, which means “big lump on board"—or useless civilian— and FIDO, which
+  means “forget it, drive on.”
+
+  **Life under the Republic:** Most Republic clones don't interact often with the citizens they have sworn to protect.
+  They may speak with Jedi or with Republic government officials, but mostly in the context of receiving orders or
+  mission briefings. Clone troopers live a regimented life in military barracks at sector headquarters The Republic
+  military even governs their recreation. scheduling games and competitions, both physical and intellectual. Study and
+  additional learning focuses on combat tactics, strategy, military history, and leadership. The learning programs
+  include courses on military and civilian ethics and law to emphasize patriotism, loyalty, and civil obedience rather
+  than critical thinking or legal interpretation.
+characteristics:
+  brawn: 2
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 2
+woundThreshold: 11
+strainThreshold: 11
+startingXP: 100
+abilities:
+  - name: Kamino Training
+    description: Clones start with one rank in the Physical Training talent.
+skillModifiers:
+  - skill: Knowledge (Warfare)
+    startingRanks: 1
+    rankLimit: 2
+  - skill: Resilience
+    startingRanks: 1
+    rankLimit: 2
+talentModifiers:
+  - talent: Physical Training
+    startingRanks: 1
+reference:
+  - RotS:11
+specialAbilities: |-
+  Clones begin the game with one rank in Knowledge (Warfare) and one rank in Resilience. They still may not train
+  these skills above rank 2 during character creation.

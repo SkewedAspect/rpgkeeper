@@ -1,0 +1,26 @@
+id: genesys-archetype-wanderer-gnome
+name: Wanderer Gnome
+description: Some Gnomes get a taste of the outside world during their year with the militia and set out to "scratch
+  their itchy feet." Whether on their own or in a small band, Wanderer Gnomes are a common sight throughout all of
+  Mennara.
+characteristics:
+  brawn: 1
+  agility: 2
+  intellect: 2
+  cunning: 3
+  willpower: 1
+  presence: 3
+woundThreshold: 6
+strainThreshold: 11
+startingXP: 90
+abilities:
+  - name: Small
+    description: This character is silhouette 0.
+  - name: Tricksy
+    description: Once per encounter during their turn, a Wanderer Gnome may use this ability and spend a Story Point to
+      produce a previously undocumented small item (encumbrance 1 or less) with a rarity no greater than 4 from a
+      pocket, bag, pouch, nearby windowsill, passing cart, or other convenient location—even if there is no logical
+      explanation for the item's presence. This item cannot be a weapon unless the weapon has the Limited Ammo 1
+      quality.
+skillModifiers: []
+reference: RoT:69

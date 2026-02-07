@@ -1,0 +1,20 @@
+id: genesys-archetype-survivor
+name: Survivor
+description: "Most of the people one finds in the post apocalypse are survivors, average people who through luck and
+  skill have managed to ride out the calamity that destroyed civilization. Now they're trying to master the most
+  valuable skill in this new era: staying alive."
+characteristics:
+  brawn: 2
+  agility: 2
+  intellect: 2
+  cunning: 3
+  willpower: 2
+  presence: 2
+woundThreshold: 10
+strainThreshold: 7
+startingXP: 100
+abilities:
+  - name: Always Prepared
+    description: When a survivor makes a check to heal strain at the end of an encounter, they heal 1 additional strain.
+skillModifiers: []
+reference: G-EPG:33

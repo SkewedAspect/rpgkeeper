@@ -266,6 +266,102 @@ export interface XmlItemDescriptor
 }
 
 //----------------------------------------------------------------------------------------------------------------------
+// Species Types
+//----------------------------------------------------------------------------------------------------------------------
+
+/**
+ * Starting characteristics in XML
+ */
+export interface XmlStartingChars
+{
+    Brawn : number;
+    Agility : number;
+    Intellect : number;
+    Cunning : number;
+    Willpower : number;
+    Presence : number;
+}
+
+/**
+ * Starting attributes in XML
+ */
+export interface XmlStartingAttrs
+{
+    WoundThreshold : number;
+    StrainThreshold : number;
+    Experience : number;
+}
+
+/**
+ * Skill modifier in XML
+ */
+export interface XmlSkillModifier
+{
+    Key : string;
+    RankStart ?: number;
+    RankLimit ?: number;
+}
+
+/**
+ * Talent modifier in XML (species-granted starting talents)
+ */
+export interface XmlTalentModifier
+{
+    Key : string;
+    RankAdd ?: number;
+}
+
+/**
+ * Option within an OptionChoice
+ */
+export interface XmlSpeciesOption
+{
+    Key : string;
+    Name : string;
+    Description : string;
+    SkillModifiers ?: {
+        SkillModifier : XmlSkillModifier | XmlSkillModifier[];
+    };
+    StartingSkillTraining ?: unknown;
+}
+
+/**
+ * Option choice in XML (species abilities/skills)
+ */
+export interface XmlOptionChoice
+{
+    Key : string;
+    Name : string;
+    Options : {
+        Option : XmlSpeciesOption | XmlSpeciesOption[];
+    };
+}
+
+/**
+ * Species from XML
+ */
+export interface XmlSpecies
+{
+    Key : string;
+    Name : string;
+    Description : string;
+    Source ?: string | XmlSource;
+    Sources ?: { Source : XmlSource | XmlSource[] };
+    Custom ?: string;
+    StartingChars : XmlStartingChars;
+    StartingAttrs : XmlStartingAttrs;
+    SkillModifiers ?: {
+        SkillModifier : XmlSkillModifier | XmlSkillModifier[];
+    };
+    TalentModifiers ?: {
+        TalentModifier : XmlTalentModifier | XmlTalentModifier[];
+    };
+    OptionChoices ?: {
+        OptionChoice : XmlOptionChoice | XmlOptionChoice[];
+    };
+}
+
+//----------------------------------------------------------------------------------------------------------------------
 // Root Document Types
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -379,6 +475,14 @@ export interface XmlSpecialization
 export interface SpecializationDocument
 {
     Specialization : XmlSpecialization;
+}
+
+/**
+ * Species XML document (single file)
+ */
+export interface SpeciesDocument
+{
+    Species : XmlSpecies;
 }
 
 //----------------------------------------------------------------------------------------------------------------------

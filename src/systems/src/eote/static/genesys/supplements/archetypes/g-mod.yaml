@@ -1,0 +1,30 @@
+id: genesys-archetype-g-mod
+name: G-mod
+description: If cyborgs are a melding of person and machine, then g-mods are the complete changing of that person into
+  something new. While some individuals may have their genes subtly altered, g-mods modify their DNA in profound and
+  radical ways, changing their appearance, their intellect, and sometimes the core functions of their bodies. To date,
+  g-modding is the closest humankind has come to true transhumanism, with some arguing that the most modified g-mods are
+  no longer entirely Homo sapiens. Most g-mods look entirely human, choosing to boost their physique, immune system,
+  muscle strength, reflexes, life span, and intellect. Other g-mods adopt cosmetic changes like blue skin or cat irises,
+  feathers, fangs, claws, or prehensile tails. Animalistic characteristics tend to be popular among a subset of g-mods
+  called "wylders," but only the most extreme come across as anything but "mostly human."
+characteristics:
+  brawn: 2
+  agility: 2
+  intellect: 3
+  cunning: 2
+  willpower: 1
+  presence: 2
+woundThreshold: 11
+strainThreshold: 11
+startingXP: 90
+abilities:
+  - name: Enhanced Genetic Modifications
+    description: Once per session when your character uses one of their g-mods to modify a check, you may spend a Story
+      Point to add <success></success> equal to your character's ranks in Resilience to the results (in addition to any
+      other affects the g-mod has).
+  - name: G-mod
+    description: Your character begins play with one gear (see page 106) that costs a total of 1,000 credits or less. They
+      do not need to make any check to assimilate this g-mod.
+skillModifiers: []
+reference: SotB:29

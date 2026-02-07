@@ -1,0 +1,35 @@
+id: genesys-archetype-phyll
+name: Phyll
+description: "Phyll are sentient plants who can be found almost anywhere on the Crucible in a variety of roles and
+  settings, from lush floral vistas to urban spirescrapers. Theories as to their origins abound: many beings hold they
+  must hail from multiple worlds given the wide variety of their forms, which can include masses of ambulatory vines,
+  sedentary trees, humanoid stalk-bushes, and even fast-moving, carnivorous beings as deadly as any hungry snufflegator.
+  Despite this, a few beings believe the original phyll all arrived on the Crucible at the same time, their different
+  forms emerging over time through natural evolution—though using the word \"natural\" on a constructed world is likely
+  suspect. Some of the more common types of phyll have evolved a single reddish sensory organ to emulate vision. Many
+  also carry tanks of Æmber-infused liquids to ensure they have sources of vital nutrients, and even decorate these
+  containers as a sign of status. Most phyll find the artificial nature of the Crucible disconcerting, even after having
+  existed on it for untold millennia with no other way of life to act as a comparison. They can feel deep in their roots
+  that something is not right, a feeling that most have learned to ignore but is always present. Phyll who try to
+  explain this feeling to other species eventually give up, finding no suitable common experience to equate it to.
+  Despite this, phyll tend to get along quite well with other species on the Crucible as they rarely compete for the
+  same resources and often have outlooks the other wouldn't consider. Knowing their world is artificial hasn't stopped
+  the phyll from embracing its wonders fully. They're likely to weep sap uncontrollably at sunsets, stand in awe before
+  the crashing waves of an ocean, or become utterly entranced by the beauty of the smallest of creatures."
+characteristics:
+  brawn: 2
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 2
+woundThreshold: 11
+strainThreshold: 10
+startingXP: 100
+abilities:
+  - name: Perennial Survivor
+    description: When a phyll suffers a Critical Injury, they only add +5 to the results for each Critical Injury they are
+      currently suffering from, rather than +10. They also ignore the effects of the Vicious quality when hit by an
+      attack.
+skillModifiers: []
+reference: SotC:32

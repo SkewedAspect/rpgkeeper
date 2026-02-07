@@ -1,0 +1,38 @@
+id: genesys-archetype-martian-soldier
+name: Martian Soldier
+description: "Martians are green beings of nonspecific gender with huge, black, monochromatic eyes and a
+  disproportionally large head. The martians on the Crucible appear to have two distinct subspecies: taller beings with
+  heightened intellect, known as Elders, and smaller beings with a strong propensity for violence, called Soldiers. The
+  Elders dominate Martian society and control the more numerous Soldiers throughout their lives, from cloning chamber to
+  the grave. It is clear (to the Elders, at least) that their species was brought to the Crucible to ensure it survives
+  forever. The martians see conquest of the Crucible as the best way to guarantee this happens. Not all martians agree
+  with such an existence, however. There are those who have abandoned barracks and battlefields or have quit
+  laboratories or ruling chambers, and now seek independent lives free of the intolerance of central command at Nova
+  Hellas. Some have even grown to appreciate other cultures, frequenting everything from their popular musical acts to
+  their holovid events, and work with beings of other species to achieve common goals—all utterly anathema to loyalists
+  of the Red Planet. Martian Soldiers are designed and bred to serve the Martian Empire—more specifically, to serve as
+  its warriors. From decanting, each is trained in all aspects of warfare and how to best serve the ruling Elders. This
+  includes extensive neural and emotional indoctrination, though this sometimes fades if it is not constantly
+  reinforced. In their duties, Soldiers may be assigned to scout for new invasion opportunities, act as bodyguards,
+  defend Martian outposts from anything or anyone deemed hostile, and, of course, roam the Local Group in their
+  ubiquitous flying saucers. Some Soldiers, though, manage to abandon their militaristic lives to make their own way and
+  find their own goals."
+characteristics:
+  brawn: 1
+  agility: 3
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 1
+woundThreshold: 8
+strainThreshold: 8
+startingXP: 110
+abilities:
+  - name: Size Doesn't Matter
+    description: A Martian Soldier is silhouette 0
+  - name: Zap! Zap! Zap!
+    description: As an out-of-turn incidental, a Martian Solider may spend <threat></threat> from their check to determine
+      Initiative to ready a Ranged weapon and then use that weapon to make a Ranged combat check with the difficulty
+      upgraded once.
+skillModifiers: []
+reference: SotC:30

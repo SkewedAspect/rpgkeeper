@@ -27,4 +27,12 @@ export {
 } from './treeBuilder.ts';
 export type { TalentTreeInfo, TalentTreeMap } from './treeBuilder.ts';
 
+export { convertSpecies } from './species.ts';
+export type {
+    InternalSpecies,
+    InternalSpeciesAbility,
+    InternalSpeciesSkillModifier,
+    InternalSpeciesTalentModifier,
+} from './species.ts';
+
 //----------------------------------------------------------------------------------------------------------------------

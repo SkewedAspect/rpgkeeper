@@ -1,0 +1,30 @@
+id: genesys-archetype-hacan
+name: Hacan
+description: The Hacan are an ancient species, well established in the galaxy. Hailing from the hot and dry planets of
+  the tri-system of Kenara System, the trading clans of the Hacan long ago established themselves among the galaxy's
+  dominant economic powerhouses. Even in the depths of the Twilight Wars and the grim times that followed, some intrepid
+  Hacan traders still plied the spacelanes, and now the Emirates are poised to regain their titles as the masters of
+  commerce once again. Hacan tend to be tall and imposing, covered in a short coat of tawny, golden hair. Males also
+  have thick manes that they wear in a variety of styles. The Hacan's sharp canines and somewhat carnivorous diet are
+  the only remnants of their distant evolutionary roots, and as a species, they tend toward patience and caution rather
+  than aggression. Thanks to their long history of trade and commerce, Hacan have traveled across the galaxy and settled
+  in enclaves on a number of worlds. Some of these maintain close ties with their kin in the Kenara system, while others
+  have broken away and formed their own culture. But many of the Hacan who live of-world still tend toward a nomadic
+  lifestyle, trading the sands of their home for the endless expanse of stars.
+characteristics:
+  brawn: 2
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 1
+  presence: 3
+woundThreshold: 10
+strainThreshold: 11
+startingXP: 100
+abilities:
+  - name: Savvy Negotiator
+    description: Once per session when your character is targeted by a social skill check and is dealt strain, you may spend
+      a Story Point as an out-of-turn incidental to reduce the strain suffered by their Cunning rating and inflict
+      strain on the character who targeted them equal to their Cunning rating.
+skillModifiers: []
+reference: EotI:25

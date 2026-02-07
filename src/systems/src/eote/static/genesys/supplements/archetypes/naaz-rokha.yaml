@@ -1,0 +1,52 @@
+id: genesys-archetype-naaz-rokha
+name: Naaz-Rokha
+description: "The Naaz-Rokha are a bit of a galactic oddity: two completely unrelated species who, through deliberate
+  effort, have formed a fully cooperative symbiotic union. Biologically, the two could not be more different. The Naaz
+  are small, four-armed mammalians with pink skin, large ears, and red eyes, and an almost instinctive grasp of
+  technology. The Rokha, on the other hand, are black-furred felids who are very distant genetic relatives of the Hacan,
+  though the two species diverged long ago. After the Naaz and Rokha unified to seek independence and a free homeworld
+  together, the union they created went far beyond a broadly political one. Nearly all Naaz and Rokha live in bonded
+  pairs of one Naaz and one Rokha. These pairs form when both are very young through a community-driven social process,
+  and with only a few exceptions, the pairs maintain their bond throughout their lives. Even most families form between
+  two or more bonded pairs, made easier by the fact that while the Rokha have two biological sexes, the Naaz only have
+  one (any Naaz can reproduce with any other Naaz). Courtship rituals are almost always group affairs. Bonded pairs live
+  and often work together, and even share many of the same interests, so it's rare to see one and not the other."
+characteristics:
+  brawn: 2
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 2
+woundThreshold: 10
+strainThreshold: 10
+startingXP: 70
+abilities:
+  - name: Symbiotic Partnership
+    description: A Naaz-Rokha is a single player character with two independent sets of characteristics and derived
+      attributes. The Naaz and the Rokha operate as independent beings who share the same skills and talents. During the
+      Naaz-Rokha's turn, as long as neither the Naaz nor the Rokha is incapacitated and they are within short range of
+      each other, the Naaz-Rokha may perform one additional free maneuver without suffering strain (they may still only
+      perform two maneuvers each turn).
+  - name: Symbiotic Operation
+    description: When your character performs an action, choose whether the Naaz or the Rokha is performing the action; use
+      that being's relevant characteristics, and use the appropriate skill from the shared skill list. When your
+      character is targeted by an attack, skill check, or effect, as long as the Naaz and the Rokha are within short
+      range of each other, choose which one is the target. In specific circumstances in which it may not make sense for
+      you to choose which member of the pair acts or is targeted, your GM can make the decision instead.
+  - name: Character Death
+    description: When the Naaz or the Rokha is killed, you may choose to retire your character (with the living member of
+      the pair retiring from adventuring and going into mourning) or continue playing with only one member of the pair
+      (but in this case, you cannot add a 'new' member to replace the dead one).
+  - name: Symbiotic Advancements
+    description: Your character has a single skill list and single talent list. Skills and talents are purchased for your
+      character as normal. When your character increases a characteristic or a derived attribute, choose whether that
+      increase applies to the Naaz profile or the Rokha profile.
+  - name: Need a Lift?
+    description: A Naaz is silhouette 0. A Rokha is silhouette 1.
+  - name: Harness
+    description: All Rokha in a partnership wear a harness that allows their Naaz to ride on their shoulders. The harness is
+      equipment with an encumbrance value of 0, and while the Naaz is riding on the Rokha's shoulders, they may move
+      with the Rokha without spending a maneuver
+skillModifiers: []
+reference: EotI:30

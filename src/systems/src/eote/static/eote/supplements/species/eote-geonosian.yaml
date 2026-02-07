@@ -1,0 +1,101 @@
+id: eote-geonosian
+name: Geonosian
+description: |-
+  No species has changed the face of the galaxy and the Galactic Republic as much as the Geonosians while receiving so
+  little recognition. Without the oppressed labor of the Geonosian worker caste, the Confederacy of Independent Systems
+  wouldn’t have their massive droid army Yet for all their efforts, the Geonosians, aristocratic and worker caste alike,
+  face occupation and loss of sovereignty under the Republic flag.
+
+  **Physiology:** A winged, insectoid species, Geonosians have a slim, humanoid build. Their chidnous skin ranges from
+  red or orange to green or blue in hue, and their limbs have additional joints compared to most humanoids. Depending on
+  a Geonosian’s caste, their wings may be vestigial or fully functional. Beyond this general form, the height, look, and
+  structure of individual Geonosians varies. Compared to most sentients, Geonosians don't live long-with an average
+  lifespan of sixty-five years-and they mature quickly.
+
+  Geonosian hives welcome physiological differences insofar as they might benefit the hive. By modifying genetics,
+  either through intentional engineering or selective breeding, hives produce a wide variety of near-subspecies among
+  their worker and warrior castes. These modification experiments, however, remain haphazard and prone to the whims of
+  the aristocratic caste. 
+
+  **Society:** Geonosian society centers around their queens, their hives, and the castes within those hives.
+  Offworlders generally don't realize that Geonosians have a queen, and even fewer realize that they have multiple
+  queens, sometimes many within a single hive. In some hives, the queen simply produces offspring, and the aristocratic
+  caste rules. In other hives, the queen acts behind the scenes, manipulating the squabbling aristocrats' desire for
+  power. In still other  hives, the queen rules directly.
+
+  Historically, the hives of Geonosis have fought each other for resources, territory, sport, and political power. When
+  me Geonosians began trading with offworlders, this competition was channeled into economic and industrial—and
+  sometimes open—warfare. The warrior caste bears the brunt of the fighting, though the survivors receive promises of
+  promotion. Often, warriors also serve as police, protecting, but more often suppressing, their own hive.
+
+  With a worker caste whose members function as slaves, Geonosians hives can produce an incredible quantity of
+  industrial goods, even changing their production focus within days. This dependence on an oppressed caste, along with
+  the planet's remote location in the Outer Rim, has kept Geonosis from receiving official representation in the
+  Galactic Republic. Many citizens of the Republic have no idea that their droids and other goods were built via
+  Geonosian worker caste labor.
+
+  Throughout Geonosian history, the worker caste has repeatedly revolted against the oppression of the aristocracy. The
+  warriors inevitably have countered with quick and bloody suppression. When the warriors of a hive revolt, the hive's
+  aristocrats have been known to negotiate with other hives for reinforcements to quell their own populace.
+
+  **Homeworld:** Geonosis lies in the Arkanis sector of the Outer Rim, near Tatooine. Its sun's heat and radiation
+  blasts the land, and massive sandstorms scour the harsh desert planet. Large, hollowed-out hive colonies in giant
+  spires dot the landscape and offer respite from the radiation and heat. Tunnels worm through the planet, connecting
+  hives and providing additional space for expansion or waging inter-hive warfare.
+
+  Geonosis has fifteen moons, whose gravitational pull causes the volcanic activity on the planet. It also has a giant
+  ring system, which formed recently enough—in terms of eons—that the Geonosians have myths describing an angry universe
+  destroying a moon to teach a weak species a lesson on survival.
+
+  Because Geonosis lies outside Republic space, the Republic—including the Jedi—had no official standing to investigate
+  the world in the years leading up to the Clone Wars. Even had the Republic been aware of what was transpiring on
+  Geonosis, it had no legal justification for enforcing regulations or otherwise interfering in the massive arms buildup
+  the Geonosians were undertaking at the behest of planets and corporations that would soon secede.
+
+  **Language:** Offworlders know Geonosian Hive-Mind as a spoken language with clicks and low, guttural notes.
+  Offworlders can learn how to speak it, but Geonosians also employ a full range of touches, pheromones, and body
+  motions to communicate. This explains why some Geonosians come away from offworlder conversations with a completely
+  different perception of what has transpired, and it also explains how some Geonosians can communicate as if by
+  telepathy.
+
+  On Geonosis, some members of the aristocratic caste learn to understand and even speak Basic. Regardless of caste,
+  Geonosians who venture out into the galaxy may eventually learn Basic, though they rarely speak it. With this simpler
+  language, Geonosians do not face the same kinds of miscommunications as with their native tongue.
+
+  **Life under the Republic:** While Geonosis was the primary producer of droids for the Separatists' droid army, its
+  loyalty sat firmly with the Confederacy of Independent Systems. For the lower castes, life became more brutal and
+  oppressive. For the upper castes, their wealth and influence only increased. After the Second Battle of Geonosis,
+  however, the planet comes under Republic control and occupation.
+
+  The Republic remains less concerned with governance and more with occupation to keep the planet away from Separatist
+  hands. Some hives eagerly aid the Republic in order to gain power in the new regime. Other hives go into hiding,
+  hoping for this conflict to pass. A few plan insurrection, but only if they believe they can come out on top.
+
+  Most citizens of the Republic associate the droid army with the public face of the Separatist Alliance, but few know
+  what species constructed them. As a result, those relatively few free Geonosians wandering the galaxy face little
+  prejudice, at least not for their people's part in the Clone Wars.
+characteristics:
+  brawn: 2
+  agility: 2
+  intellect: 2
+  cunning: 1
+  willpower: 1
+  presence: 1
+woundThreshold: 9
+strainThreshold: 9
+startingXP: 140
+abilities:
+  - name: Industrious
+    description: |-
+      A Geonosian who provides assistance to another character adds <boost/> to the check, in addition to the normal
+      benefits of providing assistance. In addition, the Geonosian heals 1 strain whenever providing assistance to
+      another character.
+  - name: Winged
+    description: Geonosians can fly (see the Flying sidebar on page 100 of the Genesys Core Rulebook).
+skillModifiers: []
+talentModifiers: []
+reference:
+  - RotS:12
+specialAbilities: |-
+  Geonosians begin the game with one rank in a skill of their choice. They still may not train this skill above rank
+  2 during character creation.

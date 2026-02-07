@@ -1,0 +1,21 @@
+id: genesys-archetype-sleeper
+name: Sleeper
+description: Sleepers are the near-perfect remnants of the humanity that existed before the apocalypse. Perhaps they
+  were sealed in underground shelters, or they have just been thawed out of cyrosleep. Sleepers are unique thanks to
+  their lack of mutations and general good health.
+characteristics:
+  brawn: 2
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 2
+woundThreshold: 12
+strainThreshold: 12
+startingXP: 100
+abilities:
+  - name: Remember This?
+    description: A sleeper adds <advantage></advantage> to the results of any checks they make to identify, use, or repair
+      pre-apocalypse items, equipment, or media (including combat checks).
+skillModifiers: []
+reference: G-EPG:33

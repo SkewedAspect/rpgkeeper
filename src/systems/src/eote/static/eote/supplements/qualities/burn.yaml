@@ -1,6 +1,6 @@
 id: eote-quality-burn
 name: Burn
-description: >-
+description: |-
   Weapons with Burn inflict damage over time. If the attack is successful, the target continues to suffer the weapon’s
   base damage for a number of rounds equal to the weapon’s Burn rating. Damage is applied at the start of each of the
   target’s actions.

@@ -1,0 +1,23 @@
+id: genesys-archetype-sunderlands-orc
+name: Sunderlands Orc
+description: The mysterious Orcs of the Sunderlands eschew both nomadic and city life, instead living in small,
+  secretive villages. This has the effect of helping to preserve Orc culture and heritage and to advance their race in
+  step with the rest of the world. Within these villages, which dot the great deserts of Al-Kalim, the Sunderlands Orcs
+  study magic and medicine with equal diligence. Such are their skills at potion making that the alchemical contents
+  within their signature black glass flasks are renowned throughout Mennara.
+characteristics:
+  brawn: 3
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 1
+woundThreshold: 12
+strainThreshold: 8
+startingXP: 100
+abilities:
+  - name: Tenacious
+    description: After a Sunderlands Orc hits a character with a successful combat check, they add <boost></boost> to combat
+      checks targeting the same character until the end of the encounter.
+skillModifiers: []
+reference: RoT:67

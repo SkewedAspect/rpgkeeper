@@ -1,0 +1,29 @@
+id: genesys-archetype-saurian
+name: Saurian
+description: Saurians are bipedal, humanoid beings, each of whom can trace their lineage back to ancient Earth dinosaurs
+  that were brought to the Crucible millions of years ago. Over long eons, the creatures evolved into sentience and
+  created their own cultures and civilizations. Like their ancestral forebears, saurians are reptilian in form. They
+  take great pride in their vibrantly colored scales, horns, and feathers, which they like to groom and display for
+  other saurians. These beings believe theirs to be among the oldest still-existing sentient species on the Crucible,
+  and they may be correct. Certainly, they can trace their lineage further back than most, and they are one of the few
+  species known to have evolved to self-awareness on this world rather than on their home planet. Saurian society has
+  undergone eras of power and conquest that turned to near-anarchic savagery, and most of them believe such cycles are
+  natural for their species. Their city-states within the Local Group are certainly wondrous examples of both
+  technologies and philosophies. There are many saurian expeditions across this region and beyond to seek out others of
+  their kind, which have also served to spread saurian ideals to new areas.
+characteristics:
+  brawn: 3
+  agility: 2
+  intellect: 3
+  cunning: 1
+  willpower: 2
+  presence: 1
+woundThreshold: 11
+strainThreshold: 10
+startingXP: 85
+abilities:
+  - name: Evolved Arrogance
+    description: Once per session, when a saurian makes a successful opposed check, you may spend a Story Point to have the
+      saurian heal all strain they are currently suffering.
+skillModifiers: []
+reference: SotC:34

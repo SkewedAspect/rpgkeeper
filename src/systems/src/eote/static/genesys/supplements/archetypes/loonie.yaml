@@ -1,0 +1,32 @@
+id: genesys-archetype-loonie
+name: Loonie
+description: Those born on the Moon consider themselves a people apart—and why not? They are, after all, members of the
+  first generations that have grown up free from the loving embrace of planet Earth. More than just having a natural
+  affinity for low gravity, slightly longer limbs, and less muscle and bone density, Loonies are different because they
+  no longer see Earth as home. This has fostered a fierce independent streak in most Loonies, many of whom see
+  themselves as a minority in the thrall of Earth-bound megacorps or far-off governments. A particular sticking point is
+  that Heinlein, the largest settlement on Luna, is simply the twelfth district of New Angeles, a city almost four
+  hundred thousand kilometers away. It is sentiments like this that sparked the Worlds War, and though Earth might
+  consider it part of the past, many Loonies have long memories. Growing up on the Moon teaches Loonies self-reliance in
+  a way no place on Earth could. When you can't even take the air you breathe or the shielding that protects you from
+  lethal radiation for granted, you learn pretty quickly to be aware of everything in the environment around you. Almost
+  every Loonie has a tale about a time when the scrubbers went out in their dome or when they were doing a Luna walk,
+  their suit tore, and they had to stumble home watching the O2 meter tick down.
+characteristics:
+  brawn: 1
+  agility: 3
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 2
+woundThreshold: 9
+strainThreshold: 11
+startingXP: 100
+abilities:
+  - name: Zero-G Adept
+    description: A Loonie does not count gravity environments as difficult terrain.
+  - name: Resourceful
+    description: Once per session after making a skill check, you may spend a Story Point to have your character reroll up
+      to two dice in the pool.
+skillModifiers: []
+reference: SotB:30

@@ -1,0 +1,31 @@
+id: genesys-archetype-dunwarr-dwarf
+name: Dunwarr Dwarf
+description: Dunwarr is the oldest of all the Dwarven kingdoms. The Dwarves who hail from beneath the Dunwarr Mountains
+  see their lineage as predating almost every other culture on the planet. According to their histories, they watched
+  the Humans first gather in rudimentary villages, saw the Orcs first trade for steel to tip their sharpened sticks, and
+  even witnessed the Elves settling into their land of the Aymhelin. Those histories also recount with bitterness and
+  frustration how the dragons chased the Dwarves from their home in Molten Heath and followed them all the way into the
+  caves beneath the Dunwarr Mountains. They recount, with absolute accuracy, how the dragons tried to eradicate the
+  Dwarves from the face of the Mennara. The Dunwarr Dwarves see that history as their birthright. They believe that
+  Dwarven society is among the most noble in the world, and that they deserve the respect and deference they once
+  commanded. Their loftiest goal is to retake the Molten Heath and force the dragons who occupy their lands to accept
+  their right to live there once and for all.
+characteristics:
+  brawn: 2
+  agility: 1
+  intellect: 2
+  cunning: 2
+  willpower: 3
+  presence: 2
+woundThreshold: 11
+strainThreshold: 10
+startingXP: 90
+abilities:
+  - name: Dark Vision
+    description: When making skill checks, this character removes up to <setback></setback><setback></setback> imposed due
+      to concealment (darkness, smoke, and intervening terrain).
+  - name: Tough as Nails
+    description: Once per session, a Dwarf may spend a Story Point as an out-of-turn incidental immediately after suffering
+      a Critical Injury and determining the result. If they do so, they count the result rolled as "01."
+skillModifiers: []
+reference: RoT:64

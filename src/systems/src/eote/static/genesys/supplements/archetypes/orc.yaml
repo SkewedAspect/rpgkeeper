@@ -1,0 +1,22 @@
+id: genesys-archetype-orc
+name: Orc
+description: In many fantasy worlds, orcs are inherently evil or violent. But PCs are known for defying expectation, and
+  this profile could also easily represent a half-orc who lives among civilized society. Your setting may also have orcs
+  who are not evil or violent by default, making this a reasonable character choice. As you might expect, this orc is
+  strong and tough, but not the friendliest character.
+characteristics:
+  brawn: 3
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 1
+woundThreshold: 12
+strainThreshold: 8
+startingXP: 100
+abilities:
+  - name: Battle Rage
+    description: When making a melee attack, an orc can choose to add <setback></setback> to the check to add +2 to the
+      damage dealt by one hit of that attack.
+skillModifiers: []
+reference: G-CRB:14

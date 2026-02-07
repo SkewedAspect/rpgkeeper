@@ -77,32 +77,11 @@ function getSchemaForType(system : string, type : string) : ZodSchema | null
 
 function formatZodErrors(error : ZodError) : string[]
 {
-    if(!error)
+    return error.issues.map((issue) =>
     {
-        return [ 'Unknown validation error' ];
-    }
-
-    // Use Zod's built-in issues array
-    if(error.issues && Array.isArray(error.issues))
-    {
-        return error.issues.map((issue) =>
-        {
-            const issuePath = issue.path.length > 0 ? `${ issue.path.join('.') }: ` : '';
-            return `${ issuePath }${ issue.message }`;
-        });
-    }
-
-    // Fallback to errors property if issues isn't available
-    if(error.errors && Array.isArray(error.errors))
-    {
-        return error.errors.map((e) =>
-        {
-            const errPath = e.path.length > 0 ? `${ e.path.join('.') }: ` : '';
-            return `${ errPath }${ e.message }`;
-        });
-    }
-
-    return [ 'Unknown validation error' ];
+        const issuePath = issue.path.length > 0 ? `${ issue.path.join('.') }: ` : '';
+        return `${ issuePath }${ issue.message }`;
+    });
 }
 
 function extractSystemAndType(filePath : string) : { system : string; type : string } | null
@@ -126,9 +105,11 @@ function extractSystemAndType(filePath : string) : { system : string; type : str
     // Handle irregular plurals first
     const irregularPlurals : Record<string, string> = {
         abilities: 'ability',
-        qualities: 'quality',
+        archetypes: 'archetype',
         classes: 'class',
+        qualities: 'quality',
         races: 'race',
+        species: 'species',
     };
 
     let type = typeFolder;

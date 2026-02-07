@@ -1,6 +1,6 @@
 id: eote-shipsysscan
 name: Shipboard Systems Scanner
-description: >-
+description: |-
   Even the smallest, simplest starship has a staggering number of computer-controlled on-board systems. A shipboard
   systems scanner is used to connect to specific systems aboard a starship to properly diagnose any problems or
   failures. A typical scanner is the size of a common datapad. Once jacked into a shipboard system-a fire control

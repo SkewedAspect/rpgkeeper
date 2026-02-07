@@ -1,0 +1,66 @@
+id: eote-keldor
+name: Kel Dor
+description: |-
+  Best known as a kindly and soft-spoken species, Kel Dors are most easily identified by the protective eye-wear and
+  rebreather masks that they must wear when outside of their native environment. In spite of Kel Dors' gentle natures,
+  they are renowned for their sense of justice and willingness to enforce it with great prejudice.
+
+  **Physiology:** Near-hairless humanoid mammals, Kel Dors average 1.7 meters in height. Their respiratory systems are
+  well adapted to Dorin's unusual atmosphere of helium and unique gas compounds, so that they must make use of
+  filtration masks in order to survive in other environments. This, combined with innate toughness. does allow them to
+  survive hard vacuum for a short time, an extraordinarily useful ability.
+
+  Similarly, they wear protective and enhancing goggles because their black eyes are sensitized to the dim light and
+  unusual atmospheric conditions of Dorin. A highly developed extrasensory organ is located at the back of the Kel Dor
+  skull. tightly linked to the brain. Kel Dor skin tone ranges from a pale orange to a dark red.
+
+  **Society:** Kel Dors are tightly linked into their extended families. Several generations of a family often live
+  together by choice. This offers an opportunity to share responsibility for the extended family's younglings and ease
+  in consulting the family's elders for advice. Often, entire families share a common career, which can lead to
+  family-owned businesses that span successive generations.
+
+  Technological advancement drives Kel Dor society strongly. Due to its own specialized needs, the species has become
+  particularly adept at designing environmental systems. These include individual and large-scale systems suited to a
+  wide variety of environments.
+
+  Justice is certain and swift on Donn. Security workers are quick to offer assistance to those in need, but they are
+  also unwilling to wait long to see justice delivered. Instead, they interpret legal and moral issues in stark
+  black-and-white terms, ignoring any potentially mitigating factors.
+
+  **Homeworld:** Dorin is located in the Expansion Region. Due to its location between two black holes, it remained
+  isolated from the rest of the galaxy until only a few centuries before the start of the Galactic Civil War. Dorin's
+  atmosphere is composed largely of helium and a second unidentifiable gas that is unique to the system. Dorin's oxygen
+  levels are low enough that most non-natives require technological assistance to venture there.
+
+  **Language:** Kel Dors learn both Kel Dorian and Basic from childhood. They speak Basic as well as any native speaker
+  and seldom speak Kel Dorian off-world. Their native language is easier to speak and understand when they are breathing
+  Dorin's native atmosphere.
+characteristics:
+  brawn: 1
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 3
+  presence: 2
+woundThreshold: 10
+strainThreshold: 10
+startingXP: 100
+abilities:
+  - name: Dark Vision
+    description: |-
+      When making skill checks, Kel Dors remove up to <setback/><setback/> imposed due to darkness.
+  - name: Atmospheric Requirement
+    description: |-
+      Kel Dors must wear a specialized mask to breathe and see outside of their native atmosphere. A Kel Dor character
+      starts the game with an antitox breath mask and treats oxygen as a dangerous atmosphere with Rating 8. However, Kel
+      Dors may survive in vacuum for up to five minutes before suffering its effects.
+skillModifiers:
+  - skill: Education
+    startingRanks: 1
+    rankLimit: 2
+talentModifiers: []
+reference:
+  - F-CRB:58
+specialAbilities: |-
+  Kel Dors begin the game with one rank in Knowledge (Education). They still may not train Knowledge (Education) above
+  rank 2 during character creation.

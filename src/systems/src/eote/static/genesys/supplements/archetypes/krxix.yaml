@@ -1,0 +1,36 @@
+id: genesys-archetype-krxix
+name: Krxix
+description: The insectoid krxix have lived on the Crucible for at least several millennia. They can be found both in
+  large cities and in their own mountainous hives reminiscent of the ones on their home planet of Krxix-Ix. While they
+  are mostly humanoid in shape, krxix have a large head featuring compound eyes and twin antennae. They have two sets of
+  arms, each arm ending in three clawed fingers, and they have a colorful, segmented exoskeleton. Their appearance is
+  initially unsettling even to the extremely cosmopolitan inhabitants of Hub City, but krxix are naturally so
+  overwhelmingly friendly that most beings soon forget their looks and buy them a bowl of bubbling sucrale. Krxix are
+  known for communal living; on their native world they shared everything so efficiently and completely that they
+  achieved an intense population density. Their lifespans are relatively short, which they never realized until they met
+  other species on the Crucible. While this was unpleasant to learn, their relocation opened up their species to a wider
+  range of experiences. Many krxix have leapt at the opportunity to discover as much as they can about this artificial
+  world. Krxix communicate both through sound and by altering the colors in their iridescent eyes to convey meaning. As
+  a result, their spoken words can often be confusing or off-putting until the listener realizes their eyes have a
+  "sarcasm" or "joke" hue. Like many other species, the krxix were astonished by the crash of the SAV Quantum onto the
+  Crucible a short time ago. They were even more astonished to see fellow krxix among the crew. This discovery has led
+  many krxix to embark on explorations to see if more of their species can be found elsewhere on this world.
+characteristics:
+  brawn: 2
+  agility: 2
+  intellect: 2
+  cunning: 1
+  willpower: 2
+  presence: 3
+woundThreshold: 9
+strainThreshold: 9
+startingXP: 90
+abilities:
+  - name: Extra Limbs
+    description: A krxix can perform a second maneuver during their turn without suffering strain or giving up their action,
+      but they can never perform more than two maneuvers during their turn.
+  - name: What They Meant to Say
+    description: Once per session after a krxix or an ally makes a social skill check, you may spend one Story Point to
+      convert <difficulty></difficulty> to <despair></despair>.
+skillModifiers: []
+reference: SotC:29

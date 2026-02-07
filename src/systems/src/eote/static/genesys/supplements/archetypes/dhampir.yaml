@@ -1,0 +1,27 @@
+id: genesys-archetype-dhampir
+name: Dhampir
+description: The dhampir, or half vampire, can either be the child of a union between a vampire and a living person or a
+  human who has not yet fully succumbed to the thirst for blood. Dhampirs inherit some of the strengths (and weaknesses)
+  of their vampire progenitors
+characteristics:
+  brawn: 3
+  agility: 3
+  intellect: 2
+  cunning: 2
+  willpower: 1
+  presence: 2
+woundThreshold: 11
+strainThreshold: 11
+startingXP: 85
+abilities:
+  - name: Blood Call
+    description: When this character damages a target using their fangs or a magic attack, they heal wounds equal to the
+      wounds inflicted.
+  - name: Sunlight Sensitivity
+    description: While exposed to direct sunlight, this character reduces all of their characteristics by 2 and halves their
+      Wound Threshold and Strain Threshold.
+  - name: Vulnerable Heart
+    description: When this character suffers a Critical Injury from a weapon made of wood, such as a stake or crossbow bolt,
+      they add +40 to the Critical Injury result.
+skillModifiers: []
+reference: G-EPG:21

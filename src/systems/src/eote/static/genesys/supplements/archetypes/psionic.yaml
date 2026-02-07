@@ -1,0 +1,38 @@
+id: genesys-archetype-psionic
+name: Psionic
+description: Psionic or psychic aliens are a perennial favorite in science fiction. We made our psionic alien with a
+  formidable Willpower and Intellect, with the tradeoff of being extremely physically weak. However, what your character
+  gets in return are three unique abilities allowing them to read minds, manipulate emotions, and even harm opponents
+  with a thought. What a psionic alien looks like is up to you. Traditionally, they tend to be physically frail—withered
+  bodies with oversized heads, or spindly creatures with fragile limbs and etherial grace.
+characteristics:
+  brawn: 2
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 3
+  presence: 1
+woundThreshold: 7
+strainThreshold: 11
+startingXP: 70
+abilities:
+  - name: Mind Reader
+    description: As an action, a psionic may make an opposed Discipline versus Discipline check targeting one living
+      creature within medium range. If the check succeeds, the psionic knows the target's current thoughts and emotional
+      state. <advantage></advantage><advantage></advantage><advantage></advantage> or <threat></threat> may be spent to
+      discover other thoughts or memories, at your GM's discretion.
+  - name: Mind Shaper
+    description: As an action, a psionic may make an opposed Discipline versus Vigilance check targeting one living creature
+      within medium range. If the check succeeds, the psionic may cause the target to adopt an emotional state of the
+      psionic's choice for the next minute (or one round of structured time). <advantage></advantage> or
+      <threat></threat> may be spent to increase the duration by one round (and may be spent multiple times). However,
+      if the check fails or generates <despair></despair><despair></despair><despair></despair> or
+      <difficulty></difficulty>, the target realizes their emotions are being manipulated.
+  - name: Mind Breaker
+    description: As an action, a psionic may make an opposed Discipline versus Resilience check targeting one living
+      creature within medium range. If the check succeeds, the psionic causes the target to suffer 1 strain, plus 1
+      additional strain per <success></success><success></success> generated on the check.
+      <advantage></advantage><advantage></advantage><advantage></advantage> or <threat></threat> may be spent to cause
+      the target to suffer 1 wound as well.
+skillModifiers: []
+reference: G-CRB:18

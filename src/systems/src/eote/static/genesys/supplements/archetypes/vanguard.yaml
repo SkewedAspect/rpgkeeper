@@ -1,0 +1,24 @@
+id: genesys-archetype-vanguard
+name: Vanguard
+description: Our vanguard species is an alien race that is humanity's superior in the galaxy. These aliens are more
+  advanced scientifically, culturally, and even artistically than us poor, primitive humans—which inevitably makes it
+  all the more satisfying when the human protagonist of a story accomplishes something they thought impossible.
+characteristics:
+  brawn: 2
+  agility: 2
+  intellect: 2
+  cunning: 1
+  willpower: 2
+  presence: 3
+woundThreshold: 9
+strainThreshold: 9
+startingXP: 100
+abilities:
+  - name: Space Is Our Birthright
+    description: A vanguard adds automatic <advantage></advantage> to the results of any Astrocartography or Knowledge
+      checks they make.
+  - name: High Tech Baubles
+    description: A vanguard starts the game with an additional 500 credits' worth of starting gear (this is in addition to
+      their normal starting gear allowance).
+skillModifiers: []
+reference: G-CRB:183

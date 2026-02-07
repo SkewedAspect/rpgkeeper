@@ -1,0 +1,25 @@
+id: genesys-archetype-dwarf
+name: Dwarf
+description: |-
+  The archetypal fantasy dwarf is tough, dour, eager to fight, and almost as eager to down inordinate quantities of
+  ale. This profile presents just such a dwarf, with high wound and strain thresholds and, with a rank in Resilience,
+  an ability to drink more than their share.
+characteristics:
+  brawn: 2
+  agility: 1
+  intellect: 2
+  cunning: 2
+  willpower: 3
+  presence: 2
+woundThreshold: 11
+strainThreshold: 10
+startingXP: 90
+abilities:
+  - name: Dark Vision
+    description: When making skill checks, this character removes up to <setback></setback><setback></setback> imposed due
+      to concealment (darkness, smoke, and intervening terrain).
+  - name: Tough as Nails (Dwarf)
+    description: Once per session, a dwarf character may spend a Story Point as an out-of-turn incidental immediately after
+      suffering a Critical Injury and determining the result. If they do so, they count the result rolled as "01."
+skillModifiers: []
+reference: G-CRB:14

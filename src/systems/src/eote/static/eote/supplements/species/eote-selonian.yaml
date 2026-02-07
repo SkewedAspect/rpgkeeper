@@ -1,0 +1,75 @@
+id: eote-selonian
+name: Selonian
+description: |-
+  For Selonians, nothing is more important than the protection and preservation of their species, and they will go to
+  any lengths to defend their homeworld and their kin. Honorable and forthright to a fault, Selonians appear backwards
+  and gullible to outsiders, but what they lack in cunning they make up for in ferocious determination.
+
+  **Physiology:** Covered in short, sleek brown or black fur, Selonians are carnivorous, mammalian bipeds with long,
+  slender bodies and elongated heads that bristle with whiskers. Adult females average about two meters tall, making
+  them significantly taller than most humans, with slightly longer arms and legs. Males of the species tend to be
+  smaller and weaker than the females. Selonians have strong tails about a half meter long that they use to
+  counterbalance themselves when walking upright. Though generally bipedal, Selonians can move comfortably on four
+  limbs, and their retractable claws can be used for digging and burrowing, climbing, or defense. Most Selonians are
+  sterile females, with only one fertile female per den, and relatively few males.
+
+  **Society:** Selonian society is governed by a rigid caste system, which is itself a product of their biology. Though
+  a technologically advanced society, there is no central authority on SeIonia. Their culture is organized around dens,
+  which are composed of a single fertile female known as the Queen, a few males, and large number of sterile females.
+  The dens are further divided into septs, the offspring of individual males. The females of the septs tend to serve
+  specific functions within the den based on their genetic lineage, as determined by the Queen. Males in Selonian
+  society have virtually no purpose beyond breeding and are generally dismissed as essentially useless for anything but
+  procreation with the Queen.
+
+  Pragmatic, industrious, and sober, Selonians put the necessities and security of their den and their race in general
+  above all else. Individual needs and desires are almost always subsumed to those of the den. Since the actions of an
+  individual can affect the whole den, Selonians put a high value on honesty and fidelity. Duplicity among the members
+  of a den is taboo in the extreme; lying is a crime on a par with murder. While Selonians are aware that most alien
+  species are not as scrupulously honest in their dealings, they have difficulty comprehending deception and they are
+  virtually incapable of outright deceit.
+
+  Some Selonians are trained to deal with outsiders, being schooled in language, culture, and expressions intended to
+  put humans and other aliens at ease. To those unfamiliar with Selonian ways, they may appear outgoing and friendly,
+  though most have no interests outside those of their den. Occasionally, a Selonian thus trained may become enamored of
+  alien cultures and decide to travel beyond the Corellian System. These individuals are called Dravas (°Wanderers" in
+  the Selonian tongue) and are generally viewed by most Selonians with a mixture of pity and disgust. Yet even these
+  Wanderers put their den and race above all else, and most eventually return home to Selonia.
+
+  **Homeworld:** Selonians are native to the fifth planet of the Corellian System. Selonia is a temperate world abundant
+  in water, with vast oceans covering most of its surface. The myriad small islands and archipelagos that make up the
+  planet's landmass are connected by a sprawling and complex network of tunnels exca-vated by the Selonians beneath
+  their world's oceans, allowing the natives to journey across Selonia without ever setting foot on a vessel.
+
+  **Language:** The Selonian language, Mandaba, is difficult for non-Selonians to speak, and virtually impossible for
+  them to speak well. While several models of protocol droids are able to communicate fluently in Mandaba, even they
+  cannot precisely convey every nuance of the language. The Selonian language is almost never heard outside of the
+  Corellian System, but most Selonians who deal with outsiders are at least conversant in Basic.
+characteristics:
+  brawn: 2
+  agility: 3
+  intellect: 2
+  cunning: 1
+  willpower: 3
+  presence: 1
+woundThreshold: 11
+strainThreshold: 10
+startingXP: 80
+abilities:
+  - name: Tail
+    description: |-
+      A Selonian's tail may be used as a Brawl weapon. When used to attack, it uses the Brawl skill combined with the
+      Agility characteristic, but like most Brawl weapons, adds its weapon damage to the character's Brawn for total
+      damage. It always counts as equipped, and has the following weapon profile (Brawl; Damage +1; Critical 5; Range
+      [Engaged]; Disorient 2, Knockdown). The Selonian may trigger Knockdown with <advantage/>, but still must spend
+      additional <advantage/> to knock down targets with a higher silhouette as per the Knockdown quality rules.
+skillModifiers:
+  - skill: Coordination
+    startingRanks: 1
+    rankLimit: 2
+talentModifiers: []
+reference:
+  - SoF:91
+specialAbilities: |-
+  Selonians begin the game with one rank in Coordination. They still may not train Coordination above rank 2 during
+  character creation. The structure of a Selonian's eyes allows her to see in near total darkness. She may remove all
+  <setback/> added to checks due to darkness, though she still cannot see in absolute darkness.

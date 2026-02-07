@@ -1,0 +1,57 @@
+id: eote-rod
+name: Rodian
+description: |-
+  s
+
+  Rodians are born to hunt, coming from a hostile world that breeds killer instincts. For those with a price on their
+  heads, a glimpse of a tapered green snout or an unmistakably putrid odor means a Rodian bounty hunter is on their
+  tail.
+
+  **Physiology:** Rodians evolved from climbing lizards and retain some of their ancestor's characteristics,
+  particularly the large eyes and climbing suction cups on their fingers and toes. Nowadays, these physical features
+  cannot hold an adult Rodian of 1.6 meters to a rock or tree for very long, but they have saved many Rodians from falls
+  that would kill most other species.
+
+  **Society:** The history of Rodia is a history of violence. Long ago, the tropical world teemed with vicious
+  predators, necessitating that the Rodians' defenseless ancestors either adapt or die. Adapt they did, hiding in the
+  boughs of trees or climbing high into mountain caves, where they fashioned tools and formulated plans to hunt down the
+  predators. Their skills in the hunt grew quickly, and soon became the central focus of their society.
+
+  Rodians became so proficient at hunting that they gradually forced most of Rodia's other predators into extinction.
+  With nothing much left to hunt, they turned on each other. Gladiatorial hunts between champions morphed into
+  skirmishes and eventually tribal wars.
+
+  Rodia was almost blockaded when first discovered by Old Republic scouts due to the warlike Rodian culture. However,
+  Rodian leadership was able to suppress their culture's violent tendencies long enough to make contact with the rest of
+  the galaxy. Now, millennia later, Rodian culture has moved beyond the worst of its violent impulses; although, hunting
+  is still a venerated tradition.
+
+  **Homeworld:** The world of Rodia in the Mid Rim is the Rodians' planet of origin. It merges urban and industrial
+  development with tracts of untouched rainforest, providing brave Rodian youths with environments in which to test
+  their hunting skills.
+
+  **Language:** Because of the structure of their mouths, Rodians have a difficult time speaking Basic and some choose
+  not to even try, relying exclusively on their native tongue, Rodese.
+characteristics:
+  brawn: 2
+  agility: 3
+  intellect: 2
+  cunning: 2
+  willpower: 1
+  presence: 2
+woundThreshold: 10
+strainThreshold: 10
+startingXP: 100
+abilities: []
+skillModifiers:
+  - skill: Survival
+    startingRanks: 1
+    rankLimit: 2
+talentModifiers:
+  - talent: Expert Tracker
+    startingRanks: 1
+reference:
+  - E-CRB:49
+specialAbilities: |-
+  Rodians begin the game with one rank in Survival. They still may not train Survival above rank 2 during character
+  creation. They also start with one rank in the Expert Tracker talent.

@@ -1,0 +1,41 @@
+id: eote-human
+name: Human
+description: |-
+  Humans are the most populous and gregarious of the galaxy's sapient species. They seem to be present on almost every
+  open planet that harbors life while traveling the spacelanes looking for more.
+
+  **Physiology:** Humans are mammalian bipeds with mostly hairless skin. Their skin tones encompass a gamut of colors,
+  from peachy tones to dark brown and black. Males average 1.8 meters tall, while females stand shorter and are
+  generally not as stocky. They process oxygen for respiration and can digest a variety of animal and vegetable matter.
+  Their biology is well-suited to many environments in the galaxy, which perhaps explains their dominance and ubiquity.
+
+  **Society:** Human ambition and competition have split their species into many different societies. Across the galaxy,
+  humans live under every political system ever devised, from feudalism and theocracy to democracy and autocracy, with
+  human technology encompassing a similarly wide variation.
+
+  **Homeworld:** Humans are thought to have arisen somewhere in the Core Worlds, perhaps on Coruscant itself. However,
+  humans took to the stars so long ago (perhaps even before the invention of faster-than-light travel) that now, humans
+  claim countless planets as their homes.
+
+  **Language:** The main language that connects "baseline" humans is Basic, though each society has its own dialect and
+  sometimes even sub-language.
+characteristics:
+  brawn: 2
+  agility: 2
+  intellect: 2
+  cunning: 2
+  willpower: 2
+  presence: 2
+woundThreshold: 10
+strainThreshold: 10
+startingXP: 110
+abilities: []
+skillModifiers: []
+talentModifiers: []
+reference:
+  - E-CRB:48
+  - A-CRB:57
+  - F-CRB:55
+specialAbilities: |-
+  Humans start the game with one rank in each of two different non-career skills of their choice. They still may not
+  train these skills above rank 2 during character creation.

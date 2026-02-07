@@ -31,6 +31,7 @@ import {
     type InternalAttachment,
     type InternalGear,
     type InternalQuality,
+    type InternalSpecies,
     type InternalTalent,
     type InternalWeapon,
     buildTalentKeyMap,
@@ -39,6 +40,7 @@ import {
     convertAttachments,
     convertGear,
     convertQualities,
+    convertSpecies,
     convertTalents,
     convertWeapons,
     enrichTalentsWithTreeInfo,
@@ -338,6 +340,7 @@ async function main() : Promise<void>
     let talents : InternalTalent[] = [];
     let attachments : InternalAttachment[] = [];
     let qualities : InternalQuality[] = [];
+    let species : InternalSpecies[] = [];
 
     if(!options.type || options.type === 'armor')
     {
@@ -382,6 +385,12 @@ async function main() : Promise<void>
         console.info(`  - Converted ${ qualities.length } qualities`);
     }
 
+    if(!options.type || options.type === 'species')
+    {
+        species = convertSpecies(data.species);
+        console.info(`  - Converted ${ species.length } species`);
+    }
+
     // Deduplicate
     console.info('\nDeduplicating...');
     armors = deduplicateById(armors);
@@ -389,12 +398,14 @@ async function main() : Promise<void>
     talents = deduplicateById(talents);
     attachments = deduplicateById(attachments);
     qualities = deduplicateById(qualities);
+    species = deduplicateById(species);
 
     console.info(`  - Armors: ${ armors.length }`);
     console.info(`  - Weapons: ${ weapons.length }`);
     console.info(`  - Talents: ${ talents.length }`);
     console.info(`  - Attachments: ${ attachments.length }`);
     console.info(`  - Qualities: ${ qualities.length }`);
+    console.info(`  - Species: ${ species.length }`);
 
     // Write files
     console.info('\nWriting files...');
@@ -443,6 +454,12 @@ async function main() : Promise<void>
     {
         const stats = await writeItemsToDirectory(qualities, join(SUPPLEMENTS_DIR, 'qualities'), options);
         console.info(`  - Processed ${ qualities.length } quality files ${ formatStats(stats) }`);
+    }
+
+    if(!options.type || options.type === 'species')
+    {
+        const stats = await writeItemsToDirectory(species, join(SUPPLEMENTS_DIR, 'species'), options);
+        console.info(`  - Processed ${ species.length } species files ${ formatStats(stats) }`);
     }
 
     console.info(`\n${ '='.repeat(80) }`);

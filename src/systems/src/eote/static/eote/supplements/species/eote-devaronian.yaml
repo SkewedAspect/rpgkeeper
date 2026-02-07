@@ -1,0 +1,65 @@
+id: eote-devaronian
+name: Devaronian
+description: |-
+  Devaronians independently developed the hyperdrive tens of thousands of years before the Battle of Yavin. They explored
+  and made contact with the greater galaxy long before other inhabited systems near Devaron were officially discovered by
+  the Republic. Members of the entrepreneurial species are a common site in spaceports and other centers of trade.
+
+  Devaronians have the misfortune of resembling mythological demons of many galactic cultures. Because of this, they are
+  one of the galaxy's most distrusted species. As a consequence, members of other species are often slow to take
+  Devaronians at their word.
+
+  **Physiology:** Devaronians are a bipedal mammalian species. Their skin color ranges from red to green, and a pair of
+  pointed horns dominates each male Devaronian's head. Females have vestigial spots in the same location as the males'
+  horns. Devaronians' mouths are filled with sharp, pointed teeth that are particularly effective at rending the meat
+  that dominates their diet.
+
+  Devaronians have black, silver-based blood. This unusual trait is linked to a particularly thorough blood filtration
+  and cleansing system. Members of the species possess two livers, which constantly cleanse the body of toxins and
+  carcinogens. This grants them an exceptionally high resistance to poisons, also enabling them to consume foods that
+  would be highly toxic to other species.
+
+  Devaronian physiological quirks cause sulfur to be a particularly effective stimulant. When inhaled, the material
+  rapidly enters the bloodstream, granting prodigious strength and speed. However, this is one element that their livers
+  cannot cleanse as effectively over the long term. Extended exposure to sulfur can have serious medical consequences
+  for a Devaronian.
+
+  **Society:** Devaronian culture is primarily matriarchal. The species shows a certain cultural dimorphism linked to
+  gender. Female Devaronians are typically far more settled. They value security and prosperity, preferring to raise
+  their young within a stable environment. Males, by contrast, have an innate culture wanderlust. They enthusiastically
+  pursue constant travel and have an inherently high level of risk tolerance. In spite of this, males do embrace
+  responsibility for their mates and offspring. Male Devaronians typically send the majority of their earnings back to
+  their spouses on a regular basis, even preferring to support their families even as they explore the galaxy.
+
+  **Homeworld:** Devaron is a temperate world in the Colonies region. The planet includes dense jungles and cool
+  mountainous regions. The species has established prosperous cities in most regions of the planet, though the oldest
+  and most populous are within the low mountains. Devaron's jungles encompass a range of dangerous predators, which
+  continue to thrive on the largely civilized world. Journeys to these uncivilized regions can be dangerous even for
+  accomplished explorers.
+
+  **Languages:** All Devaronians are fluent in Basic. Relatively few study their ancestral language of Devaronese.
+
+  **Perception of the Force:** Devaronians have a high frequency of Force sensitivity, but they do not have any prominent
+  native traditions of Force users. There have been a number of notable Devaronian Jedi, however. In fact, the Eedit
+  Temple was founded on Devaron because there were enough younglings from this planet and neighboring systems to justify
+  a local training facility. In keeping with the Devaronian gender-specific personality traits, female Devaronians were
+  more heavily represented within the order. Their inherent yearning for travel and adventure tended to interfere with
+  training regimens for male Devaronians.
+characteristics:
+  brawn: 2
+  agility: 2
+  intellect: 2
+  cunning: 1
+  willpower: 3
+  presence: 2
+woundThreshold: 11
+strainThreshold: 9
+startingXP: 95
+abilities:
+  - name: Resilient Metabolism
+    description: Devaronian physiology is naturally hardy and resistant to toxins. Members of the species add automatic <boost/> to all Resilience checks they make.
+skillModifiers: []
+talentModifiers: []
+reference:
+  - NoP:100
+specialAbilities: Devaronians begin the game with one rank in Survival or Deception. They still may not train Survival or Deception above rank 2 during character creation.
