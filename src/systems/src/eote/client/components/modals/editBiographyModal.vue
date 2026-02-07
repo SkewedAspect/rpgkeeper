@@ -169,6 +169,15 @@
             :selected-ids="speciesRef ? [ speciesRef ] : []"
             @select="onSpeciesSelect"
             @add-new="openSpeciesNew"
+            @edit="onSpeciesEdit"
+            @delete="onSpeciesDeleteClick"
+        />
+        <DeleteModal
+            ref="delSpeciesModal"
+            :name="delSpecies.name"
+            :type="speciesLabel.toLowerCase()"
+            @hidden="onDelSpeciesHidden"
+            @delete="onDelSpeciesConfirm"
         />
     </div>
 </template>
@@ -187,6 +196,7 @@
     // Components
     import SupplementBrowserModal from '@client/components/character/supplementBrowserModal.vue';
     import AddEditSpeciesModal from './addEditSpeciesModal.vue';
+    import DeleteModal from '@client/components/ui/deleteModal.vue';
     import AbilityEdit from '../sub/abilityEdit.vue';
     import { BModal } from 'bootstrap-vue-next';
     import CloseButton from '@client/components/ui/closeButton.vue';
@@ -225,7 +235,9 @@
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
     const addEditSpeciesModal = ref<InstanceType<typeof AddEditSpeciesModal> | null>(null);
-    const speciesBrowseModal = ref<{ show : () => void; hide : () => void } | null>(null);
+    const speciesBrowseModal = ref<{ show : () => void; hide : () => void; clearSelection : () => void } | null>(null);
+    const delSpeciesModal = ref<InstanceType<typeof DeleteModal> | null>(null);
+    const delSpecies = ref<{ id ?: string; name ?: string }>({ id: undefined, name: undefined });
 
     const supplementStore = useSupplementStore();
 
@@ -331,9 +343,40 @@
         speciesRef.value = species.id ?? null;
     }
 
+    function onSpeciesEdit(species : EoteSpecies) : void
+    {
+        addEditSpeciesModal.value?.show(mode.value, species);
+    }
+
     function onSpeciesCreated(species : { id : string }) : void
     {
         speciesRef.value = species.id;
+    }
+
+    function onSpeciesDeleteClick(species : EoteSpecies) : void
+    {
+        delSpecies.value = { id: species.id, name: species.name };
+        delSpeciesModal.value?.show();
+    }
+
+    function onDelSpeciesHidden() : void
+    {
+        delSpecies.value = { id: undefined, name: undefined };
+    }
+
+    async function onDelSpeciesConfirm() : Promise<void>
+    {
+        if(delSpecies.value.id)
+        {
+            // If the deleted species was selected, clear the selection
+            if(speciesRef.value === delSpecies.value.id)
+            {
+                speciesRef.value = null;
+            }
+
+            await supplementStore.remove(mode.value, speciesType.value, delSpecies.value.id);
+            speciesBrowseModal.value?.clearSelection();
+        }
     }
 
     //------------------------------------------------------------------------------------------------------------------

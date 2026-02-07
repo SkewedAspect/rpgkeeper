@@ -62,6 +62,15 @@
                     <Fa icon="edit" />
                     Edit
                 </BButton>
+                <BButton
+                    v-if="canEdit"
+                    variant="danger"
+                    class="ms-2"
+                    @click="onDelete"
+                >
+                    <Fa icon="trash-alt" />
+                    Delete
+                </BButton>
                 <div class="ms-auto">
                     <BButton variant="secondary" class="me-2" @click="hide">
                         <Fa icon="times" />
@@ -117,6 +126,7 @@
         'select' : [supplement : TSupplement];
         'add-new' : [];
         'edit' : [supplement : TSupplement];
+        'delete' : [supplement : TSupplement];
         'hidden' : [];
     }>();
 
@@ -208,9 +218,23 @@
         }
     }
 
+    function onDelete() : void
+    {
+        if(selectedSupplement.value && !selectedSupplement.value.official)
+        {
+            emit('delete', selectedSupplement.value as TSupplement);
+        }
+    }
+
     //------------------------------------------------------------------------------------------------------------------
 
-    defineExpose({ show, hide });
+    function clearSelection() : void
+    {
+        selectedSupplement.value = null;
+        browser.value?.clearSelection();
+    }
+
+    defineExpose({ show, hide, clearSelection });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->
