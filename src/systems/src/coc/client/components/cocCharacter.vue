@@ -35,6 +35,20 @@
                 @save="onSave"
             />
         </div>
+
+        <!-- Third Row: Backstory and Gear/Wealth -->
+        <div class="d-flex gap-2 mt-2">
+            <BackstoryCard
+                class="w-60"
+                :readonly="!isAuthorized"
+                @save="onSave"
+            />
+            <GearWealthCard
+                class="w-40"
+                :readonly="!isAuthorized"
+                @save="onSave"
+            />
+        </div>
     </BContainer>
 </template>
 
@@ -42,6 +56,13 @@
 
 <style lang="scss">
     #coc-character {
+        .w-40 {
+            width: 40%;
+        }
+
+        .w-60 {
+            width: 60%;
+        }
     }
 </style>
 
@@ -67,6 +88,8 @@
     import RollsCard from './rollsBlock.vue';
     import SkillsCard from './skillsCard.vue';
     import StatusCard from './statusCard.vue';
+    import BackstoryCard from './backstoryCard.vue';
+    import GearWealthCard from './gearWealthCard.vue';
     import PortraitCard from '@client/components/character/charPortrait.vue';
 
     //------------------------------------------------------------------------------------------------------------------
