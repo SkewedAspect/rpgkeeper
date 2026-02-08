@@ -9,7 +9,13 @@ import type { CoCSkill, CoCSystemDetails } from './models.ts';
 import { CoCDetailsSchema } from './schemas/character.ts';
 
 // Supplement schemas
-import { WeaponDataSchema } from './schemas/supplements.ts';
+import {
+    WeaponDataSchema,
+    SpellDataSchema,
+    TomeDataSchema,
+    GearDataSchema,
+    OccupationDataSchema,
+} from './schemas/supplements.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Skill Definitions
@@ -208,9 +214,13 @@ const cocDefinition : SystemDefinition<CoCSystemDetails> & { detailsSchema : typ
         + 'often not what they seem—you and your friends are the only thing standing in the way of diabolical cults '
         + 'and cosmic monsters from beyond space!',
     defaults: cocDefaults,
-    status: SupportStatus.Alpha,
+    status: SupportStatus.Beta,
     supplements: {
         weapon: { schema: WeaponDataSchema },
+        spell: { schema: SpellDataSchema },
+        tome: { schema: TomeDataSchema },
+        gear: { schema: GearDataSchema },
+        occupation: { schema: OccupationDataSchema },
     },
 };
 
