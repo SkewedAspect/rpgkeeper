@@ -24,7 +24,9 @@
             </template>
 
             <!-- Wealth Section -->
-            <h6 class="fw-bold">Wealth</h6>
+            <h6 class="fw-bold">
+                Wealth
+            </h6>
             <div class="d-flex gap-2 mb-3">
                 <BFormGroup label="Cash" label-class="fw-bold" class="flex-fill">
                     <BFormInput v-model.number="wealth.cash" type="number" step="1" min="0" />
@@ -40,8 +42,10 @@
             <hr>
 
             <!-- Gear Section -->
-            <h6 class="fw-bold">Gear</h6>
-            <div v-for="(item, index) in gear" :key="index" class="d-flex mb-2">
+            <h6 class="fw-bold">
+                Gear
+            </h6>
+            <div v-for="(_item, index) in gear" :key="index" class="d-flex mb-2">
                 <BFormInput v-model="gear[index]" />
                 <BButton variant="danger" class="ms-2" @click="removeGear(index)">
                     <Fa icon="trash-alt" />
@@ -84,8 +88,6 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style lang="scss">
-    .edit-gear-modal {
-    }
 </style>
 
 <!--------------------------------------------------------------------------------------------------------------------->

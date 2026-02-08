@@ -9,7 +9,13 @@ import type { CoCSkill, CoCSystemDetails } from './models.ts';
 import { CoCDetailsSchema } from './schemas/character.ts';
 
 // Supplement schemas
-import { WeaponDataSchema } from './schemas/supplements.ts';
+import {
+    GearDataSchema,
+    OccupationDataSchema,
+    SpellDataSchema,
+    TomeDataSchema,
+    WeaponDataSchema,
+} from './schemas/supplements.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Skill Definitions
@@ -211,6 +217,10 @@ const cocDefinition : SystemDefinition<CoCSystemDetails> & { detailsSchema : typ
     status: SupportStatus.Alpha,
     supplements: {
         weapon: { schema: WeaponDataSchema },
+        spell: { schema: SpellDataSchema },
+        tome: { schema: TomeDataSchema },
+        gear: { schema: GearDataSchema },
+        occupation: { schema: OccupationDataSchema },
     },
 };
 

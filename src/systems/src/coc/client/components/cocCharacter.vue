@@ -15,7 +15,6 @@
                 <CharCard :readonly="!isAuthorized" @save="onSave" />
             </div>
             <RollsCard
-                ref="roller"
                 class="w-75"
                 :readonly="!isAuthorized"
             />
@@ -83,7 +82,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, ref } from 'vue';
+    import { computed } from 'vue';
     import { storeToRefs } from 'pinia';
 
     // Interfaces
@@ -123,7 +122,6 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const { current } = storeToRefs(useCharacterStore());
-    const roller = ref<InstanceType<typeof RollsCard> | null>(null);
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
@@ -134,11 +132,6 @@
     //------------------------------------------------------------------------------------------------------------------
     // Methods
     //------------------------------------------------------------------------------------------------------------------
-
-    function onRoll(dice : number, name ?: string) : void
-    {
-        roller.value?.roll(dice, name);
-    }
 
     async function onSave() : Promise<void>
     {

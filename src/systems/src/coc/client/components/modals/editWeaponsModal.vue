@@ -27,39 +27,58 @@
             <div
                 v-for="(weapon, index) in weapons"
                 :key="index"
-                class="d-flex align-items-center mb-2"
+                class="weapon-row mb-3 pb-3 border-bottom"
             >
-                <BFormInput
-                    v-model="weapon.name"
-                    placeholder="Name"
-                    class="me-2"
-                />
-                <BFormInput
-                    v-model="weapon.damage"
-                    placeholder="Damage"
-                    class="me-2"
-                    style="max-width: 120px;"
-                />
-                <BFormInput
-                    v-model="weapon.range"
-                    placeholder="Range"
-                    class="me-2"
-                    style="max-width: 120px;"
-                />
-                <BFormInput
-                    v-model="weapon.attacks"
-                    placeholder="Attacks"
-                    class="me-2"
-                    style="max-width: 80px;"
-                />
-                <BFormInput
-                    v-model="weapon.skill"
-                    placeholder="Skill"
-                    class="me-2"
-                />
-                <BButton variant="danger" class="ms-2" @click="removeWeapon(weapon)">
-                    <Fa icon="trash-alt" />
-                </BButton>
+                <div class="d-flex align-items-center mb-2">
+                    <BFormInput
+                        v-model="weapon.name"
+                        placeholder="Name"
+                        class="me-2"
+                    />
+                    <BFormInput
+                        v-model="weapon.skill"
+                        placeholder="Skill"
+                        class="me-2"
+                    />
+                    <BButton variant="danger" class="ms-2" @click="removeWeapon(weapon)">
+                        <Fa icon="trash-alt" />
+                    </BButton>
+                </div>
+                <div class="d-flex align-items-center">
+                    <BFormInput
+                        v-model="weapon.damage"
+                        placeholder="Damage"
+                        class="me-2"
+                        style="max-width: 120px;"
+                    />
+                    <BFormInput
+                        v-model="weapon.range"
+                        placeholder="Range"
+                        class="me-2"
+                        style="max-width: 120px;"
+                    />
+                    <BFormInput
+                        v-model="weapon.attacks"
+                        placeholder="Attacks"
+                        class="me-2"
+                        style="max-width: 80px;"
+                    />
+                    <BFormInput
+                        v-model="weapon.ammo"
+                        placeholder="Ammo"
+                        class="me-2"
+                        style="max-width: 80px;"
+                    />
+                    <BFormInput
+                        v-model.number="weapon.malfunction"
+                        type="number"
+                        placeholder="Malf."
+                        class="me-2"
+                        style="max-width: 80px;"
+                        min="0"
+                        max="100"
+                    />
+                </div>
             </div>
 
             <hr>
@@ -69,12 +88,19 @@
                 header-bg-variant="dark"
                 header-text-variant="white"
             >
-                <div class="d-flex">
+                <div class="d-flex mb-2">
                     <BFormInput
                         v-model="newWeaponName"
                         placeholder="Name"
                         class="me-2"
                     />
+                    <BFormInput
+                        v-model="newWeaponSkill"
+                        placeholder="Skill"
+                        class="me-2"
+                    />
+                </div>
+                <div class="d-flex">
                     <BFormInput
                         v-model="newWeaponDamage"
                         placeholder="Damage"
@@ -88,15 +114,25 @@
                         style="max-width: 120px;"
                     />
                     <BFormInput
-                        v-model="newWeaponSkill"
-                        placeholder="Skill"
-                        class="me-2"
-                    />
-                    <BFormInput
                         v-model="newWeaponAttacks"
                         placeholder="Attacks"
                         class="me-2"
                         style="max-width: 80px;"
+                    />
+                    <BFormInput
+                        v-model="newWeaponAmmo"
+                        placeholder="Ammo"
+                        class="me-2"
+                        style="max-width: 80px;"
+                    />
+                    <BFormInput
+                        v-model.number="newWeaponMalfunction"
+                        type="number"
+                        placeholder="Malf."
+                        class="me-2"
+                        style="max-width: 80px;"
+                        min="0"
+                        max="100"
                     />
                     <BButton variant="primary" class="text-nowrap" @click="addWeapon">
                         <Fa icon="plus" />
@@ -153,6 +189,8 @@
     const newWeaponRange = ref<string>('Touch');
     const newWeaponSkill = ref<string>('Fighting (Brawl)');
     const newWeaponAttacks = ref<string>('1');
+    const newWeaponAmmo = ref<string | null>(null);
+    const newWeaponMalfunction = ref<number | null>(null);
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
 
@@ -197,8 +235,8 @@
             damage: newWeaponDamage.value,
             range: newWeaponRange.value,
             attacks: newWeaponAttacks.value,
-            ammo: null,
-            malfunction: null,
+            ammo: newWeaponAmmo.value || null,
+            malfunction: newWeaponMalfunction.value || null,
             skill: newWeaponSkill.value,
             notes: '',
             reference: '',
@@ -212,6 +250,8 @@
         newWeaponRange.value = 'Touch';
         newWeaponSkill.value = 'Fighting (Brawl)';
         newWeaponAttacks.value = '1';
+        newWeaponAmmo.value = null;
+        newWeaponMalfunction.value = null;
     }
 
     function removeWeapon(weapon : CoCWeapon) : void

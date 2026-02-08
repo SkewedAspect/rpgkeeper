@@ -25,19 +25,37 @@
             <table class="table table-sm table-striped mb-0">
                 <thead>
                     <tr>
-                        <th>Skill</th>
-                        <th class="text-center">Value</th>
-                        <th class="text-center">Half</th>
-                        <th class="text-center">Fifth</th>
-                        <th v-if="!readonly" class="text-center">Used</th>
+                        <th>
+                            Skill
+                        </th>
+                        <th class="text-center">
+                            Value
+                        </th>
+                        <th class="text-center">
+                            Half
+                        </th>
+                        <th class="text-center">
+                            Fifth
+                        </th>
+                        <th v-if="!readonly" class="text-center">
+                            Used
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="skill in sortedSkills" :key="skill.name">
-                        <td>{{ skill.name }}</td>
-                        <td class="text-center">{{ getEffectiveValue(skill) }}</td>
-                        <td class="text-center text-muted">{{ getHalfValue(skill) }}</td>
-                        <td class="text-center text-muted">{{ getFifthValue(skill) }}</td>
+                        <td>
+                            {{ skill.name }}
+                        </td>
+                        <td class="text-center">
+                            {{ getEffectiveValue(skill) }}
+                        </td>
+                        <td class="text-center text-muted">
+                            {{ getHalfValue(skill) }}
+                        </td>
+                        <td class="text-center text-muted">
+                            {{ getFifthValue(skill) }}
+                        </td>
                         <td v-if="!readonly" class="text-center">
                             <BFormCheckbox
                                 v-model="skill.used"
@@ -115,7 +133,7 @@
     const sortedSkills = computed(() =>
     {
         return [ ...character.value.details.skills ]
-            .sort((a, b) => a.name.localeCompare(b.name));
+            .sort((skillA, skillB) => skillA.name.localeCompare(skillB.name));
     });
 
     //------------------------------------------------------------------------------------------------------------------

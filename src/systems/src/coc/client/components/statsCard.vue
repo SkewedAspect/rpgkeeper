@@ -78,9 +78,6 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style lang="scss" scoped>
-    #coc-stats-block {
-        //
-    }
 </style>
 
 <!--------------------------------------------------------------------------------------------------------------------->
@@ -106,6 +103,15 @@
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
+
+    interface CoCStatsPayload
+    {
+        hitPoints : CoCStat;
+        magicPoints : CoCStat;
+        sanity : CoCStat;
+        luck : CoCStat;
+        movement : number;
+    }
 
     interface Props
     {
@@ -150,7 +156,7 @@
         editModal.value?.show(char.value);
     }
 
-    function onEditSave(stats : { hitPoints : CoCStat; magicPoints : CoCStat; sanity : CoCStat; luck : CoCStat; movement : number }) : void
+    function onEditSave(stats : CoCStatsPayload) : void
     {
         details.value.hitPoints = stats.hitPoints;
         details.value.magicPoints = stats.magicPoints;

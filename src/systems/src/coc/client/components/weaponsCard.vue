@@ -28,22 +28,52 @@
             <table class="table table-sm table-striped mb-0">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th class="text-center">Damage</th>
-                        <th class="text-center">Range</th>
-                        <th class="text-center">Attacks</th>
-                        <th class="text-center">Ammo</th>
-                        <th class="text-center">Malfunction</th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Skill
+                        </th>
+                        <th class="text-center">
+                            Damage
+                        </th>
+                        <th class="text-center">
+                            Range
+                        </th>
+                        <th class="text-center">
+                            Attacks
+                        </th>
+                        <th class="text-center">
+                            Ammo
+                        </th>
+                        <th class="text-center">
+                            Malf.
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="weapon in character.details.weapons" :key="weapon.name">
-                        <td>{{ weapon.name }}</td>
-                        <td class="text-center">{{ weapon.damage }}</td>
-                        <td class="text-center">{{ weapon.range }}</td>
-                        <td class="text-center">{{ weapon.attacks }}</td>
-                        <td class="text-center">{{ weapon.ammo ?? '—' }}</td>
-                        <td class="text-center">{{ weapon.malfunction ?? '—' }}</td>
+                        <td>
+                            {{ weapon.name }}
+                        </td>
+                        <td class="text-muted">
+                            {{ weapon.skill }}
+                        </td>
+                        <td class="text-center">
+                            {{ weapon.damage }}
+                        </td>
+                        <td class="text-center">
+                            {{ weapon.range }}
+                        </td>
+                        <td class="text-center">
+                            {{ weapon.attacks }}
+                        </td>
+                        <td class="text-center">
+                            {{ weapon.ammo ?? '—' }}
+                        </td>
+                        <td class="text-center">
+                            {{ weapon.malfunction ?? '—' }}
+                        </td>
                     </tr>
                 </tbody>
             </table>

@@ -139,7 +139,7 @@
 
     const sortedSkills = computed(() =>
     {
-        return [ ...skills.value ].sort((a, b) => a.name.localeCompare(b.name));
+        return [ ...skills.value ].sort((skillA, skillB) => skillA.name.localeCompare(skillB.name));
     });
 
     //------------------------------------------------------------------------------------------------------------------
