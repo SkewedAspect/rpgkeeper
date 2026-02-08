@@ -4,6 +4,7 @@
 
 <template>
     <BContainer v-if="char" id="coc-character" fluid>
+        <!-- Top Row: Portrait, Bio, Characteristics, Rolls -->
         <div class="d-flex gap-2 bio-row">
             <PortraitCard class="d-none d-lg-block" :src="char.portrait" size="lg" />
             <div class="d-flex gap-2 flex-column">
@@ -18,6 +19,20 @@
                 ref="roller"
                 class="w-75"
                 :readonly="!isAuthorized"
+            />
+        </div>
+
+        <!-- Second Row: Status and Skills -->
+        <div class="d-flex gap-2 mt-2">
+            <StatusCard
+                class="w-50"
+                :readonly="!isAuthorized"
+                @save="onSave"
+            />
+            <SkillsCard
+                class="w-50"
+                :readonly="!isAuthorized"
+                @save="onSave"
             />
         </div>
     </BContainer>
@@ -50,6 +65,8 @@
     import BioCard from './bioCard.vue';
     import CharCard from './charCard.vue';
     import RollsCard from './rollsBlock.vue';
+    import SkillsCard from './skillsCard.vue';
+    import StatusCard from './statusCard.vue';
     import PortraitCard from '@client/components/character/charPortrait.vue';
 
     //------------------------------------------------------------------------------------------------------------------

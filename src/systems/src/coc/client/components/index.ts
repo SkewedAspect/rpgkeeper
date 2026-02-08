@@ -3,5 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 export { default as CocCharacter } from './cocCharacter.vue';
+export { default as SkillsCard } from './skillsCard.vue';
+export { default as StatusCard } from './statusCard.vue';
 
 //----------------------------------------------------------------------------------------------------------------------
