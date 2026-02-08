@@ -91,7 +91,7 @@
 
     // Models
     import type { Character } from '@rpgk/core';
-    import type { CoCSystemDetails } from '../../models.ts';
+    import type { CoCStat, CoCSystemDetails } from '../../models.ts';
 
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';
@@ -150,8 +150,14 @@
         editModal.value?.show(char.value);
     }
 
-    function onEditSave() : void
+    function onEditSave(stats : { hitPoints : CoCStat; magicPoints : CoCStat; sanity : CoCStat; luck : CoCStat; movement : number }) : void
     {
+        details.value.hitPoints = stats.hitPoints;
+        details.value.magicPoints = stats.magicPoints;
+        details.value.sanity = stats.sanity;
+        details.value.luck = stats.luck;
+        details.value.movement = stats.movement;
+
         emit('save');
     }
 
