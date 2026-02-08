@@ -328,6 +328,11 @@
 
     function getSanityVariant() : string
     {
+        if(details.value.sanity.max === 0)
+        {
+            return 'danger';
+        }
+
         const percent = (details.value.sanity.value / details.value.sanity.max) * 100;
         if(percent <= 25) { return 'danger'; }
         if(percent <= 50) { return 'warning'; }
@@ -336,6 +341,11 @@
 
     function getHPVariant() : string
     {
+        if(details.value.hitPoints.max === 0)
+        {
+            return 'danger';
+        }
+
         const percent = (details.value.hitPoints.value / details.value.hitPoints.max) * 100;
         if(percent <= 25) { return 'danger'; }
         if(percent <= 50) { return 'warning'; }
