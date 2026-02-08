@@ -1,5 +1,7 @@
 # RPGKeeper Development Guidelines
 
+> **Note**: This file also serves as the GitHub Copilot instructions for this repository. A copy is maintained at `.github/copilot-instructions.md`.
+
 ## Project Overview
 
 **RPGKeeper** - A universal digital character sheet manager for TTRPGs
