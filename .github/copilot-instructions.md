@@ -1,93 +1,307 @@
-# GitHub Copilot Instructions for Tome MCP Server
+# GitHub Copilot Instructions for RPGKeeper
 
-## Software Architecture Overview
+## Project Overview
 
-We decompose *only* by future volatility, never by today’s features.  
-One axis of volatility ➜ one service boundary. This is called 'The Method'.
+**RPGKeeper** - A universal digital character sheet manager for TTRPGs
 
-All code lives in exactly one of five **canonical roles**:  
-* **Client** – UI/API façade; zero business logic.  
-* **Manager** – Orchestrates a workflow; minimal state.  
-* **Engine** – Pure, stateless business rules; never calls Managers.  
-* **ResourceAccess** – Isolates data stores/external systems; no business logic.  
-* **Utility** – Cross-cutting, domain-agnostic helpers that could run on a toaster.
+This project has been in development for over a decade across multiple major versions. Even v3 has evolved significantly—originally pure JavaScript, now being migrated to TypeScript. There's still work to modernize the codebase fully. The goal is to finally support all the RPG systems and characters from previous versions. Expect legacy cruft and historical design decisions throughout.
 
-Role etiquette:  
-* Managers call Engines and ResourceAccess.  
-* Engines may call ResourceAccess but never Managers or Clients.  
-* Services communicate via interfaces or async messaging—**never** shared DB tables.
+- **@rpgk/server** - Node.js/Express 5 backend
+- **@rpgk/client** - Vue 3/Vite/Bootstrap frontend
+- **@rpgk/core** - Core domain models and types
+- **@rpgk/systems** - RPG system definitions and Vue components
+- Monorepo with npm workspaces
 
-Coding rules:  
-* Keep business logic inside Engines; nowhere else.  
-* Use dependency injection, immutable inputs, and idempotent operations.  
-* Add unit tests per role; mock collaborators.  
-* When suggesting new code, pick the folder that matches the role (`/Client`, `/Manager`, etc.) and include interface stubs first.
+## Core Principles
 
-If uncertain, choose the design that confines future change to a single service and ask for confirmation.
+- **Simplicity First**: Make every change as simple as possible. Impact minimal code.
+- **No Laziness**: Find root causes. No temporary fixes. Senior developer standards.
+- **Minimal Impact**: Changes should only touch what's necessary. Avoid introducing bugs.
 
-## Technology Stack
+## Commands
 
-- **Language**: TypeScript
-- **Framework**: Server: Node.js, Client: Vue 3 (Composition API)
-- **Testing**: Mocha, Chai, Sinon
-- **Linting**: ESLint with TypeScript support
-- **Formatting**: ESLint
-- **Package Management**: npm
-- **Build Tool**: Vite, TypeScript compiler (tsc)
-- **Version Control**: Git
-- **Documentation**: JSDoc for inline documentation
+```bash
+npm install              # Install all dependencies
+npm run build            # Build frontend with Vite
+npm run dev              # Start dev server (DEBUG=true)
+npm start                # Start production server
+npm run lint             # Lint all code
+npm run lint:types       # TypeScript type checking (tsgo)
+npm run lint:types:vue   # Vue TypeScript checking (vue-tsc)
+npm run db:migrate       # Run database migrations
+npm run db:setup         # Run migrations and seeds
+npm test                 # Run tests
+```
 
-## Code Style and Conventions
+## Code Style
 
-This project follows the coding conventions. Please adhere to the following style guidelines:
+### File Naming
 
-### General Formatting
-- **Indentation**: 4 spaces (no tabs)
-- **Max Line Length**: 120 characters
-- **Brace Style**: Allman style (opening braces on new line)
-- **Quotes**: Single quotes preferred over double quotes
-- **Semicolons**: Always required
+- **All files use camelCase**: `userProfile.ts`, `authManager.ts`, `appHeader.vue`
+- Vue components are also camelCase: `mainLayout.vue`, not `MainLayout.vue`
 
-### TypeScript Specific
-- **Type Annotations**: Spaces before and after colons `param : Type`
-- **Function Return Types**: Always explicit `function name() : ReturnType`
-- **Array Spacing**: `[ item, item ]` (spaces inside brackets)
-- **Object Spacing**: `{ key: value }` (spaces inside braces)
-- **Template Literals**: `${ variable }` (spaces inside template expressions)
-- **Imports**: Use `.ts` extension for TypeScript files, e.g. `import { MyClass } from './my-class.ts';`
-- **Type Imports**: Use `import type` for type-only imports like interfaces.
+### Indentation & Formatting
 
-### Comments and Documentation
-- Use decorative comment blocks with dashes that fill out to 120 characters wide for file headers and major sections, like this:
+- **4-space indentation**
+- **120 character line limit**
+- **Allman brace style** with single-line allowance:
+
+```typescript
+function example()
+{
+    if(condition)
+    {
+        // code
+    }
+}
+
+// Single-line allowed
+if(simple) { return true; }
+```
+
+### Comment Breaks
+
+Use dashes filling to 120 characters to separate file sections:
 
 ```typescript
 //----------------------------------------------------------------------------------------------------------------------
-// Section Description
+// Section Name
 //----------------------------------------------------------------------------------------------------------------------
 ```
 
-- Do not exceed 120 characters in comment lines
-- End files with a decorative comment footer
-- Use single-line comments `//` for inline documentation
+- Files start and end with a comment break
+- Use blank lines to separate major sections
 
-### Function and Variable Naming
+### Import Organization
 
-- **Functions**: camelCase with descriptive names
-- **Variables**: camelCase
-- **Constants**: UPPER_SNAKE_CASE for module-level constants
-- **Classes**: PascalCase
-- **Interfaces**: PascalCase, no "I" prefix
+1. External library imports first
+2. Blank line
+3. Internal imports grouped by type with comment headers:
 
-### Code Organization
-- **Function Style**: Prefer function declarations over arrow functions for top-level functions
-- **Imports**: Sort imports alphabetically, group by type (external, internal)
-- **No unused variables**: Use underscore prefix `_variable` for intentionally unused parameters
+```typescript
+import { Router } from 'express';
+import { z } from 'zod';
 
-### Error Handling
-- Use explicit error types when possible
-- Prefer returning error objects over throwing exceptions in core logic
-- Use async/await over Promises for readability
+// Models
+import type { Character } from '@rpgk/core';
 
-### Testing
-- Follow the same style conventions in test files
-- Use descriptive test names that explain the behavior being tested
+// Managers
+import * as characterMan from './managers/character.ts';
+
+// Resource Access
+import * as characterRA from '../resource-access/character.ts';
+
+// Utils
+import { broadcast } from '../utils/sio.ts';
+```
+
+### TypeScript Conventions
+
+- Use `import type` for type-only imports
+- Prefix interfaces with `I` when appropriate
+- Async functions return `Promise<T>`
+- Use explicit return types on exported functions
+- Spaces around type annotations: `id : string` not `id: string`
+- Spaces in brackets: `[ 1, 2, 3 ]`, `{ key: 'value' }`
+- Template literals with spacing: `${ variable }`
+- **FORBIDDEN**: Never use `any` type - use `unknown`, generics, or proper types instead
+- **FORBIDDEN**: Never use non-null assertions (`!`) - use proper null checks or type guards
+
+## Architecture Patterns
+
+### Current: Layered Architecture
+
+1. **Routes** - HTTP endpoint handlers
+2. **Managers** - Business logic and orchestration
+3. **Resource Access** - Database queries and data access
+4. **Engines** - Specialized logic (validation, system-specific)
+
+### Current: Functional Module Pattern
+
+```typescript
+//----------------------------------------------------------------------------------------------------------------------
+// Character Manager
+//----------------------------------------------------------------------------------------------------------------------
+
+// Resource Access
+import * as characterRA from '../resource-access/character.ts';
+
+//----------------------------------------------------------------------------------------------------------------------
+
+export async function get(id : string) : Promise<Character>
+{
+    return characterRA.get(id);
+}
+
+export async function add(accountID : string, newCharacter : Omit<Character, 'id'>) : Promise<Character>
+{
+    // Business logic here
+    return characterRA.add(accountID, newCharacter);
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+```
+
+### Target: iDesign Architecture (Aspirational)
+
+> **Note**: This section describes the target architecture we're migrating toward. Remove this note once the migration is complete.
+
+The project is migrating to **iDesign methodology** - a layered architecture with strict separation of concerns:
+
+1. **Clients** - External consumers (API routes, CLI, etc.)
+2. **Managers** - Business logic orchestration (coordinate multiple operations)
+3. **Engines** - Pure business logic (no I/O, stateless calculations)
+4. **Resource Access** - Data persistence (database, external APIs)
+5. **Utils** - Cross-cutting concerns (logging, validation helpers)
+
+Key principles:
+- Each layer only calls the layer directly below it
+- Managers coordinate between Engines and Resource Access
+- Engines contain pure logic, easily testable
+- Resource Access handles all I/O operations
+
+Target class-based pattern:
+
+```typescript
+//----------------------------------------------------------------------------------------------------------------------
+// Character Manager
+//----------------------------------------------------------------------------------------------------------------------
+
+import { CharacterEngine } from '../engines/character.ts';
+import { CharacterRA } from '../resource-access/character.ts';
+
+//----------------------------------------------------------------------------------------------------------------------
+
+class CharacterManager
+{
+    private readonly engine = new CharacterEngine();
+    private readonly ra = new CharacterRA();
+
+    async get(id : string) : Promise<Character>
+    {
+        return this.ra.get(id);
+    }
+
+    async add(accountID : string, newCharacter : Omit<Character, 'id'>) : Promise<Character>
+    {
+        // Engine validates/transforms
+        const validated = this.engine.validate(newCharacter);
+
+        // RA persists
+        return this.ra.add(accountID, validated);
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+export default new CharacterManager();
+
+//----------------------------------------------------------------------------------------------------------------------
+```
+
+## Vue Guidelines
+
+### Component Structure
+
+```
+componentName/
+├── componentName.vue    # Template → Style → Script
+├── types.ts             # Exported types (if needed)
+└── index.ts             # Re-exports (if needed)
+```
+
+### Vue File Order
+
+1. `<template>` - HTML
+2. `<style lang="scss" scoped>` - Styles
+3. `<script setup lang="ts">` - Logic
+
+With HTML comment breaks between sections:
+
+```vue
+<!----------------------------------------------------------------------------------------------------------------------
+  -- Component Name
+  --------------------------------------------------------------------------------------------------------------------->
+
+<template>
+    <div class="my-component">
+        Content
+    </div>
+</template>
+
+<!--------------------------------------------------------------------------------------------------------------------->
+
+<style lang="scss" scoped>
+    .my-component {
+        /* styles */
+    }
+</style>
+
+<!--------------------------------------------------------------------------------------------------------------------->
+
+<script setup lang="ts">
+    // Component logic
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Section Name
+    //------------------------------------------------------------------------------------------------------------------
+</script>
+
+<!--------------------------------------------------------------------------------------------------------------------->
+```
+
+### Component Naming
+
+- File names are camelCase: `userCard.vue`, `mainLayout.vue`
+- Component registration uses PascalCase in templates: `<UserCard />`
+
+## Database
+
+- **Type**: SQLite (better-sqlite3)
+- **Location**: `<PROJECT_ROOT>/db/rpgk.db`
+- **ORM**: Knex.js
+- Migrations: `src/server/src/knex/migrations/`
+- Seeds: `src/server/src/knex/seeds/`
+
+## Package Dependencies
+
+- Workspace packages reference each other with `"*"`: `"@rpgk/core": "*"`
+- This resolves to the local workspace package
+
+## Project Folders
+
+- **`docs/`** - Design documents, system specifications, and project documentation
+- **`config/`** - Environment configuration files (uses `@strata-js/util-config`)
+- **`backup/`** - Database exports from previous versions (v0.9 through v2) pending migration to v3
+
+## Key Files
+
+- `src/core/src/index.ts` - Core exports and models
+- `src/server/src/server.ts` - Server entry point
+- `src/client/src/app.vue` - Root Vue component
+- `src/systems/src/index.ts` - System definitions
+- `eslint.config.js` - Code style rules
+- `knexfile.js` - Database configuration
+- `db/rpgk.db` - SQLite database
+
+## Git & Commits
+
+- **Only commit when explicitly instructed** - Never assume the user wants changes committed
+- Ask for confirmation before any git operations that modify history or remote
+- Do not push unless explicitly requested
+
+## Agent Behavior
+
+### Subagent Strategy
+
+- Use subagents liberally to keep main context window clean
+- Offload research, exploration, and parallel analysis to subagents
+- For complex problems, throw more compute at it via subagents
+- One task per subagent for focused execution
+
+### Autonomous Bug Fixing
+
+- When given a bug report: just fix it. Don't ask for hand-holding
+- Point at logs, errors, failing tests - then resolve them
+- Zero context switching required from the user
+- Go fix failing CI tests without being told how
