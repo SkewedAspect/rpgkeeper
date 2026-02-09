@@ -9,7 +9,13 @@ import type { CoCSkill, CoCSystemDetails } from './models.ts';
 import { CoCDetailsSchema } from './schemas/character.ts';
 
 // Supplement schemas
-import { WeaponDataSchema } from './schemas/supplements.ts';
+import {
+    GearDataSchema,
+    OccupationDataSchema,
+    SpellDataSchema,
+    TomeDataSchema,
+    WeaponDataSchema,
+} from './schemas/supplements.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Skill Definitions
@@ -32,7 +38,7 @@ export const specializations : CoCSkill[] = [
     { name: 'Firearms (Heavy Weapons)', defaultValue: 10, value: 10, used: false },
     { name: 'Firearms (Machine Gun)', defaultValue: 10, value: 10, used: false },
     { name: 'Firearms (Submachine Gun)', defaultValue: 15, value: 15, used: false },
-    { name: 'Science (Geology', defaultValue: 1, value: 1, used: false },
+    { name: 'Science (Geology)', defaultValue: 1, value: 1, used: false },
     { name: 'Science (Astronomy)', defaultValue: 1, value: 1, used: false },
     { name: 'Science (Biology)', defaultValue: 1, value: 1, used: false },
     { name: 'Science (Botany)', defaultValue: 1, value: 1, used: false },
@@ -211,6 +217,10 @@ const cocDefinition : SystemDefinition<CoCSystemDetails> & { detailsSchema : typ
     status: SupportStatus.Alpha,
     supplements: {
         weapon: { schema: WeaponDataSchema },
+        spell: { schema: SpellDataSchema },
+        tome: { schema: TomeDataSchema },
+        gear: { schema: GearDataSchema },
+        occupation: { schema: OccupationDataSchema },
     },
 };
 

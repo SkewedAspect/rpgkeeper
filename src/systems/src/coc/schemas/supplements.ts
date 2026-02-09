@@ -49,11 +49,69 @@ export const WeaponDataSchema = BaseSupplementDataSchema.extend({
 });
 
 //----------------------------------------------------------------------------------------------------------------------
-// Export all schemas for easy access
+// Spell Schema
 //----------------------------------------------------------------------------------------------------------------------
 
-export const CoCSupplementSchemas = {
-    weapon: WeaponDataSchema,
-} as const;
+export const SpellDataSchema = BaseSupplementDataSchema.extend({
+    /** Cost in magic points */
+    cost: z.string().default(''),
+    /** Casting time */
+    castingTime: z.string().default(''),
+    /** Duration of effect */
+    duration: z.string().default(''),
+    /** Effect description */
+    effect: z.string().default(''),
+    /** Sanity cost (if any) */
+    sanityCost: z.string().default(''),
+});
+
+//----------------------------------------------------------------------------------------------------------------------
+// Tome Schema
+//----------------------------------------------------------------------------------------------------------------------
+
+export const TomeDataSchema = BaseSupplementDataSchema.extend({
+    /** Author of the tome */
+    author: z.string().default(''),
+    /** Language(s) the tome is written in */
+    language: z.string().default(''),
+    /** Cthulhu Mythos skill gained from reading */
+    mythosGain: z.string().default(''),
+    /** Sanity loss from reading */
+    sanityLoss: z.string().default(''),
+    /** Study time required */
+    studyTime: z.string().default(''),
+    /** Spells contained within */
+    spells: z.string().default(''),
+});
+
+//----------------------------------------------------------------------------------------------------------------------
+// Gear Schema
+//----------------------------------------------------------------------------------------------------------------------
+
+export const GearDataSchema = BaseSupplementDataSchema.extend({
+    /** Item weight or encumbrance */
+    weight: z.string().default(''),
+    /** Cost/value */
+    cost: z.string().default(''),
+    /** Era or availability */
+    era: z.string().default(''),
+    /** Additional notes */
+    notes: z.string().default(''),
+});
+
+//----------------------------------------------------------------------------------------------------------------------
+// Occupation Schema
+//----------------------------------------------------------------------------------------------------------------------
+
+export const OccupationDataSchema = BaseSupplementDataSchema.extend({
+    /** Credit rating range */
+    creditRating: z.string().default(''),
+    /** Occupation skill points formula */
+    skillPoints: z.string().default(''),
+    /** Suggested contacts */
+    contacts: z.string().default(''),
+    /** List of occupation skills */
+    skills: z.string().default(''),
+});
 
 //----------------------------------------------------------------------------------------------------------------------
